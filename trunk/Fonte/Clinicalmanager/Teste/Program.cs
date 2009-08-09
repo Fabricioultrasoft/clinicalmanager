@@ -9,8 +9,9 @@ namespace Teste
     {
         static void Main(string[] args)
         {
-            Conexao.getInstancia();
-            
+            Conexao prg = Conexao.getInstancia();
+            prg.execute("select * from clinicalmanager.paciente");
+            System.Console.Read();
         }
     }
 }

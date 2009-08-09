@@ -58,10 +58,6 @@
       <Project>{469E56C5-CCBC-48BA-8C4C-52887EEA128B}</Project>
       <Name>Classes Básicas</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Negocio\Negocio.csproj">
-      <Project>{30B592E1-28B0-4F0C-8A87-1538EF6D8C4F}</Project>
-      <Name>Negocio</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

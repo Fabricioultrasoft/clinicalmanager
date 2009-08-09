@@ -8,7 +8,7 @@ namespace Negocio
     public interface Crud
     {
          void inserir(Object obj);
-         void remover(Object obj);
+         void consultar(Object obj);
          void atualizar(Object obj);// { }
          void exluir(Object obj);// { }
     }
