@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using Classes_Básicas;
 using Npgsql;
+using System.Data;
 namespace AcessoDados
 {
-    public class RepositorioPaciente:Negocio.Crud
-    {
-        public RepositorioPaciente()
-        {
+    public class RepositorioPaciente:Conexao, Negocio.Crud
 
+    {
+        public RepositorioPaciente():base()
+        {
+            
         }
         #region Crud Members
 
@@ -21,11 +23,7 @@ namespace AcessoDados
             throw new NotImplementedException();
         }
 
-        public void remover(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public void atualizar(object obj)
         {
             throw new NotImplementedException();
@@ -36,6 +34,17 @@ namespace AcessoDados
             throw new NotImplementedException();
         }
 
+  
+        public void consultar(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
+        public DataSet consultarTodos()
+        {
+            string sql = "select * from clinicalmanager.paciente";
+            return base.execute(sql);
+        }
     }
 }

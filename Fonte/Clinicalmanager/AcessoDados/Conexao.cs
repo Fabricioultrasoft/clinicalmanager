@@ -7,7 +7,7 @@ namespace AcessoDados
 {
     public class Conexao
     {
-        NpgsqlConnection conn;
+        protected NpgsqlConnection conn;
         static Conexao instancia;
         private string url;
         public string URL {
@@ -27,8 +27,16 @@ namespace AcessoDados
             {
                 instancia = new Conexao();
             }
-            System.Console.WriteLine("teste");
-            return null;
+            return instancia;
+        }
+        public System.Data.DataSet execute(string sql)
+        {
+            Npgsql.NpgsqlCommand cmd = conn.CreateCommand();
+            Npgsql.NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
+            cmd.CommandText = sql;
+            System.Data.DataSet ds = new System.Data.DataSet("Exec");
+            da.Fill(ds);
+            return ds;
         }
     }
 }

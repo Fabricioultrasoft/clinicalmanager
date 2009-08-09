@@ -1,3 +1,4 @@
+create schema clinicalmanager;
 create table clinicalmanager.paciente(
  idpac serial primary key not null,
  nome varchar(100)
@@ -6,7 +7,7 @@ create table clinicalmanager.paciente(
 create table clinicalmanager.internacao(
   idint serial primary key not null,
   data_in date,
-  data_out date
+  data_out date  
 );
 
 create table clinicalmanager.fatura( 
