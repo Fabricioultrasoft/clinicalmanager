@@ -1,0 +1,5 @@
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\Negocio.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\obj\Debug\Negocio.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\obj\Debug\Negocio.pdb
