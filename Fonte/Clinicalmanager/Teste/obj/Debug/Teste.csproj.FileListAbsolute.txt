@@ -1,0 +1,21 @@
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Teste.exe
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Teste.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\AcessoDados.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Classes Básicas.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Negocio.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Mono.Security.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Npgsql.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Classes Básicas.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Npgsql.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Npgsql.xml
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\AcessoDados.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Negocio.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\de\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\es\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\obj\Debug\Teste.exe
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\obj\Debug\Teste.pdb

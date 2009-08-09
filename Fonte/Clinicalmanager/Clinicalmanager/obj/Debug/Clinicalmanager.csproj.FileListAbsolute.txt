@@ -1,0 +1,5 @@
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Clinicalmanager\bin\Clinicalmanager.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Clinicalmanager\bin\Clinicalmanager.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Clinicalmanager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Clinicalmanager\obj\Debug\Clinicalmanager.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Clinicalmanager\obj\Debug\Clinicalmanager.pdb
