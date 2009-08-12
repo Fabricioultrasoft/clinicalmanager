@@ -15,7 +15,7 @@ namespace AcessoDados
             set { this.url = value; }
         }
         
-        private Conexao()
+        public Conexao()
         {
             URL = "server=localhost;User id=clinicalmanager;Password=cl1n1c4lm4n4g3r;Database=clinicalmanager";
             conn = new NpgsqlConnection(URL);
@@ -29,11 +29,13 @@ namespace AcessoDados
             }
             return instancia;
         }
+        
         public System.Data.DataSet execute(string sql)
         {
             Npgsql.NpgsqlCommand cmd = conn.CreateCommand();
             Npgsql.NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
             cmd.CommandText = sql;
+            
             System.Data.DataSet ds = new System.Data.DataSet("Exec");
             da.Fill(ds);
             return ds;
