@@ -24,6 +24,8 @@ namespace Negocio
 
         public void remover(object obj)
         {
+            AcessoDados.RepositorioPaciente rep = new RepositorioPaciente();
+            rep.exluir(obj);
             throw new NotImplementedException();
         }
 
@@ -33,6 +35,16 @@ namespace Negocio
         }
 
         public void exluir(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region Crud Members
+
+
+        public void consultar(object obj)
         {
             throw new NotImplementedException();
         }

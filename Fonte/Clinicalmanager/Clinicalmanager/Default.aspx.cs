@@ -19,5 +19,10 @@ namespace Clinicalmanager
         {
 
         }
+
+        protected void dsPac_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+        {
+
+        }
     }
 }

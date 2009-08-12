@@ -9,9 +9,16 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
+            AutoGenerateColumns="False" DataSourceID="dsPac" AllowSorting="True">
+            <Columns>
+                <asp:BoundField DataField="nome" HeaderText="Nome" />
+            </Columns>
+        </asp:GridView>
     </div>
-    <asp:ObjectDataSource ID="dsPac" runat="server">
+    
+    <asp:ObjectDataSource ID="dsPac" runat="server" onselecting="dsPac_Selecting" TypeName="Negocio.Fachada"
+     SelectMethod="getAllPacientes">
     </asp:ObjectDataSource>
     </form>
 </body>

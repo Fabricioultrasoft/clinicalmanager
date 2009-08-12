@@ -13,6 +13,11 @@ namespace Negocio
         {
             capPac = new CadastroPaciente();
         }
+
+        public void deletePaciente(int codpac)
+        {
+
+        }
         public System.Data.DataSet getAllPacientes()
         {
             return capPac.consultarTodos();

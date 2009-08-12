@@ -3,3 +3,17 @@ C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bi
 C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\Negocio.pdb
 C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\obj\Debug\Negocio.dll
 C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\AcessoDados.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\Npgsql.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\Mono.Security.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\Classes Básicas.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\Classes Básicas.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\Npgsql.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\Npgsql.xml
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\AcessoDados.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\de\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\es\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Negocio\bin\Debug\zh-CN\Npgsql.resources.dll

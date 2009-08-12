@@ -7,13 +7,9 @@ using Npgsql;
 using System.Data;
 namespace AcessoDados
 {
-    public class RepositorioPaciente:Conexao, Negocio.Crud
+    public class RepositorioPaciente:Conexao
 
-    {
-        public RepositorioPaciente():base()
-        {
-            
-        }
+    {        
         #region Crud Members
 
         public void inserir(object obj)
@@ -31,6 +27,9 @@ namespace AcessoDados
 
         public void exluir(object obj)
         {
+            string sql = "delete from clinicalmanager.paciente where codpad = ?codpac";
+            base.
+            return base.execute(sql);
             throw new NotImplementedException();
         }
 
