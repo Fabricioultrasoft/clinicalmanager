@@ -5,38 +5,41 @@ using System.Text;
 using Npgsql;
 using AcessoDados;
 using System.Data;
+using Classes_Básicas;
 namespace Negocio
 {
-    public class CadastroPaciente: Crud
+    public class CadastroPaciente
     {
-        public DataSet consultarTodos()
+        private RepositorioPaciente rep;
+        public CadastroPaciente()
         {
-            AcessoDados.RepositorioPaciente rep = new RepositorioPaciente();
+            rep = new RepositorioPaciente();
+        }
+
+        public DataSet consultarTodos()
+        {            
             return rep.consultarTodos();
         }
-        #region Crud Members
+        #region CRUD
 
-        public void inserir(object obj)
+        public void inserir(Paciente pac)
         {
-
-            throw new NotImplementedException();
+            rep.inserir(pac);
         }
 
         public void remover(object obj)
         {
-            AcessoDados.RepositorioPaciente rep = new RepositorioPaciente();
-            rep.exluir(obj);
-            throw new NotImplementedException();
+
         }
 
         public void atualizar(object obj)
         {
-            throw new NotImplementedException();
+
         }
 
         public void exluir(object obj)
         {
-            throw new NotImplementedException();
+
         }
 
         #endregion
@@ -44,9 +47,9 @@ namespace Negocio
         #region Crud Members
 
 
-        public void consultar(object obj)
+        public Paciente consultar(string nome)
         {
-            throw new NotImplementedException();
+            return rep.consultar(nome);
         }
 
         #endregion

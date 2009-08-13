@@ -7,14 +7,16 @@ namespace Classes_Básicas
 {
     public class Paciente
     {
-        public string nome
+        private string nome;
+        private Int32 idpac;
+        public string Nome
         {
             get { return this.nome; }
             set { nome = value; }
         }
-        public int codpac { 
-            get { return this.codpac; }
-        set{this.codpac=value; }
+        public int Idpac { 
+            get { return this.idpac; }
+        set{this.idpac=value; }
         }
     
     }
