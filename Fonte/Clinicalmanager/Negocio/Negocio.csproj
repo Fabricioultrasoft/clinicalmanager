@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroConvenio.cs" />
+    <Compile Include="CadastroFatura.cs" />
+    <Compile Include="CadastroInternacao.cs" />
+    <Compile Include="CadastroLocal.cs" />
+    <Compile Include="CadastroMedico.cs" />
     <Compile Include="CadastroPaciente.cs" />
     <Compile Include="Crud.cs" />
     <Compile Include="Fachada.cs" />
