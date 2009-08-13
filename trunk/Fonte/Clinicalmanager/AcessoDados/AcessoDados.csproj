@@ -56,6 +56,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RepositorioConvenio.cs" />
+    <Compile Include="RepositorioFatura.cs" />
+    <Compile Include="RepositorioInternacao.cs" />
+    <Compile Include="RepositorioLocal.cs" />
+    <Compile Include="RepositorioMedico.cs" />
     <Compile Include="RepositorioPaciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
