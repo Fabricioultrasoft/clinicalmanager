@@ -34,11 +34,10 @@ namespace AcessoDados
                 }                    
             }
         }
-
-        
+                
         public void atualizar(Paciente paciente)
         {
-            string cmdSql = "update clinicalmanager.paciente set nome=@nome where idpad = @idpac";
+            string cmdStr = "update clinicalmanager.paciente set nome=@nome where idpad = @idpac";
             try
             {
                 base.conn.Open();
@@ -57,7 +56,7 @@ namespace AcessoDados
 
         public void exluir(Paciente paciente)
         {
-            string cmdSql = "delete from clinicalmanager.paciente where idpad = @idpac";
+            string cmdStr = "delete from clinicalmanager.paciente where idpad = @idpac";
             try
             {
                 base.conn.Open();
@@ -72,8 +71,7 @@ namespace AcessoDados
                 throw new Exception("Não foi possível remover o paciente");
             }
         }
-
-  
+          
         public Paciente consultar(string nome)
         {
             string sql = "select idpac,nome from clinicalmanager where nome like '?nome'";
