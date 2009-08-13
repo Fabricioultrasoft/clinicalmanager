@@ -59,6 +59,10 @@
       <Project>{C581C6D0-2CE8-4106-BD75-D1FE52216C04}</Project>
       <Name>AcessoDados</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Classes Básicas\Classes Básicas.csproj">
+      <Project>{469E56C5-CCBC-48BA-8C4C-52887EEA128B}</Project>
+      <Name>Classes Básicas</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

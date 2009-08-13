@@ -19,3 +19,4 @@ C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\
 C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\zh-CN\Npgsql.resources.dll
 C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\obj\Debug\Teste.exe
 C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\obj\Debug\Teste.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Teste\bin\Debug\Teste.exe.config

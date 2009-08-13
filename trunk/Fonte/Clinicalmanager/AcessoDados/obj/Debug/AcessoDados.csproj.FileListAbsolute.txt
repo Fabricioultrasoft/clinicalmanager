@@ -15,3 +15,4 @@ C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\AcessoDado
 C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\AcessoDados\bin\Debug\zh-CN\Npgsql.resources.dll
 C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\AcessoDados\obj\Debug\AcessoDados.dll
 C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\AcessoDados\obj\Debug\AcessoDados.pdb
+C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\AcessoDados\bin\Debug\AcessoDados.dll.config
