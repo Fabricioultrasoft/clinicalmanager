@@ -1,5 +1,0 @@
-C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Classes Básicas\bin\Debug\Classes Básicas.dll
-C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Classes Básicas\bin\Debug\Classes Básicas.pdb
-C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Classes Básicas\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Classes Básicas\obj\Debug\Classes Básicas.dll
-C:\Users\Renato\Documents\Visual Studio 2008\Projects\Clinicalmanager\Classes Básicas\obj\Debug\Classes Básicas.pdb
