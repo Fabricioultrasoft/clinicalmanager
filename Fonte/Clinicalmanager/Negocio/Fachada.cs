@@ -10,10 +10,12 @@ namespace Negocio
     public class Fachada
     {
         private CadastroPaciente capPac;
+        private CadastroMedico cadMed;
 
         public Fachada()
         {
             capPac = new CadastroPaciente();
+            cadMed = new CadastroMedico();
         }
 
         public void excluirPaciente(int idpac)
@@ -32,6 +34,10 @@ namespace Negocio
         public DataSet getAllPacientes()
         {
             return capPac.consultarTodos();
+        }
+        public DataSet getAllMedicos()
+        {
+            return cadMed.consultarTodos();
         }
     }
 }
