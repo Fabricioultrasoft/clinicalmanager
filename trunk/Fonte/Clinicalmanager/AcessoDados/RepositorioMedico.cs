@@ -29,7 +29,7 @@ namespace AcessoDados
                 catch (Exception ex)
                 {
 
-                    throw new Exception("Erro ao incluir paciente");
+                    throw new Exception("Erro ao incluir paciente: "+ex.Message);
                 }
             }
         }
@@ -42,14 +42,14 @@ namespace AcessoDados
                 base.conn.Open();
                 cmd = base.conn.CreateCommand();
                 cmd.CommandText = cmdStr;
-                cmd.Parameters.Add("@idpac", medico.Idmed);
+                cmd.Parameters.Add("@idmed", medico.Idmed);
                 cmd.Parameters.Add("@nome", medico.Nome);
                 cmd.ExecuteNonQuery();
                 base.conn.Close();
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível remover o paciente");
+                throw new Exception("Não foi possível remover o paciente " + ex.Message);
             }
         }
 
@@ -67,22 +67,21 @@ namespace AcessoDados
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível remover o paciente");
+                throw new Exception("Não foi possível remover o paciente " + ex.Message);
             }
         }
 
-        public Paciente consultar(string nome)
+        public Medico consultar(string nome)
         {
-            string sql = "select idmed, nome from clinicalmanager.medico where nome like '?nome'";
+            string sql = "select idmed, nome from clinicalmanager.medico where nome like '@nome'";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("?nome", nome);
             reader = base.execute(cmd);
-            Paciente output = new Paciente();
-            output.Nome = reader.GetString(1);
-            output.Idpac = reader.GetInt16(0);
+            Medico output = new Medico();
+            output.Nome= reader.GetString(1);
+            output.Idmed = reader.GetInt16(0);
             return output;
-            throw new NotImplementedException();
         }
 
         public DataSet consultarTodos()

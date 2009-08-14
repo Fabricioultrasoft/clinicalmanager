@@ -26,20 +26,15 @@ namespace Negocio
         {
             rep.inserir(pac);
         }
-
-        public void remover(object obj)
+               
+        public void atualizar(Paciente pac)
         {
-
+            rep.atualizar(pac);
         }
 
-        public void atualizar(object obj)
+        public void exluir(Paciente pac)
         {
-
-        }
-
-        public void exluir(object obj)
-        {
-
+            rep.excluir(pac);
         }
 
         #endregion

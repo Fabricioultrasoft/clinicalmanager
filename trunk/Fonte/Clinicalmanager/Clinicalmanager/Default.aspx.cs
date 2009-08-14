@@ -30,6 +30,7 @@ namespace Clinicalmanager
         {
             Paciente paciente = new Paciente();
             paciente.Nome = txtPessoa.Text;
+            paciente.CPF = txtCPF.Text;
             Fachada facade = new Fachada();
             facade.inserirPaciente(paciente);
         }

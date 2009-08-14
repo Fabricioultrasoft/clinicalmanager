@@ -9,7 +9,12 @@ namespace Classes_Básicas
     {
         private string descricao;
         private int codloc;
+        private bool geraprd;
 
+        public bool Geraprd {
+            get { return this.geraprd; }
+            set { this.geraprd = value; }
+        }
         public string Descricao {
             get { return this.descricao; }
             set { this.descricao = value; }

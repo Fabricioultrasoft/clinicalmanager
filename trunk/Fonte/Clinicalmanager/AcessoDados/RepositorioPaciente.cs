@@ -19,18 +19,18 @@ namespace AcessoDados
             {
                 try
                 {
-                    string cmdStr = "insert into clinicalmanager.paciente(nome) values (@nome)";
+                    string cmdStr = "insert into clinicalmanager.paciente(nome,cpf) values (@nome,@cpf)";
                     base.conn.Open();
                     cmd = base.conn.CreateCommand();
                     cmd.CommandText = cmdStr;
                     cmd.Parameters.Add("@nome", paciente.Nome);
+                    cmd.Parameters.Add("@cpf", paciente.CPF);
                     cmd.ExecuteNonQuery();
                     base.conn.Close();              
                 }
                 catch (Exception ex)
                 {
-                    
-                    throw new Exception("Erro ao incluir paciente");
+                    throw new Exception("Erro ao incluir paciente " + ex.Message);
                 }                    
             }
         }
@@ -50,11 +50,11 @@ namespace AcessoDados
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível remover o paciente");
+                throw new Exception("Não foi possível remover o paciente " + ex.Message);
             }
         }
 
-        public void exluir(Paciente paciente)
+        public void excluir(Paciente paciente)
         {
             string cmdStr = "delete from clinicalmanager.paciente where idpad = @idpac";
             try
@@ -67,8 +67,8 @@ namespace AcessoDados
                 base.conn.Close();  
             }
             catch (Exception ex)
-            {                
-                throw new Exception("Não foi possível remover o paciente");
+            {
+                throw new Exception("Não foi possível remover o paciente " + ex.Message);
             }
         }
           

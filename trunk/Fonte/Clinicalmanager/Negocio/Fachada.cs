@@ -11,13 +11,21 @@ namespace Negocio
     {
         private CadastroPaciente capPac;
         private CadastroMedico cadMed;
-
+        private CadastroLocal cadLoc;
+        private CadastroInternacao cadInt;
+        private CadastroFatura cadFat;
+        private CadastroConvenio cadCon;
+               
         public Fachada()
         {
             capPac = new CadastroPaciente();
             cadMed = new CadastroMedico();
+            cadLoc = new CadastroLocal();
+            cadCon = new CadastroConvenio();
+            cadFat = new CadastroFatura();
+            cadInt = new CadastroInternacao();
         }
-
+        
         public void excluirPaciente(int idpac)
         {
 
@@ -38,6 +46,11 @@ namespace Negocio
         public DataSet getAllMedicos()
         {
             return cadMed.consultarTodos();
+        }
+
+        public DataSet getAllLocal()
+        {
+            return cadLoc.consultarTodos();
         }
     }
 }
