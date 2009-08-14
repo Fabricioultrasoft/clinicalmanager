@@ -27,15 +27,21 @@
             </Items>
         </asp:Menu>
     
+    </div>    
+    <div>
+        Nome:
+        <asp:TextBox ID="txtPessoa" runat="server"></asp:TextBox>
     </div>
     
     
-    </asp:ObjectDataSource>
-    <div>
-        <asp:TextBox ID="txtPessoa" runat="server"></asp:TextBox>
+    <p>
+        CPF:
+        <asp:TextBox ID="txtCPF" runat="server"></asp:TextBox>
+        </p>
+    <p>
         <asp:Button ID="btnConsultar"
             runat="server" Text="Inserir" onclick="btnConsultar_Click" />
-    </div>
+    </p>
     
     
     </form>

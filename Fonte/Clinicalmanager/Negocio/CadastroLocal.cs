@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using AcessoDados;
+using System.Data;
 namespace Negocio
 {
-    class CadastroLocal
+    public class CadastroLocal
     {
+        RepositorioLocal rep;
+        public CadastroLocal()
+        {
+            rep = new RepositorioLocal();
+        }
+        public DataSet consultarTodos()
+        {
+            return rep.consultarTodos();
+        }
     }
 }
