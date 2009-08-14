@@ -7,7 +7,7 @@ using Npgsql;
 using System.Data;
 namespace AcessoDados
 {
-    class RepositorioMedico:Conexao
+    public class RepositorioMedico:Conexao
     {
         NpgsqlCommand cmd;
         NpgsqlDataReader reader;
@@ -36,13 +36,13 @@ namespace AcessoDados
 
         public void atualizar(Medico medico)
         {
-            string cmdStr = "update clinicalmanager.paciente set nome=@nome where idpad = @idpac";
+            string cmdStr = "update clinicalmanager.medico set nome=@nome where idmed = @idmed";
             try
             {
                 base.conn.Open();
                 cmd = base.conn.CreateCommand();
                 cmd.CommandText = cmdStr;
-                //cmd.Parameters.Add("@idpac", medico);
+                cmd.Parameters.Add("@idpac", medico.Idmed);
                 cmd.Parameters.Add("@nome", medico.Nome);
                 cmd.ExecuteNonQuery();
                 base.conn.Close();
@@ -73,21 +73,21 @@ namespace AcessoDados
 
         public Paciente consultar(string nome)
         {
-            string sql = "select idpac,nome from clinicalmanager where nome like '?nome'";
+            string sql = "select idmed, nome from clinicalmanager.medico where nome like '?nome'";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("?nome", nome);
             reader = base.execute(cmd);
             Paciente output = new Paciente();
             output.Nome = reader.GetString(1);
-            output.Idpac = reader.GetInt32(0);
+            output.Idpac = reader.GetInt16(0);
             return output;
             throw new NotImplementedException();
         }
 
         public DataSet consultarTodos()
         {
-            string sql = "select * from clinicalmanager.paciente";
+            string sql = "select * from clinicalmanager.medico";
             Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
             //cmd.CommandText = 
             return base.execute(sql);
