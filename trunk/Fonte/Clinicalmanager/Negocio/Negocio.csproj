@@ -55,7 +55,6 @@
     <Compile Include="CadastroLocal.cs" />
     <Compile Include="CadastroMedico.cs" />
     <Compile Include="CadastroPaciente.cs" />
-    <Compile Include="Crud.cs" />
     <Compile Include="Fachada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
