@@ -19,83 +19,84 @@ namespace AcessoDados
                 try
                 {
                     string cmdStr = "INSERT INTO clinicalmanager.fatura(vl_esperado_hn, vl_recebido_hn, " +
-                                    " vl_recebido_pr, idint) values (@vl_esperado_hn, @vl_recebido_hn, " +
+                                    " vl_recebido_pr, idint) VALUES (@vl_esperado_hn, @vl_recebido_hn, " +
                                     " @vl_recebido_pr, @idint)";
                     base.conn.Open();
                     cmd = base.conn.CreateCommand();
                     cmd.CommandText = cmdStr;
-                    cmd.Parameters.Add("@nome", medico.Nome);
+                    cmd.Parameters.Add("@vl_esperado_hn", fatura.Valor_HN_Esp);
+                    cmd.Parameters.Add("@vl_recebido_hn", fatura.Valor_HN_Receb);
+                    cmd.Parameters.Add("@vl_recebido_pr", fatura.Valor_PRD);
                     cmd.ExecuteNonQuery();
                     base.conn.Close();
                 }
                 catch (Exception ex)
                 {
 
-                    throw new Exception("Erro ao incluir paciente: " + ex.Message);
+                    throw new Exception("Erro ao incluir fatura: " + ex.Message);
                 }
             }
         }
 
-
-
-
-
-
-
-
-        public void atualizar(Medico medico)
+        public void atualizar(Fatura fatura)
         {
-            string cmdStr = "update clinicalmanager.medico set nome=@nome where idmed = @idmed";
+            string cmdStr = "UPDATE clinicalmanager.fatura SET vl_esperado_hn = @vl_esperado_hn, " +
+                            " vl_recebido_hn = @vl_recebido_hn, vl_recebido_pr = @vl_recebido_pr, " +
+                            " WHERE idfat = @idfat";
             try
             {
                 base.conn.Open();
                 cmd = base.conn.CreateCommand();
                 cmd.CommandText = cmdStr;
-                cmd.Parameters.Add("@idmed", medico.Idmed);
-                cmd.Parameters.Add("@nome", medico.Nome);
+                cmd.Parameters.Add("@idfat", fatura.Codfat);
+                cmd.Parameters.Add("@vl_esperado_hn", fatura.Valor_HN_Esp);
+                cmd.Parameters.Add("@vl_recebido_hn", fatura.Valor_HN_Receb);
+                cmd.Parameters.Add("@vl_recebido_pr", fatura.Valor_PRD);
                 cmd.ExecuteNonQuery();
                 base.conn.Close();
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível remover o paciente " + ex.Message);
+                throw new Exception("Não foi possível atualizar a fatura " + ex.Message);
             }
         }
 
-        public void exluir(Medico medico)
+        public void exluir(Fatura fatura)
         {
-            string cmdStr = "delete from clinicalmanager.paciente where idpad = @idpac";
+            string cmdStr = "DELETE FROM clinicalmanager.fatura WHERE idfat = @idfat";
             try
             {
                 base.conn.Open();
                 cmd = base.conn.CreateCommand();
                 cmd.CommandText = cmdStr;
-                //cmd.Parameters.Add("@idpac", medico.Idpac);
+                cmd.Parameters.Add("@idfat", fatura.Codfat);
                 cmd.ExecuteNonQuery();
                 base.conn.Close();
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível remover o paciente " + ex.Message);
+                throw new Exception("Não foi possível remover a fatura " + ex.Message);
             }
         }
 
-        public Medico consultar(string nome)
+        public Fatura consultar(int codfat)
         {
-            string sql = "select idmed, nome from clinicalmanager.medico where nome like '@nome'";
+            string sql = "SELECT idfat, vl_esperado_hn float, vl_recebido_hn float, " + 
+                         "vl_recebido_pr FROM clinicalmanager.fatura WHERE idfat = @idfat";
+
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Parameters.Add("?nome", nome);
+            cmd.Parameters.Add("@idfat", codfat);
             reader = base.execute(cmd);
-            Medico output = new Medico();
-            output.Nome = reader.GetString(1);
-            output.Idmed = reader.GetInt16(0);
+            Fatura output = new Fatura();
+            //output.Nome = reader.GetString(1);
+            //output.Idmed = reader.GetInt16(0);
             return output;
         }
 
         public DataSet consultarTodos()
         {
-            string sql = "select * from clinicalmanager.medico";
+            string sql = "SELECT * FROM  clinicalmanager.fatura";
             Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
             //cmd.CommandText = 
             return base.execute(sql);
