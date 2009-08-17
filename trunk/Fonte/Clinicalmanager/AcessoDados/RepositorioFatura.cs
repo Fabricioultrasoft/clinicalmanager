@@ -19,8 +19,8 @@ namespace AcessoDados
                 try
                 {
                     string cmdStr = "INSERT INTO clinicalmanager.fatura(vl_esperado_hn, vl_recebido_hn, " +
-                                    " vl_recebido_pr, idint) VALUES (@vl_esperado_hn, @vl_recebido_hn, " +
-                                    " @vl_recebido_pr, @idint)";
+                                    " vl_recebido_pr, idint) " + 
+									"VALUES (@vl_esperado_hn, @vl_recebido_hn, @vl_recebido_pr, @idint)";
                     base.conn.Open();
                     cmd = base.conn.CreateCommand();
                     cmd.CommandText = cmdStr;
@@ -40,9 +40,10 @@ namespace AcessoDados
 
         public void atualizar(Fatura fatura)
         {
-            string cmdStr = "UPDATE clinicalmanager.fatura SET vl_esperado_hn = @vl_esperado_hn, " +
-                            " vl_recebido_hn = @vl_recebido_hn, vl_recebido_pr = @vl_recebido_pr, " +
-                            " WHERE idfat = @idfat";
+            string cmdStr = "UPDATE clinicalmanager.fatura " + 
+			                "SET vl_esperado_hn = @vl_esperado_hn, vl_recebido_hn = @vl_recebido_hn, " + 
+							"vl_recebido_pr = @vl_recebido_pr " +
+                            "WHERE idfat = @idfat";
             try
             {
                 base.conn.Open();
@@ -63,7 +64,8 @@ namespace AcessoDados
 
         public void exluir(Fatura fatura)
         {
-            string cmdStr = "DELETE FROM clinicalmanager.fatura WHERE idfat = @idfat";
+            string cmdStr = "DELETE FROM clinicalmanager.fatura " + 
+			                "WHERE idfat = @idfat";
             try
             {
                 base.conn.Open();
@@ -81,8 +83,9 @@ namespace AcessoDados
 
         public Fatura consultar(int codfat)
         {
-            string sql = "SELECT idfat, vl_esperado_hn float, vl_recebido_hn float, " + 
-                         "vl_recebido_pr FROM clinicalmanager.fatura WHERE idfat = @idfat";
+            string sql = "SELECT idfat, vl_esperado_hn, vl_recebido_hn, vl_recebido_pr " + 
+			             "FROM clinicalmanager.fatura " + 
+						 "WHERE idfat = @idfat";
 
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
