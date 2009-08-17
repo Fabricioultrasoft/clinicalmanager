@@ -19,6 +19,11 @@ namespace Classes_Básicas
             get { return data_out; }
             set { this.data_out = value; }
         }
+		
+        public int Codint {
+            get { return this.codint; }
+            set { this.codint = value; }
+        }		
 
     }
 }
