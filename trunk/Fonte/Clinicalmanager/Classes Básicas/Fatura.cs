@@ -15,6 +15,7 @@ namespace Classes_Básicas
             get { return this.valor_esperado_honorario; }
             set { this.valor_esperado_honorario = value; }
         }
+		
         public float Valor_HN_Lanc
         {
             get { return this.valor_lancado_honorario; }
@@ -32,6 +33,7 @@ namespace Classes_Básicas
             get { return this.valor_produtividade; }
             set { this.valor_produtividade = value; }
         }
+		
         public int Codfat {
             get { return this.codfat; }
             set { this.codfat = value; }
