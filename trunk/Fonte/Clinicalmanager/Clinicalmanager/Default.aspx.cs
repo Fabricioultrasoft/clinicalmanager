@@ -28,11 +28,12 @@ namespace Clinicalmanager
 
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
-            Paciente paciente = new Paciente();
+            /*Paciente paciente = new Paciente();
             paciente.Nome = txtPessoa.Text;
             paciente.CPF = txtCPF.Text;
             Fachada facade = new Fachada();
-            facade.inserirPaciente(paciente);
+            facade.inserirPaciente(paciente);*/
+            Response.Redirect("consultar.aspx?idpac="+txtPessoa.Text);
         }
     }
 }

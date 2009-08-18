@@ -8,6 +8,16 @@ namespace Classes_Básicas
     public class Internacao
     {
         private DateTime data_in,data_out;
+        private string obs;
+        private int codint;
+        public Paciente Paciente { get; set; }
+        public Convenio Convenio { get; set; }
+        public Fatura Fatura { get; set; }
+        
+        public string Obs {
+            get { return this.obs; }
+            set { this.obs = value; }
+        }
         public DateTime Data_in
         {
             get { return this.data_in; }

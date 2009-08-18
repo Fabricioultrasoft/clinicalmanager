@@ -16,9 +16,9 @@ namespace Negocio
             rep = new RepositorioFatura();
         }
 
-        public DataSet consultarTodas()
+        public DataSet consultarTodos()
         {
-            return rep.consultarTodas();
+            return rep.consultarTodos();
         }
         #region CRUD
 
@@ -34,7 +34,7 @@ namespace Negocio
 
         public void exluir(Fatura fat)
         {
-            rep.excluir(fat);
+            rep.exluir(fat);
         }
 
         #endregion
