@@ -10,13 +10,13 @@
 
 <body>
 <div id="logo">
-	<h1><a href="#">Subordinate</a></h1>
-	<h2> Design by Free Css Templates</h2>
+	<h1><a href="#">Clinical Manager</a></h1>
+	<h2> Controle Gerencial de Clínica</h2>
 </div>
 <div id="page">
-<div id="content">
+
     <form id="form1" runat="server">
-    <div>    
+    <div id="sidebar">    
         <asp:Menu ID="Menu1" runat="server" BackColor="#E3EAEB" 
             DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
             ForeColor="#666666" StaticSubMenuIndent="10px">
@@ -34,23 +34,20 @@
                 </asp:MenuItem>
             </Items>
         </asp:Menu>
-    
-    </div>    
-    <div>
-        Nome:
-        <asp:TextBox ID="txtPessoa" runat="server"></asp:TextBox>
     </div>
-    
-    
-    <p>
+      
+    <div id="content">
+        Nome:
+        <asp:TextBox ID="txtPessoa" runat="server"></asp:TextBox>    
+        <p>
         CPF:
         <asp:TextBox ID="txtCPF" runat="server"></asp:TextBox>
         </p>
-    <p>
+        <p>
         <asp:Button ID="btnConsultar"
             runat="server" Text="Inserir" onclick="btnConsultar_Click" />
-    </p>
-    
+        </p>
+    </div>
     
     </form>
     </div>
