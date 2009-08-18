@@ -149,10 +149,10 @@ input, textarea, select {
 
 #logo {
 	clear: both;
-	width: 860px;
+	width: 870px;
 	height: 80px;
 	margin: 0 auto;
-	background: url(images/img02.gif) no-repeat left top;
+	background: url(images/img02.png) no-repeat left top;
 }
 
 #logo h1, #logo h2 {
