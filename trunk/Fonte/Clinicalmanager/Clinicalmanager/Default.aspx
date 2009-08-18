@@ -5,8 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Untitled Page</title>
+    <link href="default.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
+<div id="logo">
+	<h1><a href="#">Subordinate</a></h1>
+	<h2> Design by Free Css Templates</h2>
+</div>
+<div id="page">
+<div id="content">
     <form id="form1" runat="server">
     <div>    
         <asp:Menu ID="Menu1" runat="server" BackColor="#E3EAEB" 
@@ -45,5 +53,7 @@
     
     
     </form>
+    </div>
+    </div>
 </body>
 </html>
