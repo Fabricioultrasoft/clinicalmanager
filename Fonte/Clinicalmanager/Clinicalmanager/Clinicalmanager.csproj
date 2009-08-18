@@ -60,6 +60,8 @@
     <Content Include="default.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="default.css" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
     <Content Include="consultar.aspx" />
   </ItemGroup>
