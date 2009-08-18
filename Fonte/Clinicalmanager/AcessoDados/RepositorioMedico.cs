@@ -53,7 +53,7 @@ namespace AcessoDados
             }
         }
 
-        public void exluir(Medico medico)
+        public void excluir(Medico medico)
         {
             string cmdStr = "delete from clinicalmanager.paciente where idpad = @idpac";
             try
@@ -61,7 +61,7 @@ namespace AcessoDados
                 base.conn.Open();
                 cmd = base.conn.CreateCommand();
                 cmd.CommandText = cmdStr;
-                //cmd.Parameters.Add("@idpac", medico.Idpac);
+                cmd.Parameters.Add("@idpac", medico.Idmed);
                 cmd.ExecuteNonQuery();
                 base.conn.Close();
             }
@@ -76,7 +76,7 @@ namespace AcessoDados
             string sql = "select idmed, nome from clinicalmanager.medico where nome like '@nome'";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Parameters.Add("?nome", nome);
+            cmd.Parameters.Add("@nome", nome);
             reader = base.execute(cmd);
             Medico output = new Medico();
             output.Nome= reader.GetString(1);

@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Classes_Básicas;
 namespace AcessoDados
 {
-    class RepositorioConvenio
+    public class RepositorioConvenio:Conexao
     {
+        public Convenio consultar(int idcon)
+        {
+            return null;
+        }
     }
 }

@@ -16,11 +16,10 @@ namespace Negocio
             rep = new RepositorioInternacao();
         }
 
-        public DataSet consultarTodas()
+        public DataSet consultarTodos()
         {
-            return rep.consultarTodas();
+            return rep.consultarTodos();
         }
-        #region CRUD
 
         public void inserir(Internacao inter)
         {
@@ -32,20 +31,18 @@ namespace Negocio
             rep.atualizar(inter);
         }
 
-        public void exluir(Internacao inter)
+        public void excluir(Internacao inter)
         {
             rep.excluir(inter);
         }
 
-        #endregion
-
-        #region Crud Members
-
-
-        public Internacao consultar(int id_internacao)
+        public Internacao consultar(int idint)
         {
-            return rep.consultar(id_internacao);
+            return rep.consultar(idint);
         }
-        #endregion
+        public DataSet consultarPorPaciente(int idpac)
+        {
+            return rep.consultarPorPaciente(idpac);
+        }
     }
 }

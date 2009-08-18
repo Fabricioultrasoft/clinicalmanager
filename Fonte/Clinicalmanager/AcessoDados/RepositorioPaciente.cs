@@ -74,10 +74,24 @@ namespace AcessoDados
           
         public Paciente consultar(string nome)
         {
-            string sql = "select idpac,nome from clinicalmanager where nome like '?nome'";
+            string sql = "select idpac,nome from clinicalmanager where nome like '@nome'";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Parameters.Add("?nome", nome);
+            cmd.Parameters.Add("@nome", nome);
+            reader = base.execute(cmd);
+            Paciente output = new Paciente();
+            output.Nome = reader.GetString(1);
+            output.Idpac = reader.GetInt32(0);
+            return output;
+            throw new NotImplementedException();
+        }
+
+        public Paciente consultar(int idpac)
+        {
+            string sql = "select idpac,nome from clinicalmanager where idpac ='@idpac'";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idpac", idpac);
             reader = base.execute(cmd);
             Paciente output = new Paciente();
             output.Nome = reader.GetString(1);
