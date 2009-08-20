@@ -7,27 +7,21 @@ namespace Classes_Básicas
 {
     public class Fatura
     {
-        private float valor_esperado_honorario, valor_recebido_honorario,
-            valor_produtividade;
+        private DateTime data_fechamento;
+        private bool fechada, paga;
         private int codfat;
-
-        public float Valor_HN_Esp {
-            get { return this.valor_esperado_honorario; }
-            set { this.valor_esperado_honorario = value; }
+        public DateTime Data_fechamento {
+            get { return this.data_fechamento; }
+            set { this.data_fechamento = value; }
         }
-		
-        public float Valor_HN_Receb
-        {
-            get { return this.valor_recebido_honorario; }
-            set { this.valor_recebido_honorario = value; }
+        public bool Fechada {
+            get { return this.fechada; }
+            set { this.fechada = value; }
         }
-
-        public float Valor_PRD
-        {
-            get { return this.valor_produtividade; }
-            set { this.valor_produtividade = value; }
+        public bool Paga {
+            get { return this.paga; }
+            set { this.paga = value; }
         }
-		
         public int Codfat {
             get { return this.codfat; }
             set { this.codfat = value; }

@@ -11,14 +11,19 @@
 
 <form id="form1" runat="server">
     <asp:GridView ID="GridView1" runat="server" 
-        DataSourceID="dsMedico">
+        DataSourceID="dsMedico" AllowPaging="True" onrowdeleting="GridView1_RowDeleting" 
+          >
+        <Columns>
+            <asp:CommandField ShowDeleteButton="True" />
+        </Columns>
+        
     </asp:GridView>
     <asp:ObjectDataSource ID="dsMedico" runat="server" 
-        SelectMethod="getInternacaoPaciente" TypeName="Negocio.Fachada">
-        <SelectParameters>
-            <asp:QueryStringParameter DefaultValue="1" Name="idpac" 
-                QueryStringField="idpac" Type="Int32" />
-        </SelectParameters>
+        SelectMethod="getInternacaoPaciente" TypeName="Negocio.Fachada" 
+        DeleteMethod="excluirInternacao" DataObjectTypeName="Classes_Básicas.Internacao">              
+      <SelectParameters>
+      <asp:QueryStringParameter Name="idpac" DbType="Int16" DefaultValue="1" QueryStringField="idpac" />
+      </SelectParameters>        
     </asp:ObjectDataSource>
     </form>
 </body>

@@ -53,9 +53,15 @@ namespace Negocio
             return cadLoc.consultarTodos();
         }
 
+        #region INTERNACAO
         public DataSet getInternacaoPaciente(int idpac)
         {
             return cadInt.consultarPorPaciente(idpac);
         }
+        public void excluirInternacao(Internacao idint)
+        {
+            cadInt.excluir(idint);
+        }
+        #endregion
     }
 }
