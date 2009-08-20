@@ -12,27 +12,24 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Classes_Básicas;
 using Negocio;
-namespace Clinicalmanager
+namespace Clinicalmanager.paciente
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class cadastrar : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //this.dsMedico.SelectParameters.Add("idpac", Context.Request.Params["idpac"]);            
+
         }
 
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void btnSalvar_Click(object sender, EventArgs e)
         {
-            Internacao inter = new Internacao();
-            inter.Codint = Convert.ToInt16(GridView1.Rows[e.RowIndex].Cells[1].Text);
             Fachada fachada = new Fachada();
-            fachada.excluirInternacao(inter);
+            Paciente paciente = new Paciente();
+            paciente.CPF = txtCPF.Text;
+            paciente.Nome = txtNome.Text;
+            fachada.inserirPaciente(paciente);
+            txtNome.Text = "";
+            txtCPF.Text = "";
         }
-
-       
-            
-       
-      
-       
     }
 }

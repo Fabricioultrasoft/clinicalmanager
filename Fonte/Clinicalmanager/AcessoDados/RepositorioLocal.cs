@@ -90,7 +90,6 @@ namespace AcessoDados
         {
             string sql = "select * from clinicalmanager.local";
             Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
-            //cmd.CommandText = 
             return base.execute(sql);
         }
     }

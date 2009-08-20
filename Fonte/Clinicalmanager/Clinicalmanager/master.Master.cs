@@ -13,11 +13,16 @@ using System.Xml.Linq;
 
 namespace Clinicalmanager
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class master : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            Response.Redirect(e.Item.Target.ToString());
         }
     }
 }

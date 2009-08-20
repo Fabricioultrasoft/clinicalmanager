@@ -55,13 +55,13 @@ namespace AcessoDados
 
         public void excluir(Medico medico)
         {
-            string cmdStr = "delete from clinicalmanager.paciente where idpad = @idpac";
+            string cmdStr = "delete from clinicalmanager.medico where idmed = @idmed";
             try
             {
                 base.conn.Open();
                 cmd = base.conn.CreateCommand();
                 cmd.CommandText = cmdStr;
-                cmd.Parameters.Add("@idpac", medico.Idmed);
+                cmd.Parameters.Add("@idmed", medico.Idmed);
                 cmd.ExecuteNonQuery();
                 base.conn.Close();
             }
@@ -88,7 +88,6 @@ namespace AcessoDados
         {
             string sql = "select * from clinicalmanager.medico";
             Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
-            //cmd.CommandText = 
             return base.execute(sql);
         }
     }

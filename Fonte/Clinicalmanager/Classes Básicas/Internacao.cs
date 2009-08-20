@@ -13,7 +13,9 @@ namespace Classes_Básicas
         public Paciente Paciente { get; set; }
         public Convenio Convenio { get; set; }
         public Fatura Fatura { get; set; }
-        
+        public double Vl_Esperado_HN { get; set; }
+        public double Vl_Recebido_HN { get; set; }
+        public double Vl_Produtividade { get; set; }
         public string Obs {
             get { return this.obs; }
             set { this.obs = value; }
