@@ -15,7 +15,7 @@
         <h2>
             Controle Gerencial de Clínica</h2>
     </div>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" method="post">
     <div style="height: 77px; width: 935px; text-align: left;">
         <asp:ContentPlaceHolder ID="login" runat="server">
         </asp:ContentPlaceHolder>

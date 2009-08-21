@@ -20,10 +20,9 @@ namespace Clinicalmanager.local
 
         }
 
-        protected void btnConsPac_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            Request.QueryString["nome"] = "R%";
-            this.ObjectDataSource1.Select();
+            
         }
     }
 }
