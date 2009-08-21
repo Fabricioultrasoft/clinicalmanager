@@ -43,7 +43,7 @@ namespace Negocio
         {
             capPac.inserir(paciente);
         }
-        public Paciente getPaciente(string nome)
+        public DataSet getPaciente(string nome)
         {
             return capPac.consultar(nome);
         }

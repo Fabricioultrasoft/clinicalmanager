@@ -97,11 +97,11 @@
     <Compile Include="local\cadastrarlocal.aspx.designer.cs">
       <DependentUpon>cadastrarlocal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="local\consultarpaciente.aspx.cs">
+    <Compile Include="paciente\consultarpaciente.aspx.cs">
       <DependentUpon>consultarpaciente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="local\consultarpaciente.aspx.designer.cs">
+    <Compile Include="paciente\consultarpaciente.aspx.designer.cs">
       <DependentUpon>consultarpaciente.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
@@ -165,7 +165,7 @@
     <Content Include="master.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="local\consultarpaciente.aspx" />
+    <Content Include="paciente\consultarpaciente.aspx" />
     <Content Include="master2.Master" />
   </ItemGroup>
   <ItemGroup>

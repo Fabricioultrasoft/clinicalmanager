@@ -42,7 +42,7 @@ namespace Negocio
         #region Crud Members
 
 
-        public Paciente consultar(string nome)
+        public DataSet consultar(string nome)
         {
             return rep.consultar(nome);
         }

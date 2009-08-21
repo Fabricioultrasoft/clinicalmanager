@@ -19,11 +19,12 @@
                 </td>
             </tr>
         </table>
-        <asp:Button ID="btnConsPac" runat="server" Text="Consulta" 
-            onclick="btnConsPac_Click" />
+
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Consulta" />
+
     </div>
     <div id="resultPac">
-        <asp:GridView ID="GridView1" runat="server">
+        <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1">
         </asp:GridView>
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
             DeleteMethod="excluirPaciente" SelectMethod="getPaciente" 
@@ -32,7 +33,7 @@
                 <asp:Parameter Name="idpac" Type="Int32" />
             </DeleteParameters>
             <SelectParameters>
-                <asp:QueryStringParameter Name="nome" QueryStringField="nome" Type="String" />
+                <asp:FormParameter  DefaultValue="%" FormField="txtNome" Name="nome" Type="String" />
             </SelectParameters>
         </asp:ObjectDataSource>
     </div>
