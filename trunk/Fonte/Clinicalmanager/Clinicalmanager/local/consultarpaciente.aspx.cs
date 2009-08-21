@@ -11,13 +11,19 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-namespace Clinicalmanager
+namespace Clinicalmanager.local
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class consultarpaciente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["login"] == null) Server.Transfer("login.aspx");
+
+        }
+
+        protected void btnConsPac_Click(object sender, EventArgs e)
+        {
+            Request.QueryString["nome"] = "R%";
+            this.ObjectDataSource1.Select();
         }
     }
 }

@@ -7,6 +7,9 @@ using System.Data;
 using Classes_Básicas;
 namespace Negocio
 {
+    /// <summary>
+    /// Singleton para conexão com banco.
+    /// </summary>
     public class Fachada
     {
         private CadastroPaciente capPac;
@@ -15,7 +18,7 @@ namespace Negocio
         private CadastroInternacao cadInt;
         private CadastroFatura cadFat;
         private CadastroConvenio cadCon;
-               
+        private static Fachada instancia;
         public Fachada()
         {
             capPac = new CadastroPaciente();
@@ -25,7 +28,13 @@ namespace Negocio
             cadFat = new CadastroFatura();
             cadInt = new CadastroInternacao();
         }
-        
+        public static Fachada getInstancia()
+        {
+            if (instancia == null) return new Fachada();
+            else return instancia;
+        }
+
+        #region PACIENTE
         public void excluirPaciente(int idpac)
         {
 
@@ -43,15 +52,25 @@ namespace Negocio
         {
             return capPac.consultarTodos();
         }
+        #endregion
+
+        #region Medicos
         public DataSet getAllMedicos()
         {
             return cadMed.consultarTodos();
         }
+        #endregion
 
+        #region Localidades
         public DataSet getAllLocal()
         {
             return cadLoc.consultarTodos();
         }
+        public void inserirLocal(Local local)
+        {
+            cadLoc.inserirLocal(local);
+        }
+        #endregion
 
         #region INTERNACAO
         public DataSet getInternacaoPaciente(int idpac)

@@ -11,6 +11,7 @@ body {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #333333;
+	text-align: center;
 }
 
 h1, h2, h3 {
@@ -86,6 +87,7 @@ input, textarea, select {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #333333;
+	text-align: left;
 }
 
 /* Header */
@@ -150,7 +152,7 @@ input, textarea, select {
 
 #logo {
 	clear: both;
-	width: 870px;
+	width: 335px;
 	height: 80px;
 	margin: 0 auto;
 	background: url(images/img02.png) no-repeat left top;
@@ -162,7 +164,8 @@ input, textarea, select {
 	line-height: normal;
 }
 
-#logo h1 { }
+#logo h1 {	width: 243px;
+}
 
 #logo h1 a {
 	text-decoration: none;

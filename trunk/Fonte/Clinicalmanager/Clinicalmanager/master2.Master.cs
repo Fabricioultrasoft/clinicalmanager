@@ -13,11 +13,11 @@ using System.Xml.Linq;
 
 namespace Clinicalmanager
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class master2 : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["login"] == null) Server.Transfer("login.aspx");
+
         }
     }
 }

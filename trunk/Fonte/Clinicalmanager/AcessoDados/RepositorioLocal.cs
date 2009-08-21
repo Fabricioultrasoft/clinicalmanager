@@ -17,12 +17,13 @@ namespace AcessoDados
             {
                 try
                 {
-                    string cmdStr = "insert into clinicalmanager.local(nome,gera_prd) values (@nome,@geraprd)";
+                    string cmdStr = "insert into clinicalmanager.local(nome,gera_prd, andar) values (@nome,@geraprd,@andar)";
                     base.conn.Open();
                     cmd = base.conn.CreateCommand();
                     cmd.CommandText = cmdStr;
                     cmd.Parameters.Add("@nome", local.Descricao);
                     cmd.Parameters.Add("@geraprd", local.Geraprd);
+                    cmd.Parameters.Add("@andar", local.Andar);
                     cmd.ExecuteNonQuery();
                     base.conn.Close();
                 }
