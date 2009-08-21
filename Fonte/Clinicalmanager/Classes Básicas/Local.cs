@@ -10,7 +10,7 @@ namespace Classes_Básicas
         private string descricao;
         private int codloc;
         private bool geraprd;
-
+        public int Andar { get; set; }
         public bool Geraprd {
             get { return this.geraprd; }
             set { this.geraprd = value; }

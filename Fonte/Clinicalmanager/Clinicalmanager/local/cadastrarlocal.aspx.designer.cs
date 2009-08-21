@@ -8,54 +8,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Clinicalmanager {
+namespace Clinicalmanager.local {
     
     
-    public partial class master {
+    public partial class cadastrarlocal {
         
         /// <summary>
-        /// head control.
+        /// txtDescricao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox txtDescricao;
         
         /// <summary>
-        /// form1 control.
+        /// drpAndar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DropDownList drpAndar;
         
         /// <summary>
-        /// login control.
+        /// chkPrd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder login;
+        protected global::System.Web.UI.WebControls.CheckBox chkPrd;
         
         /// <summary>
-        /// Menu1 control.
+        /// btnSalvar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu Menu1;
-        
-        /// <summary>
-        /// contentHolder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder contentHolder;
+        protected global::System.Web.UI.WebControls.Button btnSalvar;
     }
 }

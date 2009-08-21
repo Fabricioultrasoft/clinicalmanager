@@ -23,7 +23,7 @@ namespace Clinicalmanager.paciente
 
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
-            Fachada fachada = new Fachada();
+            Fachada fachada = Fachada.getInstancia();
             Paciente paciente = new Paciente();
             paciente.CPF = txtCPF.Text;
             paciente.Nome = txtNome.Text;
