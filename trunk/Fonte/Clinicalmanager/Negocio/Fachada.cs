@@ -37,7 +37,9 @@ namespace Negocio
         #region PACIENTE
         public void excluirPaciente(int idpac)
         {
-
+            Paciente pac = new Paciente();
+            pac.Idpac=idpac;
+            capPac.exluir(pac);
         }
         public void inserirPaciente(Paciente paciente)
         {
