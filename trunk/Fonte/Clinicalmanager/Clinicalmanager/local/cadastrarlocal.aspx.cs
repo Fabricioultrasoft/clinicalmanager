@@ -30,5 +30,10 @@ namespace Clinicalmanager.local
             local.Andar = Convert.ToInt16(drpAndar.SelectedValue);
             fachada.inserirLocal(local);
         }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            Response.Redirect(e.Item.Target.ToString());
+        }
     }
 }

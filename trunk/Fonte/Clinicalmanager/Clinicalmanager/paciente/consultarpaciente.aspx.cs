@@ -24,5 +24,10 @@ namespace Clinicalmanager.local
         {
             
         }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            Response.Redirect(e.Item.Target.ToString());
+        }
     }
 }
