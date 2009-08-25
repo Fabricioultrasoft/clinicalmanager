@@ -19,5 +19,10 @@ namespace Clinicalmanager
         {
             if (Session["login"] == null) Server.Transfer("login.aspx");
         }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            Response.Redirect(e.Item.Target.ToString());
+        }
     }
 }

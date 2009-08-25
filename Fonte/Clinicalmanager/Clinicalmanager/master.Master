@@ -15,48 +15,15 @@
         <h2>
             Controle Gerencial de Clínica</h2>
     </div>
-    <form id="form1" runat="server" method="post">
-    <div style="height: 77px; width: 935px; text-align: left;">
-        <asp:ContentPlaceHolder ID="login" runat="server">
-        </asp:ContentPlaceHolder>
+    
+    <div style="height: 77px; width: 935px; text-align: left;">        
     </div>
     <div id="page">
-        <div id="sidebar">
-            <asp:Menu ID="Menu1" runat="server" BackColor="#E3EAEB" DynamicHorizontalOffset="2"
-                Font-Names="Verdana" Font-Size="Medium" ForeColor="#666666" StaticSubMenuIndent="10px"
-                Height="105px" Style="text-align: center" Width="112px" OnMenuItemClick="Menu1_MenuItemClick">
-                <StaticSelectedStyle BackColor="#1C5E55" />
-                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
-                <DynamicMenuStyle BackColor="#E3EAEB" />
-                <DynamicSelectedStyle BackColor="#1C5E55" />
-                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                <StaticHoverStyle BackColor="#666666" ForeColor="White" />
-                <Items>
-                    <asp:MenuItem Text="Cadastro" Value="Cadastro">
-                        <asp:MenuItem Text="Medicos" Value="Medicos" Target="medico/cadastrar.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Paciente" Value="Paciente" Target="/paciente/cadastrarpaciente.aspx">
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Local" Value="Local" Target="/local/cadastrarlocal.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Fatura" Value="Fatura"></asp:MenuItem>
-                    </asp:MenuItem>
-                    <asp:MenuItem Text="Consulta" Value="Consulta">
-                        <asp:MenuItem Text="Internacao" Value="Internacao"></asp:MenuItem>
-                        <asp:MenuItem Text="Fatura" Value="Fatura"></asp:MenuItem>
-                        <asp:MenuItem Target="/paciente/consultarpaciente.aspx" Text="Paciente" 
-                            Value="Paciente"></asp:MenuItem>
-                    </asp:MenuItem>
-                    <asp:MenuItem Text="Relatórios" Value="Relatórios">
-                        <asp:MenuItem Text="Internacões" Value="Internacões"></asp:MenuItem>
-                    </asp:MenuItem>
-                </Items>
-            </asp:Menu>
-        </div>
-        <div id="content">
-            <asp:ContentPlaceHolder ID="contentHolder" runat="server">
-            </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="contentHolder" runat="server">
+       
+    </asp:ContentPlaceHolder>
         </div>
     </div>
-    </form>
+
 </body>
 </html>
