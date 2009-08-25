@@ -56,7 +56,7 @@ namespace AcessoDados
 
         public void excluir(Paciente paciente)
         {
-            string cmdStr = "delete from clinicalmanager.paciente where idpad = @idpac";
+            string cmdStr = "delete from clinicalmanager.paciente where idpac = @idpac";
             try
             {
                 base.conn.Open();
