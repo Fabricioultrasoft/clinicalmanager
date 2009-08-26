@@ -21,7 +21,7 @@ namespace AcessoDados
         public Conexao()
         {
             //URL = ConfigurationManager.ConnectionStrings["conn"].ConnectionString; 
-            URL = "server=localhost;User id=clinicalmanager;Password=cl1n1c4lm4n4g3r;Database=clinicalmanager";
+            URL = "server=renatocampelo.gotdns.com;User id=clinicalmanager;Password=cl1n1c4lm4n4g3r;Database=clinicalmanager";
             conn = new NpgsqlConnection(URL);
             //conn.Open();            
         }
