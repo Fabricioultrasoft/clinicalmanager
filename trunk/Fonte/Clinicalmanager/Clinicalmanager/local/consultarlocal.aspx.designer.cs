@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Clinicalmanager {
+namespace Clinicalmanager.local {
     
     
-    public partial class _default {
+    public partial class consultarlocal {
     }
 }

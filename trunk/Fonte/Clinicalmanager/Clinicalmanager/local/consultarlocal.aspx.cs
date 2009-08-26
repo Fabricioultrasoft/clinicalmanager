@@ -11,13 +11,13 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-namespace Clinicalmanager
+namespace Clinicalmanager.local
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class consultarlocal : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
