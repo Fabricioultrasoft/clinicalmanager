@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="cadastrarinternacao.aspx.cs" Inherits="Clinicalmanager.internacao.cadasatrarinternacao" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="cadastrarinternacao.aspx.cs" Inherits="Clinicalmanager.internacao.cadastrarinternacao" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style1
         {
             width: 166px;
+            text-align: left;
         }
     </style>
 </asp:Content>
@@ -15,8 +16,9 @@
                     Paciente:</td>
                                 <td>
                                     <asp:DropDownList ID="DropDownList1" runat="server" 
-                                        DataSourceID="ObjectDataSource1" DataTextField="nome" DataValueField="cpf" 
-                                        AutoPostBack="True" onselectedindexchanged="DropDownList1_SelectedIndexChanged">
+                                        DataSourceID="ObjectDataSource1" DataTextField="nome" DataValueField="idpac" 
+                                        AutoPostBack="True" 
+                                        onselectedindexchanged="DropDownList1_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -24,7 +26,8 @@
                                 <td class="style1">
                                     CPF:</td>
                                 <td>
-                                    <asp:TextBox ID="TextBox1" runat="server" Enabled="false"></asp:TextBox>
+                                    <asp:TextBox ID="txtCPF" runat="server" Enabled="false"></asp:TextBox>
+                                    <asp:HiddenField ID="hdidpac" runat="server" />
                                 </td>
                             </tr>
                             <tr>
@@ -55,7 +58,10 @@
             </tr>
         </table>
     </p>
+    <div style="text-align: center">
+    <asp:Button ID="Button1" runat="server" Text="Salvar" onclick="Button1_Click" />
+    </div>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-        SelectMethod="getAllPacientes" TypeName="Negocio.Fachada">
+        SelectMethod="getAllPacientes" TypeName="Negocio.Fachada" >
     </asp:ObjectDataSource>
 </asp:Content>

@@ -49,7 +49,10 @@ namespace Negocio
         {
             return capPac.consultar(nome);
         }
-
+        public Paciente getPacientebyID(int idpac)
+        {
+            return capPac.consultar(idpac);
+        }
         public DataSet getPacienteCpf(string cpf)
         {
             return capPac.consultarCpf(cpf);

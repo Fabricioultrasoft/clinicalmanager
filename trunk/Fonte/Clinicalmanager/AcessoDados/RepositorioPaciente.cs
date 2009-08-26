@@ -104,7 +104,7 @@ namespace AcessoDados
 
         public DataSet consultarTodos()
         {
-            string sql = "select * from clinicalmanager.paciente";
+            string sql = "select idpac, nome, cpf from clinicalmanager.paciente";
             Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
             //cmd.CommandText = 
             return base.execute(sql);

@@ -46,7 +46,10 @@ namespace Negocio
         {
             return rep.consultar(nome);
         }
-
+        public Paciente consultar(int idpac)
+        {
+            return rep.consultar(idpac);
+        }
         public DataSet consultarCpf(string cpf)
         {
             return rep.consultarCpf(cpf);

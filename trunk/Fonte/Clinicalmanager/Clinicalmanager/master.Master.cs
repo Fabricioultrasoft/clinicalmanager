@@ -17,7 +17,7 @@ namespace Clinicalmanager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          if (Session["login"] == null) Server.Transfer("/login.aspx");
+        //  if (Session["login"] == null) Server.Transfer("/login.aspx");
         }
 
         protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
