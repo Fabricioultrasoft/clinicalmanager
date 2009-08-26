@@ -27,7 +27,7 @@ namespace Clinicalmanager.internacao
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtCPF.Text = DropDownList1.DataSourceObject.GetView("cpf").ToString();
+            //txtCPF.Text = DropDownList1.DataSourceObject.GetView("cpf").ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
