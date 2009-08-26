@@ -50,6 +50,11 @@ namespace Negocio
             return capPac.consultar(nome);
         }
 
+        public DataSet getPacienteCpf(string cpf)
+        {
+            return capPac.consultarCpf(cpf);
+        }
+
         public DataSet getAllPacientes()
         {
             return capPac.consultarTodos();

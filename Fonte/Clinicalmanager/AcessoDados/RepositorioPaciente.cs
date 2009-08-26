@@ -79,12 +79,19 @@ namespace AcessoDados
             cmd.CommandText = sql;
             cmd.Parameters.Add("@nome", nome);
             return base.executeToDataset(cmd); 
-            throw new NotImplementedException();
         }
-
+        public DataSet consultarCpf(string cpf)
+        {
+           
+            string sql = "select idpac,nome, cpf from clinicalmanager.paciente where cpf like @cpf";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@cpf", cpf);
+            return base.executeToDataset(cmd); 
+        }
         public Paciente consultar(int idpac)
         {
-            string sql = "select idpac,nome from clinicalmanager where idpac ='@idpac'";
+            string sql = "select idpac,nome from clinicalmanager where idpac = @idpac";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@idpac", idpac);
@@ -93,7 +100,6 @@ namespace AcessoDados
             output.Nome = reader.GetString(1);
             output.Idpac = reader.GetInt32(0);
             return output;
-            throw new NotImplementedException();
         }
 
         public DataSet consultarTodos()

@@ -41,6 +41,15 @@ namespace AcessoDados
             conn.Close();
             return output;
         }
+        public NpgsqlDataReader executeSQL(string sql)
+        {
+            conn.Open();
+            Npgsql.NpgsqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            NpgsqlDataReader output = cmd.ExecuteReader();
+            conn.Close();
+            return output;
+        }
         public DataSet executeToDataset(NpgsqlCommand cmd)
         {
             conn.Open();

@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using System.Drawing;
 
 namespace Clinicalmanager.local
 {
@@ -22,12 +23,21 @@ namespace Clinicalmanager.local
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+            if (!txtCPF.Text.Equals(""))
+            {
+                ObjectDataSource1.SelectParameters.RemoveAt(0);
+                ObjectDataSource1.SelectParameters.Add("cpf", txtCPF.Text);
+                ObjectDataSource1.SelectMethod = "getPacienteCpf";
+            }
+            else
+            {
+                ObjectDataSource1.SelectParameters.RemoveAt(0);
+                ObjectDataSource1.SelectParameters.Add("nome", txtNome.Text);
+                ObjectDataSource1.SelectMethod = "getPaciente";
+            }
+                
         }
 
-        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
-        {
-            Response.Redirect(e.Item.Target.ToString());
-        }
+       
     }
 }

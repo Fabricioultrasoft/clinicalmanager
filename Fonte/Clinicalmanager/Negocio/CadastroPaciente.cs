@@ -47,6 +47,11 @@ namespace Negocio
             return rep.consultar(nome);
         }
 
+        public DataSet consultarCpf(string cpf)
+        {
+            return rep.consultarCpf(cpf);
+        }
+
         #endregion
     }
 }
