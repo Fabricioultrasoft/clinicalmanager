@@ -87,6 +87,10 @@ namespace Negocio
         {
             return cadInt.consultarPorPaciente(idpac);
         }
+        public void inserirInternacao(Internacao internacao)
+        {
+            cadInt.inserir(internacao);
+        }
         public void excluirInternacao(Internacao idint)
         {
             cadInt.excluir(idint);

@@ -17,22 +17,40 @@ namespace Clinicalmanager.internacao
     public partial class cadastrarinternacao : System.Web.UI.Page
     {
         Fachada fachada = new Fachada();
-        Paciente paciente = new Paciente();
+        static Paciente paciente = new Paciente();
         Internacao internacao = new Internacao();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             
         }
-
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        private void clearForm()
         {
-            //txtCPF.Text = DropDownList1.DataSourceObject.GetView("cpf").ToString();
+            TextBox2.Text = "";
+            txtCPF.Text = "";
+            DropDownList1.ClearSelection();
+
+        }
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {           
+            paciente=fachada.getPacientebyID(Int16.Parse(DropDownList1.SelectedValue));
+            txtCPF.Text = paciente.CPF;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            if (paciente != null)
+            {
+                internacao.Paciente = paciente;
+                Convenio conv = new Convenio();
+                conv.Codcon = 1;
+                internacao.Obs = TextBox2.Text;
+                internacao.Convenio = conv;
+                internacao.Data_in = Calendar1.SelectedDate;
+                fachada.inserirInternacao(internacao);
+                clearForm();
+            }
+            
         }
 
       

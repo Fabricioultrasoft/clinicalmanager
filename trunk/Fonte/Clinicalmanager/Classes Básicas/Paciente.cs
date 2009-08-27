@@ -19,6 +19,6 @@ namespace Classes_Básicas
             get { return this.idpac; }
         set{this.idpac=value; }
         }
-    
+        
     }
 }

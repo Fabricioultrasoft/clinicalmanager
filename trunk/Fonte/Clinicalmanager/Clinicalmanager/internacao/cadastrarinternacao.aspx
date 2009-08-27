@@ -62,6 +62,6 @@
     <asp:Button ID="Button1" runat="server" Text="Salvar" onclick="Button1_Click" />
     </div>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-        SelectMethod="getAllPacientes" TypeName="Negocio.Fachada" >
+        SelectMethod="getAllPacientes" TypeName="Negocio.Fachada" DataObjectTypeName="Classes_Básicas.Paciente">
     </asp:ObjectDataSource>
 </asp:Content>

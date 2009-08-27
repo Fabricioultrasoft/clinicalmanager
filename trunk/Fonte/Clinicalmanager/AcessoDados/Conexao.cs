@@ -21,7 +21,7 @@ namespace AcessoDados
         public Conexao()
         {
             //URL = ConfigurationManager.ConnectionStrings["conn"].ConnectionString; 
-            URL = "server=renatocampelo.gotdns.com;User id=clinicalmanager;Password=cl1n1c4lm4n4g3r;Database=clinicalmanager";
+            URL = "server=renato-pc;User id=clinicalmanager;Password=cl1n1c4lm4n4g3r;Database=clinicalmanager";
             conn = new NpgsqlConnection(URL);
             //conn.Open();            
         }
@@ -38,6 +38,7 @@ namespace AcessoDados
         {
             conn.Open();
             NpgsqlDataReader output = cmd.ExecuteReader();
+            output.Read();
             conn.Close();
             return output;
         }
@@ -47,6 +48,7 @@ namespace AcessoDados
             Npgsql.NpgsqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             NpgsqlDataReader output = cmd.ExecuteReader();
+            output.Read();
             conn.Close();
             return output;
         }

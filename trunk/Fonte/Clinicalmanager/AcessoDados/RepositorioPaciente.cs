@@ -91,7 +91,7 @@ namespace AcessoDados
         }
         public Paciente consultar(int idpac)
         {
-            string sql = "select idpac,nome from clinicalmanager where idpac = @idpac";
+            string sql = "select idpac,nome,cpf from clinicalmanager.paciente where idpac = @idpac";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@idpac", idpac);
@@ -99,6 +99,7 @@ namespace AcessoDados
             Paciente output = new Paciente();
             output.Nome = reader.GetString(1);
             output.Idpac = reader.GetInt32(0);
+            output.CPF = reader.GetString(2);
             return output;
         }
 
