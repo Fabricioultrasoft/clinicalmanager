@@ -20,9 +20,9 @@ namespace Negocio
             return rep.consultarTodos();
         }
 
-        public void inserir(Internacao inter)
+        public string inserir(Internacao inter)
         {
-            rep.inserir(inter);
+            return rep.inserir(inter);
         }
 
         public void atualizar(Internacao inter)

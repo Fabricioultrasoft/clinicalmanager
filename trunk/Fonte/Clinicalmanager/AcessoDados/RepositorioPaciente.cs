@@ -13,7 +13,7 @@ namespace AcessoDados
         NpgsqlCommand cmd;
         NpgsqlDataReader reader;
 
-         public void inserir(Paciente paciente)
+         public string inserir(Paciente paciente)
          {
             if (paciente != null)
             {
@@ -30,9 +30,10 @@ namespace AcessoDados
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Erro ao incluir paciente " + ex.Message);
+                    return "Erro ao incluir paciente: "+ex.Message;   
                 }                    
             }
+            return "Paciente incluído com sucesso";
         }
                 
         public void atualizar(Paciente paciente)

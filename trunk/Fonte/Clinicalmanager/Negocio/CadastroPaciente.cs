@@ -21,9 +21,9 @@ namespace Negocio
         }
         #region CRUD
 
-        public void inserir(Paciente pac)
+        public string inserir(Paciente pac)
         {
-            rep.inserir(pac);
+            return rep.inserir(pac);
         }
                
         public void atualizar(Paciente pac)

@@ -15,7 +15,7 @@ namespace AcessoDados
         NpgsqlCommand cmd;
         NpgsqlDataReader reader;
         #region CRUD
-        public void inserir(Internacao internacao)
+        public string inserir(Internacao internacao)
         {
             if (internacao != null)
             {
@@ -36,10 +36,10 @@ namespace AcessoDados
                 }
                 catch (Exception ex)
                 {
-
-                    throw new Exception("Erro ao incluir internacao: " + ex.Message);
-                }
+                    return "Erro ao incluir internação: "+ex.Message;
+                }                
             }
+            return "Internação incluída com sucesso";
         }
 
         public void atualizar(Internacao internacao)

@@ -18,9 +18,9 @@ namespace Negocio
         {
             return rep.consultarTodos();
         }
-        public void inserirLocal(Local local)
+        public string inserirLocal(Local local)
         {
-            rep.inserir(local);
+            return rep.inserir(local);
         }
     }
 }

@@ -47,8 +47,10 @@ namespace Clinicalmanager.internacao
                 internacao.Obs = TextBox2.Text;
                 internacao.Convenio = conv;
                 internacao.Data_in = Calendar1.SelectedDate;
-                fachada.inserirInternacao(internacao);
+                master resultado = (master)this.Master;
+                resultado.StatusLabel = fachada.inserirInternacao(internacao);
                 clearForm();
+                
             }
             
         }
