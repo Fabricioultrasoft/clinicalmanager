@@ -57,13 +57,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="defaultold.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
     <Content Include="default.css" />
-    <Content Include="destino.aspx" />
     <Content Include="index.html" />
-    <Content Include="origem.aspx" />
     <Content Include="paciente\cadastrarpaciente.aspx" />
     <Content Include="Web.config" />
     <Content Include="consultar.aspx" />
@@ -75,20 +70,6 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="defaultold.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>defaultold.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="defaultold.aspx.designer.cs">
-      <DependentUpon>defaultold.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="destino.aspx.cs">
-      <DependentUpon>destino.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="destino.aspx.designer.cs">
-      <DependentUpon>destino.aspx</DependentUpon>
     </Compile>
     <Compile Include="internacao\cadastrarinternacao.aspx.cs">
       <DependentUpon>cadastrarinternacao.aspx</DependentUpon>
@@ -110,20 +91,6 @@
     </Compile>
     <Compile Include="local\consultarlocal.aspx.designer.cs">
       <DependentUpon>consultarlocal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewFolder1\Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewFolder1\Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-    </Compile>
-    <Compile Include="NewFolder1\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewFolder1\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="paciente\consultarpaciente.aspx.cs">
       <DependentUpon>consultarpaciente.aspx</DependentUpon>
@@ -152,13 +119,6 @@
     </Compile>
     <Compile Include="master2.Master.designer.cs">
       <DependentUpon>master2.Master</DependentUpon>
-    </Compile>
-    <Compile Include="origem.aspx.cs">
-      <DependentUpon>origem.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="origem.aspx.designer.cs">
-      <DependentUpon>origem.aspx</DependentUpon>
     </Compile>
     <Compile Include="paciente\cadastrarpaciente.aspx.cs">
       <DependentUpon>cadastrarpaciente.aspx</DependentUpon>
@@ -199,8 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="internacao\cadastrarinternacao.aspx" />
-    <Content Include="NewFolder1\Site1.Master" />
-    <Content Include="NewFolder1\WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

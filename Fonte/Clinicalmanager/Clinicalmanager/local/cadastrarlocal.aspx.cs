@@ -28,7 +28,8 @@ namespace Clinicalmanager.local
             local.Descricao = txtDescricao.Text;
             local.Geraprd = chkPrd.Checked;
             local.Andar = Convert.ToInt16(drpAndar.SelectedValue);
-            fachada.inserirLocal(local);
+            master resultado = (master)this.Master;
+            resultado.StatusLabel = fachada.inserirLocal(local);
         }
 
         protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)

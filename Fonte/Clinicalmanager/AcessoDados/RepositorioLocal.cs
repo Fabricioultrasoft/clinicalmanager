@@ -11,7 +11,7 @@ namespace AcessoDados
     {
         NpgsqlCommand cmd;
         NpgsqlDataReader reader;
-        public void inserir(Local local)
+        public string inserir(Local local)
         {
             if (local != null)
             {
@@ -29,10 +29,10 @@ namespace AcessoDados
                 }
                 catch (Exception ex)
                 {
-
-                    throw new Exception("Erro ao incluir paciente " + ex.Message);
+                    return "Erro ao incluir lotação: "+ex.Message;
                 }
             }
+            return "Locação incluída com sucesso";
         }
 
         public void atualizar(Local local)

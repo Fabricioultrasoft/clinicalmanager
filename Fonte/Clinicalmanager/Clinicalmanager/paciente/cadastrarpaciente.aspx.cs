@@ -27,7 +27,8 @@ namespace Clinicalmanager.paciente
             Paciente paciente = new Paciente();
             paciente.CPF = txtCPF.Text;
             paciente.Nome = txtNome.Text;
-            fachada.inserirPaciente(paciente);
+            master resultado = (master)this.Master;
+            resultado.StatusLabel = fachada.inserirPaciente(paciente);
             txtNome.Text = "";
             txtCPF.Text = "";
         }
@@ -35,7 +36,6 @@ namespace Clinicalmanager.paciente
         protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
         {
             Response.Redirect(e.Item.Target.ToString());
-            //Server.Transfer(e.Item.Target.ToString(), true);
         }
     }
 }

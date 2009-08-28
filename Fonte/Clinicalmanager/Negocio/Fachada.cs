@@ -41,9 +41,9 @@ namespace Negocio
             pac.Idpac=idpac;
             capPac.exluir(pac);
         }
-        public void inserirPaciente(Paciente paciente)
+        public string inserirPaciente(Paciente paciente)
         {
-            capPac.inserir(paciente);
+            return capPac.inserir(paciente);
         }
         public DataSet getPaciente(string nome)
         {
@@ -76,9 +76,9 @@ namespace Negocio
         {
             return cadLoc.consultarTodos();
         }
-        public void inserirLocal(Local local)
+        public string inserirLocal(Local local)
         {
-            cadLoc.inserirLocal(local);
+            return cadLoc.inserirLocal(local);
         }
         #endregion
 
@@ -87,9 +87,9 @@ namespace Negocio
         {
             return cadInt.consultarPorPaciente(idpac);
         }
-        public void inserirInternacao(Internacao internacao)
+        public string inserirInternacao(Internacao internacao)
         {
-            cadInt.inserir(internacao);
+            return cadInt.inserir(internacao);
         }
         public void excluirInternacao(Internacao idint)
         {

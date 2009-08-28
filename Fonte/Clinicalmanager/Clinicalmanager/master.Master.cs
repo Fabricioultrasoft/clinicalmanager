@@ -19,7 +19,12 @@ namespace Clinicalmanager
         {
         //  if (Session["login"] == null) Server.Transfer("/login.aspx");
         }
-
+        public String StatusLabel {
+            set 
+            {
+                this.statusLabel.Text = value;
+            }
+        }
         protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
         {
             Server.Transfer(e.Item.Target.ToString(),true);

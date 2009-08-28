@@ -59,7 +59,9 @@
             </asp:Menu>
         </div>
         <div id="content">
+        <asp:Label ID="statusLabel" runat="server" ForeColor="#CC3300"></asp:Label>
             <asp:ContentPlaceHolder ID="contentHolder" runat="server">
+                
             </asp:ContentPlaceHolder>
         </div>
         </form>
