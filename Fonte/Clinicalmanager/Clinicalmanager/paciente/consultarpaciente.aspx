@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="consultarpaciente.aspx.cs"
     Inherits="Clinicalmanager.local.consultarpaciente" MasterPageFile="~/master.Master"%>
 <asp:Content ID="consPac" ContentPlaceHolderID="contentHolder" runat="server">
-
+<h1>Consultar Paciente</h1>
         <div id="paramPac">
             <table style="width: 100%;">
                 <tr>
@@ -31,7 +31,6 @@
                     <asp:CommandField DeleteText="Excluir" ShowDeleteButton="True" />
                     <asp:BoundField DataField="nome" HeaderText="Nome" />
                     <asp:BoundField DataField="cpf" HeaderText="CPF" />
-                    <asp:ButtonField Text="internacao" />
                 </Columns>
             </asp:GridView>
             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="excluirPaciente"

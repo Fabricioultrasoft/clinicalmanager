@@ -29,7 +29,6 @@ namespace Clinicalmanager.internacao
             TextBox2.Text = "";
             txtCPF.Text = "";
             DropDownList1.ClearSelection();
-
         }
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {           
@@ -43,7 +42,7 @@ namespace Clinicalmanager.internacao
             {
                 internacao.Paciente = paciente;
                 Convenio conv = new Convenio();
-                conv.Codcon = 1;
+                conv.Codcon =  Int16.Parse(drpConvenio.SelectedValue);
                 internacao.Obs = TextBox2.Text;
                 internacao.Convenio = conv;
                 internacao.Data_in = Calendar1.SelectedDate;

@@ -71,12 +71,47 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="fatura\cadastrarfatura.aspx.cs">
+      <DependentUpon>cadastrarfatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fatura\cadastrarfatura.aspx.designer.cs">
+      <DependentUpon>cadastrarfatura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fatura\consultarfatura.aspx.cs">
+      <DependentUpon>consultarfatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fatura\consultarfatura.aspx.designer.cs">
+      <DependentUpon>consultarfatura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="internacao\cadastrarinternacao.aspx.cs">
       <DependentUpon>cadastrarinternacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="internacao\cadastrarinternacao.aspx.designer.cs">
       <DependentUpon>cadastrarinternacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="internacao\consultarinternacao.aspx.cs">
+      <DependentUpon>consultarinternacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="internacao\consultarinternacao.aspx.designer.cs">
+      <DependentUpon>consultarinternacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="internacao\liberarinternacao.aspx.cs">
+      <DependentUpon>liberarinternacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="internacao\liberarinternacao.aspx.designer.cs">
+      <DependentUpon>liberarinternacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="internacao\movimentarpaciente.aspx.cs">
+      <DependentUpon>movimentarpaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="internacao\movimentarpaciente.aspx.designer.cs">
+      <DependentUpon>movimentarpaciente.aspx</DependentUpon>
     </Compile>
     <Compile Include="local\cadastrarlocal.aspx.cs">
       <DependentUpon>cadastrarlocal.aspx</DependentUpon>
@@ -91,6 +126,20 @@
     </Compile>
     <Compile Include="local\consultarlocal.aspx.designer.cs">
       <DependentUpon>consultarlocal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="medico\cadastrarmedico.aspx.cs">
+      <DependentUpon>cadastrarmedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="medico\cadastrarmedico.aspx.designer.cs">
+      <DependentUpon>cadastrarmedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="medico\consultarmedico.aspx.cs">
+      <DependentUpon>consultarmedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="medico\consultarmedico.aspx.designer.cs">
+      <DependentUpon>consultarmedico.aspx</DependentUpon>
     </Compile>
     <Compile Include="paciente\consultarpaciente.aspx.cs">
       <DependentUpon>consultarpaciente.aspx</DependentUpon>
@@ -158,11 +207,17 @@
     <Content Include="master2.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fatura\cadastrarfatura.aspx" />
+    <Content Include="fatura\consultarfatura.aspx" />
     <Content Include="internacao\cadastrarinternacao.aspx" />
+    <Content Include="internacao\consultarinternacao.aspx" />
+    <Content Include="internacao\liberarinternacao.aspx" />
+    <Content Include="internacao\movimentarpaciente.aspx" />
+    <Content Include="medico\cadastrarmedico.aspx" />
+    <Content Include="medico\consultarmedico.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="medico\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
