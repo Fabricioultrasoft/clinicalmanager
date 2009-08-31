@@ -32,15 +32,6 @@ namespace Clinicalmanager.internacao {
         protected global::System.Web.UI.WebControls.TextBox txtCPF;
         
         /// <summary>
-        /// hdidpac control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdidpac;
-        
-        /// <summary>
         /// Calendar1 control.
         /// </summary>
         /// <remarks>
@@ -59,6 +50,15 @@ namespace Clinicalmanager.internacao {
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
+        /// drpConvenio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpConvenio;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
@@ -68,12 +68,21 @@ namespace Clinicalmanager.internacao {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// ObjectDataSource1 control.
+        /// dsPaciente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsPaciente;
+        
+        /// <summary>
+        /// dsConvenio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsConvenio;
     }
 }

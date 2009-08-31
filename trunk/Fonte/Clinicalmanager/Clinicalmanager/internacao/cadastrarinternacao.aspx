@@ -9,6 +9,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentHolder" runat="server">
+    <h1>Cadastrar Internação</h1>
     <p>
         <table style="width:100%;">
             <tr>
@@ -16,7 +17,7 @@
                     Paciente:</td>
                                 <td>
                                     <asp:DropDownList ID="DropDownList1" runat="server" 
-                                        DataSourceID="ObjectDataSource1" DataTextField="nome" DataValueField="idpac" 
+                                        DataSourceID="dsPaciente" DataTextField="nome" DataValueField="idpac" 
                                         AutoPostBack="True" 
                                         onselectedindexchanged="DropDownList1_SelectedIndexChanged">
                                     </asp:DropDownList>
@@ -27,7 +28,6 @@
                                     CPF:</td>
                                 <td>
                                     <asp:TextBox ID="txtCPF" runat="server" Enabled="false"></asp:TextBox>
-                                    <asp:HiddenField ID="hdidpac" runat="server" />
                                 </td>
                             </tr>
                             <tr>
@@ -56,12 +56,25 @@
                         Width="333px"></asp:TextBox>
                 </td>
             </tr>
+            <tr>
+                <td class="style1">
+                    Convênio:</td>
+                <td>
+                    <asp:DropDownList ID="drpConvenio" runat="server" DataSourceID="dsConvenio" 
+                        DataTextField="descricao" DataValueField="idcon">
+                    </asp:DropDownList>
+                </td>
+            </tr>
         </table>
     </p>
     <div style="text-align: center">
-    <asp:Button ID="Button1" runat="server" Text="Salvar" onclick="Button1_Click" />
+    <asp:Button ID="Button1" runat="server" Text="Salvar" onclick="Button1_Click" 
+            Height="28px" />
     </div>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-        SelectMethod="getAllPacientes" TypeName="Negocio.Fachada" DataObjectTypeName="Classes_Básicas.Paciente">
+    <asp:ObjectDataSource ID="dsPaciente" runat="server" 
+        SelectMethod="getAllPacientes" TypeName="Negocio.Fachada" 
+        DataObjectTypeName="Classes_Básicas.Paciente">
     </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="dsConvenio" runat="server" SelectMethod="getAllConvenio" 
+        TypeName="Negocio.Fachada"></asp:ObjectDataSource>
 </asp:Content>
