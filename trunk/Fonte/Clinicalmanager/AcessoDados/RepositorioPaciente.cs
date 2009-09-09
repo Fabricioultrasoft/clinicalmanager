@@ -100,7 +100,9 @@ namespace AcessoDados
             Paciente output = new Paciente();
             output.Nome = reader.GetString(1);
             output.Idpac = reader.GetInt32(0);
-            output.CPF = reader.GetString(2);
+           
+                output.CPF = reader.GetString(2);
+           
             return output;
         }
 

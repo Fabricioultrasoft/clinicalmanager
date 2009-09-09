@@ -11,7 +11,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contentHolder" runat="server">
     <h1>Cadastrar Internação</h1>
     <p>
-        <table style="width:100%;">
+        <table style="width:100%; text-align: left;">
             <tr>
                 <td class="style1">
                     Paciente:</td>

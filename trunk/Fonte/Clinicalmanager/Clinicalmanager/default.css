@@ -82,14 +82,15 @@ legend {
 	display: none;
 }
 
+i
+
 input, textarea, select {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #333333;
-	text-align: left;
+	height: 28px;
 }
 
-/* Header */
 
 #header {
 	width: 860px;

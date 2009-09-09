@@ -38,6 +38,11 @@ namespace Clinicalmanager.local
                 
         }
 
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            Response.Redirect("~/internacao/consultarinternacao.aspx");
+        }
+
        
     }
 }

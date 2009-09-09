@@ -27,7 +27,8 @@ namespace Clinicalmanager
         }
         protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
         {
-            Server.Transfer(e.Item.Target.ToString(),true);
+            Response.Redirect(e.Item.Target.ToString());
+            //Server.Transfer(e.Item.Target.ToString(),true);
         }
     }
 }

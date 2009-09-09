@@ -26,11 +26,14 @@
         <div id="resultPac">
         <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" 
                 AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="idpac" 
-                style="margin-right: 8px">
+                style="margin-right: 8px" onrowcommand="GridView1_RowCommand">
                 <Columns>
                     <asp:CommandField DeleteText="Excluir" ShowDeleteButton="True" />
                     <asp:BoundField DataField="nome" HeaderText="Nome" />
                     <asp:BoundField DataField="cpf" HeaderText="CPF" />
+                    <asp:HyperLinkField DataNavigateUrlFields="idpac" 
+                        DataNavigateUrlFormatString="~/internacao/consultarinternacao.aspx?idpac={0}" 
+                        NavigateUrl="~/internacao/consultarinternacao.aspx" Text="ver internações" />
                 </Columns>
             </asp:GridView>
             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="excluirPaciente"

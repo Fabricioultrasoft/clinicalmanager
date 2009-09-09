@@ -69,6 +69,10 @@ namespace Negocio
         {
             return cadMed.consultarTodos();
         }
+        public string inserirMedico(Medico medico)
+        {
+            return cadMed.inserirMedico(medico);
+        }
         #endregion
 
         #region Localidades
@@ -83,6 +87,10 @@ namespace Negocio
         #endregion
 
         #region INTERNACAO
+        public DataSet getInternacaoPacienteNome(string nome, string andamento)
+        {
+            return cadInt.consultarPorPacienteNome(nome, andamento);
+        }
         public DataSet getInternacaoPaciente(int idpac)
         {
             return cadInt.consultarPorPaciente(idpac);
@@ -94,6 +102,23 @@ namespace Negocio
         public void excluirInternacao(Internacao idint)
         {
             cadInt.excluir(idint);
+        }
+        public void liberarInternacao(Internacao internacao, DateTime data_saida, float valor_hn)
+        {
+            cadInt.liberarInternacao(internacao, data_saida, valor_hn);
+        }
+        #endregion
+        #region Convênio
+        public DataSet getAllConvenio()
+        {
+            return cadCon.getAllConenio();
+        }
+        public Convenio getConveniobyId(int idconv)
+        {
+            return cadCon.getConveniobyId(idconv);
+        }
+        public void inserirConvenio(Convenio convenio)
+        {
         }
         #endregion
     }
