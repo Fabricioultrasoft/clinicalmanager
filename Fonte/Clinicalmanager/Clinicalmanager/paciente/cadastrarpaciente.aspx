@@ -5,7 +5,7 @@
         <div id="content">
             <h1 style="margin: 5px">
                 Cadastro de Paciente</h1>
-            <table style="margin: 4px; width: 100%;">
+            <table style="margin: 4px; width: 100%; text-align: left;">
                 <tr>
                     <td class="style2">
                         Nome:

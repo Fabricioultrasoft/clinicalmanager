@@ -12,7 +12,7 @@ namespace AcessoDados
         NpgsqlCommand cmd;
         NpgsqlDataReader reader;
 
-        public void inserir(Medico medico)
+        public string inserir(Medico medico)
         {
             if (medico != null)
             {
@@ -25,13 +25,16 @@ namespace AcessoDados
                     cmd.Parameters.Add("@nome", medico.Nome);
                     cmd.ExecuteNonQuery();
                     base.conn.Close();
+                    return "Médico incluído com sucesso";
                 }
                 catch (Exception ex)
                 {
-
-                    throw new Exception("Erro ao incluir paciente: "+ex.Message);
+                    return "Erro ao incluir medico";
+                    throw new Exception("Erro ao incluir medico: "+ex.Message);
                 }
-            }
+               
+            }else
+            return "Parâmetro médico null";
         }
 
         public void atualizar(Medico medico)

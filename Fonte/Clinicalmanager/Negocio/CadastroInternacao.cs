@@ -14,7 +14,10 @@ namespace Negocio
         {
             rep = new RepositorioInternacao();
         }
-
+        public void liberarInternacao(Internacao internacao, DateTime data_saida, float valor)
+        {
+            rep.liberarInternacao(internacao, data_saida, valor);
+        }
         public DataSet consultarTodos()
         {
             return rep.consultarTodos();
@@ -42,6 +45,10 @@ namespace Negocio
         public DataSet consultarPorPaciente(int idpac)
         {
             return rep.consultarPorPaciente(idpac);
+        }
+        public DataSet consultarPorPacienteNome(string nome, string andamento)
+        {
+            return rep.consultarPorPacienteNome(nome, andamento);
         }
     }
 }

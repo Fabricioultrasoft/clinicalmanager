@@ -167,6 +167,40 @@ namespace AcessoDados
             Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
             return base.execute(sql);
         }
+
+        public DataSet consultarPorPacienteNome(string nome, string andamento)
+        {
+            string compl;
+            switch (andamento)
+            {
+                case "Finalizadas": 
+                    compl = "and i.data_out is not null";
+                    break;
+                default:
+                    compl = "and i.data_out is null";
+                    break;
+            }
+            
+            string sql = "select * from clinicalmanager.internacao i inner join clinicalmanager.paciente p " + 
+                         "on (i.idpac=p.idpac) where p.nome like @nome "+compl +" order by i.data_in desc";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@nome", nome+'%');
+            return base.executeToDataset(cmd);
+        }
+        public void liberarInternacao(Internacao internacao, DateTime data_saida, float valor)
+        {
+            string sql = "update clinicalmanager.internacao set data_out=@data_out,"+
+                       "  vl_esperado_hn=@valor where idint=@idint";
+            base.conn.Open();
+            cmd = conn.CreateCommand();
+            cmd.CommandText=sql;
+            cmd.Parameters.Add("@data_out", data_saida);
+            cmd.Parameters.Add("@valor",valor);
+            cmd.Parameters.Add("@idint", internacao.Codint);
+            cmd.ExecuteNonQuery();
+            base.conn.Close();
+        }
     }
 }
 

@@ -51,13 +51,6 @@
                         </asp:MenuItem>
                         <asp:MenuItem Text="Local" Value="Local" Target="/local/consultarlocal.aspx"></asp:MenuItem>
                     </asp:MenuItem>
-                    <asp:MenuItem Text="Internação" Value="Internação">
-                        <asp:MenuItem Text="Autorizar Alta" Value="Autorizar Alta" 
-                            Target="/internacao/autorizaralta.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Movimentar Paciente" Value="Movimentar Paciente" 
-                            Target="/internacao/movimentarpaciente.aspx">
-                        </asp:MenuItem>
-                    </asp:MenuItem>
                     <asp:MenuItem Text="Relatórios" Value="Relatórios">
                         <asp:MenuItem Text="Internacões" Value="Internacões"></asp:MenuItem>
                     </asp:MenuItem>
