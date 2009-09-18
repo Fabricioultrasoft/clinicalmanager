@@ -50,5 +50,10 @@ namespace Negocio
         {
             return rep.consultarPorPacienteNome(nome, andamento);
         }
+        public string movimentarPaciente(int idint, int idloc, DateTime data_in_loc, DateTime data_out_loc, string obs_loc)
+        {
+            return rep.movimentarPaciente(idint, idloc, data_in_loc, data_out_loc, obs_loc);
+
+        }
     }
 }

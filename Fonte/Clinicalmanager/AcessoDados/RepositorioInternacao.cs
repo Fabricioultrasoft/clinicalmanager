@@ -201,6 +201,31 @@ namespace AcessoDados
             cmd.ExecuteNonQuery();
             base.conn.Close();
         }
+        public string movimentarPaciente(int idint, int idloc, DateTime data_in_loc, DateTime data_out_loc, string obs_loc)
+        {
+            string sql = "insert into clinicalmanager.local_internacao" +
+                "(idint, idloc, data_in_loc, data_out_loc, obs_loc) " +
+                "values (@idint, @idloc, @data_in_loc, @data_out_loc, @obs_loc)";
+            conn.Open();
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idint", idint);
+            cmd.Parameters.Add("@idloc", idloc);
+            cmd.Parameters.Add("@data_in_loc", data_in_loc);
+            cmd.Parameters.Add("@data_out_loc", data_out_loc);
+            cmd.Parameters.Add("@obs_loc", obs_loc);
+            cmd.ExecuteNonQuery();
+            base.conn.Close();
+            return "Movimentação cadastrada com sucesso";
+        }
+        public DataSet historico(int idint)
+        {
+            string sql = "select p.nome, i.data_in, l.nome, li.data_in_loc, " +
+                "li.obs_loc from clinicalmanager.local_internacao li " +
+                "inner join clinicalmanager.internacao i on (i.idint=li.idint) " +
+                "inner join clinicalmanager.local l on (li.idloc=l.idloc) " +
+                "inner join clinicalmanager.paciente p on (i.idpac=p.idpac)";
+        }
     }
 }
 

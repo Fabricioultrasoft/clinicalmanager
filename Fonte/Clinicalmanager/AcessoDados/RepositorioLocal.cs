@@ -55,7 +55,7 @@ namespace AcessoDados
             }
         }
 
-        public void exluir(Local local)
+        public string exluir(Local local)
         {
             string cmdStr = "delete from clinicalmanager.local where idloc = @idloc";
             try
@@ -69,22 +69,19 @@ namespace AcessoDados
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível remover o paciente " + ex.Message);
+                return "Não foi possível remover o paciente: " + ex.Message;
+                //throw new Exception("Não foi possível remover o paciente " + ex.Message);
             }
+            return "Local removido com sucesso";
         }
 
-        public Local consultar(string nome)
+        public DataSet getLocalbyDesc(string nome, string andar)
         {
-            string sql = "select idloc, nome, gera_prd from clinicalmanager.local where nome like '@nome'";
+            string sql = "select idloc, nome, gera_prd, andar from clinicalmanager.local where nome like @nome";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Parameters.Add("@nome", nome);
-            reader = base.execute(cmd);
-            Local output = new Local();
-            output.Descricao = reader.GetString(1);
-            output.Geraprd=reader.GetBoolean(2);
-            output.Codloc = reader.GetInt16(0);
-            return output;
+            cmd.Parameters.Add("@nome", nome+"%");
+            return base.executeToDataset(cmd);
         }
 
         public DataSet consultarTodos()

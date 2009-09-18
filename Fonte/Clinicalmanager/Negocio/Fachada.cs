@@ -84,9 +84,23 @@ namespace Negocio
         {
             return cadLoc.inserirLocal(local);
         }
+        public DataSet getLocalbyDesc(string desc, string andar)
+        {
+            return cadLoc.getLocalbyDesc(desc, andar);
+        }
+        public string excluirLocal(int idloc)
+        {
+            Local local = new Local();
+            local.Codloc = idloc;
+            return cadLoc.excluirLocal(local);
+        }
         #endregion
 
         #region INTERNACAO
+        public string movimentarPaciente(int idint, int idloc, DateTime data_in_loc, DateTime data_out_loc, string obs_loc)
+        {
+           return cadInt.movimentarPaciente(idint, idloc, data_in_loc, data_out_loc, obs_loc);
+        }
         public DataSet getInternacaoPacienteNome(string nome, string andamento)
         {
             return cadInt.consultarPorPacienteNome(nome, andamento);

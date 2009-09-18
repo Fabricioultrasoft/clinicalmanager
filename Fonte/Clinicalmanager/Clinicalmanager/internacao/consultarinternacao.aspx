@@ -6,6 +6,9 @@ window.open('liberarinternacao.aspx?idint='+idint,'',"status=no, height = 350 , 
 /*status=yes/no,  Barra de menu: menubar=yes/no ,  Barra de ferramentas: toolbar=yes/no ,  Barra de título: titlebar=yes/no
 Barra de endereços:location=yes/no ,  Tela cheia:fullscreen=yes/no ,  Barra de diretórios:directories=yes/no*/
 }
+function movimentar(idint){
+window.open('movimentarpaciente.aspx?idint='+idint,'',"status=no, height = 450 , width = 400, location=no,menubar=no,titlebar=no, directories=no" )
+}
 </script>
     <style type="text/css">
         .style2
@@ -21,7 +24,7 @@ Barra de endereços:location=yes/no ,  Tela cheia:fullscreen=yes/no ,  Barra de 
         }
         .style4
         {
-            width: 81px;
+            width: 78px;
             text-align: left;
         }
         .style6
@@ -66,8 +69,9 @@ Barra de endereços:location=yes/no ,  Tela cheia:fullscreen=yes/no ,  Barra de 
                     Data de entrada</td>
                 <td class="style8">
                     <asp:TextBox ID="txtDataEntrada" runat="server" Width="85px"></asp:TextBox>
-                    <asp:Button ID="Button1" runat="server" Text="..." Width="32px" 
-                        CssClass="links" onclick="Button1_Click" />
+                    <asp:Button ID="Button1" runat="server" Text="..." onclick="Button1_Click" 
+                        Width="24px" />
+                     
                     <div>
                         <asp:Calendar ID="cldDataEntrada" runat="server" BackColor="White" 
                             BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" 
@@ -88,8 +92,8 @@ Barra de endereços:location=yes/no ,  Tela cheia:fullscreen=yes/no ,  Barra de 
                 <td class="style4">
                     Data de Saída</td>
                 <td class="style7" style="text-align: left">
-                    <asp:TextBox ID="txtDataSaida" runat="server" Width="84px"></asp:TextBox>
-                    <asp:Button ID="Button2" runat="server" Text="..." Width="31px" 
+                    <asp:TextBox ID="txtDataSaida" runat="server" Width="75px"></asp:TextBox>
+                    <asp:Button ID="Button2" runat="server" Text="..." Width="22px" 
                         CssClass="links" onclick="Button2_Click" />
                     <div>
                         <asp:Calendar ID="cldDataSaida" runat="server" BackColor="White" 
@@ -135,7 +139,7 @@ Barra de endereços:location=yes/no ,  Tela cheia:fullscreen=yes/no ,  Barra de 
         <asp:GridView ID="grdInternacao" runat="server" AutoGenerateColumns="False" 
             BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" 
             CellPadding="4" DataSourceID="dsInternacao" GridLines="Horizontal" 
-            oninit="grdInternacao_Init">
+            oninit="grdInternacao_Init" AllowPaging="True" PageSize="10">
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
                 <asp:BoundField DataField="data_in" HeaderText="Data de Entrada" />
@@ -143,15 +147,15 @@ Barra de endereços:location=yes/no ,  Tela cheia:fullscreen=yes/no ,  Barra de 
                 <asp:BoundField DataField="nome" HeaderText="Paciente" />
                 <asp:BoundField DataField="cpf" HeaderText="CPF" />
                 <asp:BoundField DataField="obs" HeaderText="Observações" />
-                <asp:HyperLinkField DataNavigateUrlFields="idint" 
-                    DataNavigateUrlFormatString="~/internacao/liberarinternacao.aspx?idint={0}" 
-                    Text="Alta" Target="_search" />
-                <asp:HyperLinkField DataNavigateUrlFields="idint" 
-                    DataNavigateUrlFormatString="~/internacao/movimentarpaciente.aspx?idint={0}" 
-                    Text="movimentar" Target="_search"/>
-                <asp:TemplateField HeaderText="teste">
+                <asp:TemplateField HeaderText="Liberação">
                 <ItemTemplate>
-                <a href="#" onclick="alta('<%# Eval("idint")%>')">Detalhe</a>
+                <a href="#" onclick="alta('<%# Eval("idint")%>')">Liberar</a>
+                </ItemTemplate>
+                </asp:TemplateField>
+                
+                <asp:TemplateField HeaderText="Movimentação">
+                <ItemTemplate>
+                <a href="#" onclick="movimentar('<%# Eval("idint")%>')">Movimentar</a>
                 </ItemTemplate>
                 </asp:TemplateField>
                 

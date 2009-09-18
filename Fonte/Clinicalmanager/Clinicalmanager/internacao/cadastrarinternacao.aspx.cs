@@ -31,9 +31,15 @@ namespace Clinicalmanager.internacao
             DropDownList1.ClearSelection();
         }
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {           
-            paciente=fachada.getPacientebyID(Int16.Parse(DropDownList1.SelectedValue));
-            txtCPF.Text = paciente.CPF;
+        {
+            if (IsPostBack)
+            {
+                paciente = fachada.getPacientebyID(Int16.Parse(DropDownList1.SelectedValue));
+                if (paciente.CPF != null)
+                {
+                    txtCPF.Text = paciente.CPF;
+                }
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -48,8 +54,7 @@ namespace Clinicalmanager.internacao
                 internacao.Data_in = Calendar1.SelectedDate;
                 master resultado = (master)this.Master;
                 resultado.StatusLabel = fachada.inserirInternacao(internacao);
-                clearForm();
-                
+                clearForm();                
             }
             
         }
