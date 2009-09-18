@@ -22,5 +22,13 @@ namespace Negocio
         {
             return rep.inserir(local);
         }
+        public DataSet getLocalbyDesc(string desc, string andar)
+        {
+            return rep.getLocalbyDesc(desc, andar);
+        }
+        public string excluirLocal(Local local)
+        {
+            return rep.exluir(local);
+        }
     }
 }

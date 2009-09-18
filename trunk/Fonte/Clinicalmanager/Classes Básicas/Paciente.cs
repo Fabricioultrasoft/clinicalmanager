@@ -19,6 +19,9 @@ namespace Classes_Básicas
             get { return this.idpac; }
         set{this.idpac=value; }
         }
-        
+        public string ToString()
+        {
+            return nome;
+        }
     }
 }

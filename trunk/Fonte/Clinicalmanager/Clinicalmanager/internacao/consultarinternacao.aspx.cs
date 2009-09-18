@@ -17,7 +17,7 @@ namespace Clinicalmanager.internacao
     public partial class consultarinternacao : System.Web.UI.Page
     {
         Fachada fachada = new Fachada();
-        Internacao internacao;
+        //Internacao internacao;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["idpac"] != null)
@@ -26,23 +26,26 @@ namespace Clinicalmanager.internacao
                 dsInternacao.SelectParameters.Clear();
                 dsInternacao.SelectParameters.Add("idpac",Request.Params["idpac"]);
                 grdInternacao.Visible = true;
-            }                
+            }
         }
 
+        #region Botões para mostrar calendário
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (cldDataEntrada.Visible == false)
+            {                
                 cldDataEntrada.Visible = true;
+            }
             else cldDataEntrada.Visible = false;
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
             if (cldDataSaida.Visible == false)
+
                 cldDataSaida.Visible = true;
             else cldDataSaida.Visible = false;
         }
-
         protected void cldDataEntrada_SelectionChanged(object sender, EventArgs e)
         {
             txtDataEntrada.Text = cldDataEntrada.SelectedDate.ToShortDateString();
@@ -54,6 +57,8 @@ namespace Clinicalmanager.internacao
             txtDataSaida.Text = cldDataSaida.SelectedDate.ToShortDateString();
             cldDataSaida.Visible = false;
         }
+        #endregion
+              
 
         protected void btnConsulta_Click(object sender, EventArgs e)
         {
@@ -72,6 +77,7 @@ namespace Clinicalmanager.internacao
         {
             grdInternacao.Visible = false;
         }
+
 
     }
 }

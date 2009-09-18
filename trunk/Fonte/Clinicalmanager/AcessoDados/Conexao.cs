@@ -38,8 +38,7 @@ namespace AcessoDados
         {
             conn.Open();
             NpgsqlDataReader output = cmd.ExecuteReader();
-            output.Read();
-            conn.Close();
+            //conn.Close();
             return output;
         }
         public NpgsqlDataReader executeSQL(string sql)

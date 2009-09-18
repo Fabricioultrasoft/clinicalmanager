@@ -98,11 +98,11 @@ namespace AcessoDados
             cmd.Parameters.Add("@idpac", idpac);
             reader = base.execute(cmd);
             Paciente output = new Paciente();
-            output.Nome = reader.GetString(1);
-            output.Idpac = reader.GetInt32(0);
-           
+            reader.Read();
+                output.Nome = reader.GetString(1);
+                output.Idpac = reader.GetInt32(0);
                 output.CPF = reader.GetString(2);
-           
+                conn.Close();
             return output;
         }
 

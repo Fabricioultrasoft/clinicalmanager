@@ -11,7 +11,7 @@
 <body>
     <div id="logo">
         <h1>
-            <a href="#">Clinical Manager</a></h1>
+            <a href="/default.aspx">Clinical Manager</a></h1>
         <h2>
             Controle Gerencial de Clínica</h2>
     </div>

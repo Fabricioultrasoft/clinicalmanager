@@ -38,9 +38,14 @@ namespace Clinicalmanager.local
                 
         }
 
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+       
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            Response.Redirect("~/internacao/consultarinternacao.aspx");
+            e.Row.Attributes["onmouseover"] = "javascript:setMOverColor(this);";
+            e.Row.Attributes["onmouseout"] = "javascript:setmOutColor(this);";
+            //e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex.ToString(),false);
+                //this.gridResult, "Select$" + e.Row.RowIndex.ToString());
         }
 
        

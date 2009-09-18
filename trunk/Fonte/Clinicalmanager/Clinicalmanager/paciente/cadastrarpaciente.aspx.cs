@@ -25,7 +25,10 @@ namespace Clinicalmanager.paciente
         {
             Fachada fachada = Fachada.getInstancia();
             Paciente paciente = new Paciente();
-            paciente.CPF = txtCPF.Text;
+            if (!txtCPF.Text.Equals(""))
+            {
+                paciente.CPF = txtCPF.Text;
+            }            
             paciente.Nome = txtNome.Text;
             master resultado = (master)this.Master;
             resultado.StatusLabel = fachada.inserirPaciente(paciente);
