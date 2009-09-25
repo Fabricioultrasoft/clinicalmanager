@@ -97,6 +97,10 @@ namespace Negocio
         #endregion
 
         #region INTERNACAO
+        public DataSet historicoMovimentacao(int idint)
+        {
+            return cadInt.historicoMovimentacao(idint);
+        }
         public string movimentarPaciente(int idint, int idloc, DateTime data_in_loc, DateTime data_out_loc, string obs_loc)
         {
            return cadInt.movimentarPaciente(idint, idloc, data_in_loc, data_out_loc, obs_loc);

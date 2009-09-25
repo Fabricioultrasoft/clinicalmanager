@@ -55,5 +55,9 @@ namespace Negocio
             return rep.movimentarPaciente(idint, idloc, data_in_loc, data_out_loc, obs_loc);
 
         }
+        public DataSet historicoMovimentacao(int idint)
+        {
+            return rep.historicoMovimentacao(idint);
+        }
     }
 }
