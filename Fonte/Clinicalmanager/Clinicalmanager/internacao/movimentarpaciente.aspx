@@ -1,13 +1,14 @@
 ﻿<%@ Page Language="C#"  AutoEventWireup="true" CodeBehind="movimentarpaciente.aspx.cs" 
 Inherits="Clinicalmanager.internacao.movimentarpaciente" Title="Untitled Page" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<script type="text/javascript">
+<script language="javascript" type="text/javascript">
 function close(){
-window.close();
+alert('Teste');
 }
 </script>
 
 <html>
+
 <head>
     <style type="text/css">
         .style1
@@ -60,8 +61,8 @@ window.close();
     </div>
     <div style="text-align: center">
         <asp:Button ID="btnMovimentar"  runat="server" Text="Movimentar Paciente" 
-            onclick="btnMovimentar_Click" />
-            
+             OnClientClick="javascript:close();"/>
+            <a href="#" onclick="javascript:close()">teste</a>
     </div>
     <asp:ObjectDataSource ID="dsLocal" runat="server" SelectMethod="getAllLocal" 
      TypeName="Negocio.Fachada"></asp:ObjectDataSource>
