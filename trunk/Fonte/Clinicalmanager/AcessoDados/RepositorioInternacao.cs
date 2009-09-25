@@ -180,11 +180,16 @@ namespace AcessoDados
                     compl = "and i.data_out is null";
                     break;
             }
-            
+            string sql2 =  "select i.idint, i.idpac, i.idcon, i.data_in, i.data_out," +
+                 " i.obs, p.nome, p.cpf, li.idloc, li.data_in_loc, li.obs_loc as local_obs, l.nome as local" +
+                 " from clinicalmanager.internacao i inner join clinicalmanager.paciente" +
+                 " p on (i.idpac=p.idpac)  left join clinicalmanager.local_internacao li on " +
+                 " (li.idint=i.idint) left join clinicalmanager.local l on (li.idloc=l.idloc)" +
+                 " where p.nome like @nome " + compl + " order by i.data_in desc";
             string sql = "select * from clinicalmanager.internacao i inner join clinicalmanager.paciente p " + 
                          "on (i.idpac=p.idpac) where p.nome like @nome "+compl +" order by i.data_in desc";
             cmd = conn.CreateCommand();
-            cmd.CommandText = sql;
+            cmd.CommandText = sql2;
             cmd.Parameters.Add("@nome", nome+'%');
             return base.executeToDataset(cmd);
         }
@@ -218,13 +223,17 @@ namespace AcessoDados
             base.conn.Close();
             return "Movimentação cadastrada com sucesso";
         }
-        public DataSet historico(int idint)
+        public DataSet historicoMovimentacao(int idint)
         {
-            string sql = "select p.nome, i.data_in, l.nome, li.data_in_loc, " +
+            string sql = "select p.nome, i.data_in, l.nome as Local, li.data_in_loc, " +
                 "li.obs_loc from clinicalmanager.local_internacao li " +
                 "inner join clinicalmanager.internacao i on (i.idint=li.idint) " +
                 "inner join clinicalmanager.local l on (li.idloc=l.idloc) " +
-                "inner join clinicalmanager.paciente p on (i.idpac=p.idpac)";
+                "inner join clinicalmanager.paciente p on (i.idpac=p.idpac) where li.idint = @idint";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idint", idint);
+            return base.executeToDataset(cmd);
         }
     }
 }
