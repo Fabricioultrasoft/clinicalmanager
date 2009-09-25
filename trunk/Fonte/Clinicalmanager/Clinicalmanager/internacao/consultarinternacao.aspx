@@ -7,8 +7,9 @@ window.open('liberarinternacao.aspx?idint='+idint,'',"status=no, height = 350 , 
 Barra de endereços:location=yes/no ,  Tela cheia:fullscreen=yes/no ,  Barra de diretórios:directories=yes/no*/
 }
 function movimentar(idint){
-window.open('movimentarpaciente.aspx?idint='+idint,'',"status=no, height = 450 , width = 400, location=no,menubar=no,titlebar=no, directories=no" )
+window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 400, location=no,titlebar=no" )
 }
+
 </script>
     <style type="text/css">
         .style2
@@ -139,7 +140,7 @@ window.open('movimentarpaciente.aspx?idint='+idint,'',"status=no, height = 450 ,
         <asp:GridView ID="grdInternacao" runat="server" AutoGenerateColumns="False" 
             BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" 
             CellPadding="4" DataSourceID="dsInternacao" GridLines="Horizontal" 
-            oninit="grdInternacao_Init" AllowPaging="True" PageSize="10">
+            oninit="grdInternacao_Init" AllowPaging="True">
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
                 <asp:BoundField DataField="data_in" HeaderText="Data de Entrada" />
@@ -147,6 +148,7 @@ window.open('movimentarpaciente.aspx?idint='+idint,'',"status=no, height = 450 ,
                 <asp:BoundField DataField="nome" HeaderText="Paciente" />
                 <asp:BoundField DataField="cpf" HeaderText="CPF" />
                 <asp:BoundField DataField="obs" HeaderText="Observações" />
+                <asp:BoundField DataField="local" HeaderText="Localização atual" />
                 <asp:TemplateField HeaderText="Liberação">
                 <ItemTemplate>
                 <a href="#" onclick="alta('<%# Eval("idint")%>')">Liberar</a>
@@ -159,6 +161,11 @@ window.open('movimentarpaciente.aspx?idint='+idint,'',"status=no, height = 450 ,
                 </ItemTemplate>
                 </asp:TemplateField>
                 
+                <asp:TemplateField HeaderText="Histórico">
+                <ItemTemplate>
+                <a href="historicointernacao.aspx?idint=<%# Eval("idint")%>">Histórico</a>
+                </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <FooterStyle BackColor="White" ForeColor="#333333" />
             <PagerStyle BackColor="#336666" ForeColor="Blue" HorizontalAlign="Center" />
