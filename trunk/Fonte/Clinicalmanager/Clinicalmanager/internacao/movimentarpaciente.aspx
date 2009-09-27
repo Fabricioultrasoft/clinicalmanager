@@ -1,21 +1,16 @@
 ﻿<%@ Page Language="C#"  AutoEventWireup="true" CodeBehind="movimentarpaciente.aspx.cs" 
-Inherits="Clinicalmanager.internacao.movimentarpaciente" Title="Untitled Page" %>
+Inherits="Clinicalmanager.internacao.movimentarpaciente" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<script language="javascript" type="text/javascript">
-function close(){
-alert('Teste');
-}
-</script>
-
 <html>
 
 <head>
-    <style type="text/css">
-        .style1
-        {
-            width: 202px;
-        }
-    </style>
+<script language="javascript" type="text/javascript">
+function movPac(){
+window.alert('Movimentação cadastrada');
+self.close();
+parent.location.reload(true);
+}
+</script>
 </head>
 <body>
  <form id="Form1" runat="server">
@@ -61,8 +56,8 @@ alert('Teste');
     </div>
     <div style="text-align: center">
         <asp:Button ID="btnMovimentar"  runat="server" Text="Movimentar Paciente" 
-             OnClientClick="javascript:close();"/>
-            <a href="#" onclick="javascript:close()">teste</a>
+           OnClick="btnMovimentar_Click"  OnClientClick="movPac()"/>
+            
     </div>
     <asp:ObjectDataSource ID="dsLocal" runat="server" SelectMethod="getAllLocal" 
      TypeName="Negocio.Fachada"></asp:ObjectDataSource>
