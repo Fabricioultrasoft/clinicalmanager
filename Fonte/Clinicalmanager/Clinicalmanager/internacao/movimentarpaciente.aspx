@@ -8,7 +8,6 @@ Inherits="Clinicalmanager.internacao.movimentarpaciente" %>
 function movPac(){
 window.alert('Movimentação cadastrada');
 self.close();
-parent.location.reload(true);
 }
 </script>
 </head>
