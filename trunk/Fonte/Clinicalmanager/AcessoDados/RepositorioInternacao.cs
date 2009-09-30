@@ -152,7 +152,7 @@ namespace AcessoDados
                          " left join clinicalmanager.convenio d on (a.idcon=d.idcon)" +
                          " left join clinicalmanager.local_internacao li on (li.idint=a.idint) " +
                          " left join clinicalmanager.local l on (li.idloc=l.idloc)" +
-                         " where a.idpac=b.idpac and a.idpac=@idpac";
+                         " where li.data_out_loc is null and a.idpac=b.idpac and a.idpac=@idpac";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@idpac", idpac);
@@ -188,7 +188,7 @@ namespace AcessoDados
                  " inner join clinicalmanager.paciente p on (i.idpac=p.idpac)" +
                  " left join clinicalmanager.local_internacao li on (li.idint=i.idint) " +
                  " left join clinicalmanager.local l on (li.idloc=l.idloc)" +
-                 " where p.nome like @nome " + compl + " order by i.data_in desc";
+                 " where li.data_out_loc is null and p.nome like @nome " + compl + " order by i.data_in desc" ;
             string sql = "select * from clinicalmanager.internacao i inner join clinicalmanager.paciente p " + 
                          "on (i.idpac=p.idpac) where p.nome like @nome "+compl +" order by i.data_in desc";
             cmd = conn.CreateCommand();
@@ -211,16 +211,25 @@ namespace AcessoDados
         }
         public string movimentarPaciente(int idint, int idloc, DateTime data_in_loc, DateTime data_out_loc, string obs_loc)
         {
+            string sql2 = "update clinicalmanager.local_internacao" +
+                " set data_out_loc = @data_out_loc " +
+                " where idint = @idint and data_out_loc is null";
             string sql = "insert into clinicalmanager.local_internacao" +
-                "(idint, idloc, data_in_loc, data_out_loc, obs_loc) " +
-                "values (@idint, @idloc, @data_in_loc, @data_out_loc, @obs_loc)";
+                "(idint, idloc, data_in_loc,  obs_loc) " +
+                "values (@idint, @idloc, @data_in_loc, @obs_loc)";
             conn.Open();
+            NpgsqlCommand cmd1 = conn.CreateCommand();
+            cmd1.CommandText = sql2;
+            cmd1.Parameters.Add("@idint", idint);
+            cmd1.Parameters.Add("@data_out_loc", data_out_loc);
+            cmd1.ExecuteNonQuery();
+
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@idint", idint);
             cmd.Parameters.Add("@idloc", idloc);
             cmd.Parameters.Add("@data_in_loc", data_in_loc);
-            cmd.Parameters.Add("@data_out_loc", data_out_loc);
+            //cmd.Parameters.Add("@data_out_loc", data_out_loc);
             cmd.Parameters.Add("@obs_loc", obs_loc);
             cmd.ExecuteNonQuery();
             base.conn.Close();
@@ -228,7 +237,7 @@ namespace AcessoDados
         }
         public DataSet historicoMovimentacao(int idint)
         {
-            string sql = "select p.nome, i.data_in, l.nome as Local, li.data_in_loc, " +
+            string sql = "select p.nome, i.data_in, l.nome as Local, li.data_in_loc, li.data_out_loc, " +
                 "li.obs_loc from clinicalmanager.local_internacao li " +
                 "inner join clinicalmanager.internacao i on (i.idint=li.idint) " +
                 "inner join clinicalmanager.local l on (li.idloc=l.idloc) " +
