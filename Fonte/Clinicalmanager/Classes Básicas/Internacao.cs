@@ -10,6 +10,7 @@ namespace Classes_Básicas
         private DateTime data_in,data_out;
         private string obs;
         private int codint;
+        public int Idmed { get; set; }
         public Paciente Paciente { get; set; }
         public Convenio Convenio { get; set; }
         public Fatura Fatura { get; set; }

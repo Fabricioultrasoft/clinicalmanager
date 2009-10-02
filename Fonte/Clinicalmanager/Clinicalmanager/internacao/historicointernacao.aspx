@@ -10,12 +10,12 @@
         CellPadding="4" GridLines="Horizontal" AutoGenerateColumns="False">
         <RowStyle BackColor="White" ForeColor="#333333" />
         <Columns>
-            <asp:BoundField DataField="nome" HeaderText="Nome" />
-            <asp:BoundField DataField="data_in" HeaderText="Data de Internação" />
-            <asp:BoundField DataField="data_in_loc" HeaderText="Entrada" />
-            <asp:BoundField DataField="data_out_loc" HeaderText="Saída" />
+            <asp:BoundField DataField="nome" HeaderText="Nome" />            
+            <asp:BoundField DataField="data_in_loc" HeaderText="Entrada" DataFormatString="{0:dd/MM/yyyy}"/>
+            <asp:BoundField DataField="data_out_loc" HeaderText="Saída" DataFormatString="{0:dd/MM/yyyy}"/>
             <asp:BoundField DataField="local" HeaderText="Localização" />
             <asp:BoundField DataField="obs_loc" HeaderText="Observações" />
+            <asp:BoundField DataField="data_in" HeaderText="Data de Internação" DataFormatString="{0:dd/MM/yyyy}"/>
             
         </Columns>
         <FooterStyle BackColor="White" ForeColor="#333333" />

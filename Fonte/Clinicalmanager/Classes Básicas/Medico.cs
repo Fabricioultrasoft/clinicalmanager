@@ -7,13 +7,13 @@ namespace Classes_Básicas
 {
     public class Medico
     {
-        private Int16 idmed;
+        private Int32 idmed;
         private string nome;
         public string Nome {
             get { return this.nome; }
             set { this.nome = value; }
         }
-        public Int16 Idmed {
+        public Int32 Idmed {
             get { return this.idmed; }
             set { this.idmed = value; }
         }

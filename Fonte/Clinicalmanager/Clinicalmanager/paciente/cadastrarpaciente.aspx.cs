@@ -30,6 +30,7 @@ namespace Clinicalmanager.paciente
                 paciente.CPF = txtCPF.Text;
             }            
             paciente.Nome = txtNome.Text;
+            paciente.CodProntuario = Int16.Parse(txtCodProntuario.Text);
             master resultado = (master)this.Master;
             resultado.StatusLabel = fachada.inserirPaciente(paciente);
             txtNome.Text = "";

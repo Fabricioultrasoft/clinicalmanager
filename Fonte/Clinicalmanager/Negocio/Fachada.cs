@@ -73,6 +73,10 @@ namespace Negocio
         {
             return cadMed.inserirMedico(medico);
         }
+        public string excluirMedico(Int32 idmed)
+        {
+            return cadMed.excluirMedico(idmed);
+        }
         #endregion
 
         #region Localidades

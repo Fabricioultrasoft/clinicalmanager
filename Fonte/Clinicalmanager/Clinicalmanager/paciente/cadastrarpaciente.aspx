@@ -7,11 +7,10 @@
                 Cadastro de Paciente</h1>
             <table style="margin: 4px; width: 100%; text-align: left;">
                 <tr>
-                    <td class="style2">
+                    <td class="style1">
                         Nome:
                     </td>
                     <td class="style3">
-                        &nbsp;
                         <asp:TextBox ID="txtNome" runat="server"></asp:TextBox>
                     </td>
                 </tr>
@@ -20,11 +19,28 @@
                         CPF
                     </td>
                     <td>
-                        &nbsp;
                         <asp:TextBox ID="txtCPF" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        Prontuário RHP</td>
+                    <td>
+                        <asp:TextBox ID="txtCodProntuario" runat="server"></asp:TextBox>
                     </td>
                 </tr>
             </table>
             <asp:Button ID="btnSalvar" runat="server" OnClick="btnSalvar_Click" Text="Salvar" />
         </div>
 </asp:Content>
+<asp:Content ID="Content1" runat="server" contentplaceholderid="head">
+
+    <style type="text/css">
+        .style1
+        {
+            width: 110px;
+        }
+    </style>
+
+</asp:Content>
+

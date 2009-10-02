@@ -9,6 +9,7 @@ namespace Classes_Básicas
     {
         private string nome;
         private Int32 idpac;
+        public Int32 CodProntuario { get; set; }
         public string CPF { get; set; }
         public string Nome
         {

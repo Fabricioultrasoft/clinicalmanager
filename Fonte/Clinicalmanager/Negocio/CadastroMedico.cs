@@ -22,5 +22,11 @@ namespace Negocio
         {
             return rep.inserir(medico);
         }
+        public string excluirMedico(Int32 idmed)
+        {
+            Medico med = new Medico();
+            med.Idmed=idmed;
+            return rep.excluir(med);
+        }
     }
 }

@@ -21,16 +21,16 @@ namespace AcessoDados
             {
                 try
                 {
-                    string cmdStr = "INSERT INTO clinicalmanager.internacao(data_in, data_out,obs,idpac,idcon) " +
-                                    "VALUES (@data_in, @data_out,@obs,@idpac,@idcon)";
+                    string cmdStr = "INSERT INTO clinicalmanager.internacao(data_in,obs,idpac,idcon, idmed) " +
+                                    "VALUES (@data_in, @obs,@idpac,@idcon, @idmed)";
                     base.conn.Open();
                     cmd = base.conn.CreateCommand();
                     cmd.CommandText = cmdStr;
-                    cmd.Parameters.Add("@data_in", internacao.Data_in);
-                    cmd.Parameters.Add("@data_out", internacao.Data_out);
+                    cmd.Parameters.Add("@data_in", internacao.Data_in);                   
                     cmd.Parameters.Add("@obs", internacao.Obs);
                     cmd.Parameters.Add("@idpac", internacao.Paciente.Idpac);
                     cmd.Parameters.Add("@idcon", internacao.Convenio.Codcon);
+                    cmd.Parameters.Add("@idmed", internacao.Idmed);
                     cmd.ExecuteNonQuery();
                     base.conn.Close();
                 }

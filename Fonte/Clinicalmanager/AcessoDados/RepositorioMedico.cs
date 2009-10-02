@@ -56,7 +56,7 @@ namespace AcessoDados
             }
         }
 
-        public void excluir(Medico medico)
+        public string excluir(Medico medico)
         {
             string cmdStr = "delete from clinicalmanager.medico where idmed = @idmed";
             try
@@ -67,11 +67,13 @@ namespace AcessoDados
                 cmd.Parameters.Add("@idmed", medico.Idmed);
                 cmd.ExecuteNonQuery();
                 base.conn.Close();
+                return "Medico excluído com sucesso";
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível remover o paciente " + ex.Message);
+                return "Não foi possível remover o médico. Contate administrador:" + ex.Message;
             }
+            
         }
 
         public Medico consultar(string nome)
