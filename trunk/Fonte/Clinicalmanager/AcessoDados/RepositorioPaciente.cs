@@ -19,12 +19,13 @@ namespace AcessoDados
             {
                 try
                 {
-                    string cmdStr = "insert into clinicalmanager.paciente(nome,cpf) values (@nome,@cpf)";
+                    string cmdStr = "insert into clinicalmanager.paciente(nome,cpf,codprontuario) values (@nome,@cpf,@codprontuario)";
                     base.conn.Open();
                     cmd = base.conn.CreateCommand();
                     cmd.CommandText = cmdStr;
                     cmd.Parameters.Add("@nome", paciente.Nome);
                     cmd.Parameters.Add("@cpf", paciente.CPF);
+                    cmd.Parameters.Add("@codprontuario", paciente.CodProntuario);
                     cmd.ExecuteNonQuery();
                     base.conn.Close();              
                 }
@@ -75,7 +76,7 @@ namespace AcessoDados
           
         public DataSet consultar(string nome)
         {
-            string sql = "select idpac,nome, cpf from clinicalmanager.paciente where nome like @nome";
+            string sql = "select idpac,nome,codprontuario, cpf from clinicalmanager.paciente where nome like @nome";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@nome", nome);
@@ -83,8 +84,8 @@ namespace AcessoDados
         }
         public DataSet consultarCpf(string cpf)
         {
-           
-            string sql = "select idpac,nome, cpf from clinicalmanager.paciente where cpf like @cpf";
+
+            string sql = "select idpac,nome, cpf, codprontuario from clinicalmanager.paciente where cpf like @cpf";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@cpf", cpf);
@@ -92,7 +93,7 @@ namespace AcessoDados
         }
         public Paciente consultar(int idpac)
         {
-            string sql = "select idpac,nome,cpf from clinicalmanager.paciente where idpac = @idpac";
+            string sql = "select idpac,nome,cpf, codprontuario from clinicalmanager.paciente where idpac = @idpac";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@idpac", idpac);
@@ -101,14 +102,18 @@ namespace AcessoDados
             reader.Read();
                 output.Nome = reader.GetString(1);
                 output.Idpac = reader.GetInt32(0);
-                output.CPF = reader.GetString(2);
+                output.CodProntuario = reader.GetInt32(3);
+                if (!reader.IsDBNull(2))
+                {
+                    output.CPF = reader.GetString(2);
+                }
                 conn.Close();
             return output;
         }
 
         public DataSet consultarTodos()
         {
-            string sql = "select idpac, nome, cpf from clinicalmanager.paciente";
+            string sql = "select idpac, nome, cpf, codprontuario from clinicalmanager.paciente";
             Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
             //cmd.CommandText = 
             return base.execute(sql);

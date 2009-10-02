@@ -59,6 +59,15 @@ namespace Clinicalmanager.internacao {
         protected global::System.Web.UI.WebControls.DropDownList drpConvenio;
         
         /// <summary>
+        /// drpMed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpMed;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
@@ -84,5 +93,14 @@ namespace Clinicalmanager.internacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource dsConvenio;
+        
+        /// <summary>
+        /// dsMedico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsMedico;
     }
 }

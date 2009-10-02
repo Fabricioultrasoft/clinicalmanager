@@ -143,8 +143,8 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
             oninit="grdInternacao_Init" AllowPaging="True">
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
-                <asp:BoundField DataField="data_in" HeaderText="Data de Entrada" />
-                <asp:BoundField DataField="data_out" HeaderText="Data de Saída" />
+                <asp:BoundField DataField="data_in" HeaderText="Data de Entrada" DataFormatString="{0:dd/MM/yyyy}"/>
+                <asp:BoundField DataField="data_out" HeaderText="Data de Saída" DataFormatString="{0:dd/MM/yyyy}"/>
                 <asp:BoundField DataField="nome" HeaderText="Paciente" />
                 <asp:BoundField DataField="cpf" HeaderText="CPF" />
                 <asp:BoundField DataField="obs" HeaderText="Observações" />

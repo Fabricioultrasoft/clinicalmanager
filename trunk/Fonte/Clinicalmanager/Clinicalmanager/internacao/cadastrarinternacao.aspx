@@ -65,6 +65,15 @@
                     </asp:DropDownList>
                 </td>
             </tr>
+            <tr>
+                <td class="style1">
+                    Médico Responsável</td>
+                <td>
+                    <asp:DropDownList ID="drpMed" runat="server" DataSourceID="dsMedico" 
+                        DataTextField="nome" DataValueField="idmed">
+                    </asp:DropDownList>
+                </td>
+            </tr>
         </table>
     </p>
     <div style="text-align: center">
@@ -76,5 +85,7 @@
         DataObjectTypeName="Classes_Básicas.Paciente">
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="dsConvenio" runat="server" SelectMethod="getAllConvenio" 
+        TypeName="Negocio.Fachada"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="dsMedico" runat="server" SelectMethod="getAllMedicos" 
         TypeName="Negocio.Fachada"></asp:ObjectDataSource>
 </asp:Content>

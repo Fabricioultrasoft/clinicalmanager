@@ -50,6 +50,7 @@ function setmOutColor(element)
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
                 <asp:CommandField DeleteText="Excluir" ShowDeleteButton="True" />
+                <asp:BoundField DataField="codprontuario" HeaderText="Prontuário"  />
                 <asp:BoundField DataField="nome" HeaderText="Nome"  />
                 <asp:BoundField DataField="cpf" HeaderText="CPF" />
                 <asp:HyperLinkField DataNavigateUrlFields="idpac" DataNavigateUrlFormatString="~/internacao/consultarinternacao.aspx?idpac={0}"

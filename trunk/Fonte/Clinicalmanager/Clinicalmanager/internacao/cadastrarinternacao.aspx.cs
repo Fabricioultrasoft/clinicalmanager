@@ -35,9 +35,9 @@ namespace Clinicalmanager.internacao
             if (IsPostBack)
             {
                 paciente = fachada.getPacientebyID(Int16.Parse(DropDownList1.SelectedValue));
-                if (paciente.CPF != null)
+                if (paciente.CodProntuario != null)
                 {
-                    txtCPF.Text = paciente.CPF;
+                    txtCPF.Text = paciente.CodProntuario.ToString();
                 }
             }
         }
@@ -53,6 +53,7 @@ namespace Clinicalmanager.internacao
                 internacao.Convenio = conv;
                 internacao.Data_in = Calendar1.SelectedDate;
                 master resultado = (master)this.Master;
+                internacao.Idmed = int.Parse(drpMed.SelectedValue);
                 resultado.StatusLabel = fachada.inserirInternacao(internacao);
                 clearForm();                
             }
