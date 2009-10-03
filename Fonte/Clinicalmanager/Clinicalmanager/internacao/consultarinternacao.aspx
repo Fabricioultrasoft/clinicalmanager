@@ -139,10 +139,11 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
     <div id="resultPesq">
         <asp:GridView ID="grdInternacao" runat="server" AutoGenerateColumns="False" 
             BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" 
-            CellPadding="4" DataSourceID="dsInternacao" GridLines="Horizontal" 
+            CellPadding="4" DataSourceID="dsInternacao" GridLines="Horizontal"  DataKeyNames="idint"
             oninit="grdInternacao_Init" AllowPaging="True">
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
+                <asp:CommandField SelectText="Detalhar" ShowSelectButton="True" />
                 <asp:BoundField DataField="data_in" HeaderText="Data de Entrada" DataFormatString="{0:dd/MM/yyyy}"/>
                 <asp:BoundField DataField="data_out" HeaderText="Data de Saída" DataFormatString="{0:dd/MM/yyyy}"/>
                 <asp:BoundField DataField="nome" HeaderText="Paciente" />
@@ -172,15 +173,41 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
             <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="Aqua" />
             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
         </asp:GridView>
+        
+        
+        
         <asp:ObjectDataSource ID="dsInternacao" runat="server" SelectMethod="getInternacaoPacienteNome" 
-            TypeName="Negocio.Fachada">
+            TypeName="Negocio.Fachada" >
             <SelectParameters>
                 <asp:ControlParameter ControlID="txtNomePac" Name="nome" PropertyName="Text" 
                     Type="String" />
                 <asp:ControlParameter ControlID="RadioButtonList1" Name="andamento" 
                     PropertyName="SelectedValue" Type="String" />
-              
             </SelectParameters>
         </asp:ObjectDataSource>
     </div>
+        <div style="height: 197px; width: 745px">
+    <asp:GridView ID="GridView1" runat="server" BackColor="White" 
+            BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
+            DataSourceID="dsHist" GridLines="Horizontal" AutoGenerateColumns="False">
+            <RowStyle BackColor="White" ForeColor="#333333" />
+            <Columns>
+                <asp:BoundField DataField="local" HeaderText="Local" />
+                <asp:BoundField DataField="data_in_loc" HeaderText="Data de entrada" />
+                <asp:BoundField DataField="data_out_loc" HeaderText="Data de Saída" />
+                <asp:BoundField DataField="obs_loc" HeaderText="Observações" />
+            </Columns>
+            <FooterStyle BackColor="White" ForeColor="#333333" />
+            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        </asp:GridView>
+        </div>
+    <asp:ObjectDataSource ID="dsHist" runat="server" 
+        SelectMethod="historicoMovimentacao" TypeName="Negocio.Fachada">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="grdInternacao" DefaultValue="" Name="idint" 
+                PropertyName="SelectedValue" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
 </asp:Content>

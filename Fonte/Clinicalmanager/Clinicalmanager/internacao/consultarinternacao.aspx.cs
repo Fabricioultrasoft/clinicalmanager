@@ -78,6 +78,9 @@ namespace Clinicalmanager.internacao
             grdInternacao.Visible = false;
         }
 
+        
+
+     
 
     }
 }
