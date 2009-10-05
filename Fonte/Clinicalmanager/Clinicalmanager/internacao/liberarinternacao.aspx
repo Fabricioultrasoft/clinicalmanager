@@ -8,7 +8,15 @@ window.close();
 </script>
 
 <html>
-<head></head>
+<head>
+<script type="text/javascript" src="../mascara.js"></script>
+    <style type="text/css">
+        .style1
+        {
+            width: 278px;
+        }
+    </style>
+</head>
 <body>
  <form id="Form1" runat="server">
  <div>
@@ -16,9 +24,31 @@ window.close();
         <table style="width:100%; text-align: left;">
             <tr>
                 <td class="style1">
+                    Data de Entrada:</td>
+                <td>
+                    <asp:TextBox ID="txtDataEntrada" runat="server" Enabled="False"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
                     Data de Saída:</td>
                 <td>
-                    <asp:TextBox ID="txtDataSaida" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDataSaida" runat="server" 
+                        onkeyup="formataData(this,event);" AutoPostBack="True"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    Quantidade de Dias internados:</td>
+                <td>
+                    <asp:Label ID="lbQtdDias" runat="server" Text="Label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    Plano de Saúde:</td>
+                <td>
+                    <asp:TextBox ID="txtPlano" runat="server" Enabled="False"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -27,12 +57,6 @@ window.close();
                 <td>
                     <asp:TextBox ID="txtValorHn" runat="server"></asp:TextBox>
                 </td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
             </tr>
         </table>
     </div>

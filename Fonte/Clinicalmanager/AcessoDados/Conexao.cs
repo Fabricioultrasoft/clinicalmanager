@@ -21,7 +21,7 @@ namespace AcessoDados
         public Conexao()
         {
             //URL = ConfigurationManager.ConnectionStrings["conn"].ConnectionString; 
-            URL = "server=renato-pc;User id=postgres;Password=a06r2329;Database=clinicalmanager";
+            URL = "server=localhost;User id=postgres;Password=a06r2329;Database=clinicalmanager";
             conn = new NpgsqlConnection(URL);
             //conn.Open();            
         }

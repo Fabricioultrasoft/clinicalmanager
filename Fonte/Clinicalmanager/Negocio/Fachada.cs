@@ -129,6 +129,11 @@ namespace Negocio
         {
             cadInt.liberarInternacao(internacao, data_saida, valor_hn);
         }
+        public Internacao getInformacaoInternacao(int idint)
+        {
+            return cadInt.getInformacaoInternacao(idint);
+        }
+
         #endregion
         #region Convênio
         public DataSet getAllConvenio()
