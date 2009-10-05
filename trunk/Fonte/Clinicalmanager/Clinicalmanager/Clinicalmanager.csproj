@@ -221,6 +221,7 @@
     <Content Include="internacao\historicointernacao.aspx" />
     <Content Include="internacao\liberarinternacao.aspx" />
     <Content Include="internacao\movimentarpaciente.aspx" />
+    <Content Include="mascara.js" />
     <Content Include="medico\cadastrarmedico.aspx" />
     <Content Include="medico\consultarmedico.aspx" />
   </ItemGroup>

@@ -22,7 +22,16 @@ namespace Clinicalmanager.internacao
         protected void Page_Load(object sender, EventArgs e)
         {
             fachada = new Fachada();
-            txtDataSaida.Text = DateTime.Now.ToShortDateString();
+            internacao = fachada.getInformacaoInternacao(int.Parse(Request.Params["idint"]));
+            txtDataEntrada.Text = internacao.Data_in.ToShortDateString();
+            txtPlano.Text = internacao.Convenio.Descricao;
+            if (!IsPostBack)
+            {
+                txtDataSaida.Text = DateTime.Now.ToShortDateString();
+            }
+            DateTime dataOut = DateTime.Parse(txtDataSaida.Text);
+            int qtdDias = (dataOut - internacao.Data_in).Days;
+            lbQtdDias.Text = qtdDias.ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -32,5 +41,6 @@ namespace Clinicalmanager.internacao
             fachada.liberarInternacao(internacao, DateTime.Parse(txtDataSaida.Text),
                 float.Parse(txtValorHn.Text));
         }
+             
     }
 }

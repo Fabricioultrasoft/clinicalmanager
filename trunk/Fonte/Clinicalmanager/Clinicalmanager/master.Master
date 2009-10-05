@@ -15,7 +15,7 @@
         <h2>
             Controle Gerencial de Clínica</h2>
     </div>
-    <div style="height: 77px; width: 935px; text-align: left;">
+    <div style="height: 77px; width: 935px; text-align: left; margin-bottom: 0px;">
     </div>
     <div id="page">
         <form id="form1" runat="server">

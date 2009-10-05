@@ -247,6 +247,24 @@ namespace AcessoDados
             cmd.Parameters.Add("@idint", idint);
             return base.executeToDataset(cmd);
         }
+        public Internacao preLiberarInternacao(int idint)
+        {
+            string sql = "select i.data_in, c.descricao "+
+                " from clinicalmanager.internacao i"+
+                " inner join clinicalmanager.convenio c on (i.idcon=c.idcon)"+
+                " where i.idint=@idint";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idint", idint);
+            reader = base.execute(cmd);
+            reader.Read();
+            Internacao output = new Internacao();
+            output.Data_in = reader.GetDateTime(0);
+            Convenio convenio = new Convenio();
+            convenio.Descricao=reader.GetString(1);
+            output.Convenio = convenio;
+            return output;
+        }
     }
 }
 

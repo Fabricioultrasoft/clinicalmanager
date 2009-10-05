@@ -1,6 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="consultarinternacao.aspx.cs" Inherits="Clinicalmanager.internacao.consultarinternacao" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="consultarinternacao.aspx.cs"
+    Inherits="Clinicalmanager.internacao.consultarinternacao" Title="Untitled Page" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script language="javascript" type="text/javascript">
+
+    <script language="javascript" type="text/javascript">
 function alta(idint){
 window.open('liberarinternacao.aspx?idint='+idint,'',"status=no, height = 350 , width = 350, location=no,menubar=no,titlebar=no, directories=no" )
 /*status=yes/no,  Barra de menu: menubar=yes/no ,  Barra de ferramentas: toolbar=yes/no ,  Barra de título: titlebar=yes/no
@@ -10,7 +13,8 @@ function movimentar(idint){
 window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 400, location=no,titlebar=no" )
 }
 
-</script>
+    </script>
+
     <style type="text/css">
         .style2
         {
@@ -50,34 +54,34 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentHolder" runat="server">
     <div id="paramPesq">
-        <table style="width:121%;">
-        <tr>
+        <table style="width: 121%;">
+            <tr>
                 <td class="style2">
-                    Cód. Internação</td>
+                    Cód. Internação
+                </td>
                 <td class="style3" colspan="3">
                     <asp:TextBox ID="txtCodInt" runat="server" Width="62px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="style2">
-                    Paciente</td>
+                    Paciente
+                </td>
                 <td class="style3" colspan="3">
                     <asp:TextBox ID="txtNomePac" runat="server" Width="393px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="style9">
-                    Data de entrada</td>
+                    Data de entrada
+                </td>
                 <td class="style8">
                     <asp:TextBox ID="txtDataEntrada" runat="server" Width="85px"></asp:TextBox>
-                    <asp:Button ID="Button1" runat="server" Text="..." onclick="Button1_Click" 
-                        Width="24px" />
-                     
+                    <asp:Button ID="Button1" runat="server" Text="..." OnClick="Button1_Click" Width="24px" />
                     <div>
-                        <asp:Calendar ID="cldDataEntrada" runat="server" BackColor="White" 
-                            BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" 
-                            Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" 
-                            Width="200px" onselectionchanged="cldDataEntrada_SelectionChanged" 
+                        <asp:Calendar ID="cldDataEntrada" runat="server" BackColor="White" BorderColor="#999999"
+                            CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt"
+                            ForeColor="Black" Height="180px" Width="200px" OnSelectionChanged="cldDataEntrada_SelectionChanged"
                             Visible="False">
                             <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
                             <SelectorStyle BackColor="#CCCCCC" />
@@ -91,17 +95,17 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
                     </div>
                 </td>
                 <td class="style4">
-                    Data de Saída</td>
+                    Data de Saída
+                </td>
                 <td class="style7" style="text-align: left">
                     <asp:TextBox ID="txtDataSaida" runat="server" Width="75px"></asp:TextBox>
-                    <asp:Button ID="Button2" runat="server" Text="..." Width="22px" 
-                        CssClass="links" onclick="Button2_Click" />
+                    <asp:Button ID="Button2" runat="server" Text="..." Width="22px" CssClass="links"
+                        OnClick="Button2_Click" />
                     <div>
-                        <asp:Calendar ID="cldDataSaida" runat="server" BackColor="White" 
-                            BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" 
-                            Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" 
-                            onselectionchanged="cldDataSaida_SelectionChanged" Visible="False" 
-                            Width="200px">
+                        <asp:Calendar ID="cldDataSaida" runat="server" BackColor="White" BorderColor="#999999"
+                            CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt"
+                            ForeColor="Black" Height="180px" OnSelectionChanged="cldDataSaida_SelectionChanged"
+                            Visible="False" Width="200px">
                             <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
                             <SelectorStyle BackColor="#CCCCCC" />
                             <WeekendDayStyle BackColor="#FFFFCC" />
@@ -116,7 +120,8 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
             </tr>
             <tr>
                 <td class="style9">
-                    Médico Responsável</td>
+                    Médico Responsável
+                </td>
                 <td class="style6" colspan="3">
                     <asp:DropDownList ID="DropDownList1" runat="server" Height="18px" Width="227px">
                     </asp:DropDownList>
@@ -124,7 +129,8 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
             </tr>
             <tr>
                 <td class="style9">
-                    Status</td>
+                    Status
+                </td>
                 <td class="style6" colspan="3">
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server">
                         <asp:ListItem Selected="True" Value="Em andamento">Em andamento</asp:ListItem>
@@ -133,39 +139,36 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
                 </td>
             </tr>
         </table>
-        <asp:Button ID="btnConsulta" runat="server" Text="Consulta" 
-            onclick="btnConsulta_Click" />    
+        <asp:Button ID="btnConsulta" runat="server" Text="Consulta" OnClick="btnConsulta_Click" />
     </div>
     <div id="resultPesq">
-        <asp:GridView ID="grdInternacao" runat="server" AutoGenerateColumns="False" 
-            BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" 
-            CellPadding="4" DataSourceID="dsInternacao" GridLines="Horizontal"  DataKeyNames="idint"
-            oninit="grdInternacao_Init" AllowPaging="True">
+        <asp:GridView ID="grdInternacao" runat="server" AutoGenerateColumns="False" BackColor="White"
+            BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4"
+            DataSourceID="dsInternacao" GridLines="Horizontal" DataKeyNames="idint" OnInit="grdInternacao_Init"
+            AllowPaging="True">
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
                 <asp:CommandField SelectText="Detalhar" ShowSelectButton="True" />
-                <asp:BoundField DataField="data_in" HeaderText="Data de Entrada" DataFormatString="{0:dd/MM/yyyy}"/>
-                <asp:BoundField DataField="data_out" HeaderText="Data de Saída" DataFormatString="{0:dd/MM/yyyy}"/>
+                <asp:BoundField DataField="data_in" HeaderText="Data de Entrada" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField DataField="data_out" HeaderText="Data de Saída" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="nome" HeaderText="Paciente" />
                 <asp:BoundField DataField="cpf" HeaderText="CPF" />
                 <asp:BoundField DataField="obs" HeaderText="Observações" />
                 <asp:BoundField DataField="local" HeaderText="Localização atual" />
                 <asp:TemplateField HeaderText="Liberação">
-                <ItemTemplate>
-                <a href="#" onclick="alta('<%# Eval("idint")%>')">Liberar</a>
-                </ItemTemplate>
+                    <ItemTemplate>
+                        <a href="#" onclick="alta('<%# Eval("idint")%>')">Liberar</a>
+                    </ItemTemplate>
                 </asp:TemplateField>
-                
                 <asp:TemplateField HeaderText="Movimentação">
-                <ItemTemplate>
-                <a href="#" onclick="movimentar('<%# Eval("idint")%>')">Movimentar</a>
-                </ItemTemplate>
+                    <ItemTemplate>
+                        <a href="#" onclick="movimentar('<%# Eval("idint")%>')">Movimentar</a>
+                    </ItemTemplate>
                 </asp:TemplateField>
-                
                 <asp:TemplateField HeaderText="Histórico">
-                <ItemTemplate>
-                <a href="historicointernacao.aspx?idint=<%# Eval("idint")%>">Histórico</a>
-                </ItemTemplate>
+                    <ItemTemplate>
+                        <a href="historicointernacao.aspx?idint=<%# Eval("idint")%>">Histórico</a>
+                    </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
             <FooterStyle BackColor="White" ForeColor="#333333" />
@@ -173,23 +176,19 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
             <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="Aqua" />
             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
         </asp:GridView>
-        
-        
-        
-        <asp:ObjectDataSource ID="dsInternacao" runat="server" SelectMethod="getInternacaoPacienteNome" 
-            TypeName="Negocio.Fachada" >
+        <asp:ObjectDataSource ID="dsInternacao" runat="server" SelectMethod="getInternacaoPacienteNome"
+            TypeName="Negocio.Fachada">
             <SelectParameters>
-                <asp:ControlParameter ControlID="txtNomePac" Name="nome" PropertyName="Text" 
+                <asp:ControlParameter ControlID="txtNomePac" Name="nome" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="RadioButtonList1" Name="andamento" PropertyName="SelectedValue"
                     Type="String" />
-                <asp:ControlParameter ControlID="RadioButtonList1" Name="andamento" 
-                    PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
         </asp:ObjectDataSource>
     </div>
-        <div style="height: 197px; width: 745px">
-    <asp:GridView ID="GridView1" runat="server" BackColor="White" 
-            BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
-            DataSourceID="dsHist" GridLines="Horizontal" AutoGenerateColumns="False">
+    <div style="height: 197px; width: 745px">
+        <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#336666"
+            BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataSourceID="dsHist"
+            GridLines="Horizontal" AutoGenerateColumns="False">
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
                 <asp:BoundField DataField="local" HeaderText="Local" />
@@ -202,12 +201,12 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
             <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
         </asp:GridView>
-        </div>
-    <asp:ObjectDataSource ID="dsHist" runat="server" 
-        SelectMethod="historicoMovimentacao" TypeName="Negocio.Fachada">
+    </div>
+    <asp:ObjectDataSource ID="dsHist" runat="server" SelectMethod="historicoMovimentacao"
+        TypeName="Negocio.Fachada">
         <SelectParameters>
-            <asp:ControlParameter ControlID="grdInternacao" DefaultValue="" Name="idint" 
-                PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="grdInternacao" DefaultValue="" Name="idint" PropertyName="SelectedValue"
+                Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
 </asp:Content>

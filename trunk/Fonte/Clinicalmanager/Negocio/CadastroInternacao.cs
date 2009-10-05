@@ -59,5 +59,9 @@ namespace Negocio
         {
             return rep.historicoMovimentacao(idint);
         }
+        public Internacao getInformacaoInternacao(int idint)
+        {
+            return rep.preLiberarInternacao(idint);
+        }
     }
 }
