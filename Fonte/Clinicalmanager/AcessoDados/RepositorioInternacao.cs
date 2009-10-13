@@ -179,7 +179,7 @@ namespace AcessoDados
                     compl = "and i.data_out is not null";
                     break;
                 default:
-                    compl = "and i.data_out is null";
+                    compl = "and i.data_out is null and li.data_out_loc is null ";
                     break;
             }
             string sql2 =  "select i.idint, i.idpac, i.idcon, i.data_in, i.data_out," +
@@ -188,7 +188,7 @@ namespace AcessoDados
                  " inner join clinicalmanager.paciente p on (i.idpac=p.idpac)" +
                  " left join clinicalmanager.local_internacao li on (li.idint=i.idint) " +
                  " left join clinicalmanager.local l on (li.idloc=l.idloc)" +
-                 " where li.data_out_loc is null and p.nome like @nome " + compl + " order by i.data_in desc" ;
+                 " where  p.nome like @nome " + compl + " order by i.data_in desc" ;
             string sql = "select * from clinicalmanager.internacao i inner join clinicalmanager.paciente p " + 
                          "on (i.idpac=p.idpac) where p.nome like @nome "+compl +" order by i.data_in desc";
             cmd = conn.CreateCommand();
@@ -200,17 +200,29 @@ namespace AcessoDados
         {
             string sql = "update clinicalmanager.internacao set data_out=@data_out,"+
                        "  vl_esperado_hn=@valor where idint=@idint";
-            base.conn.Open();
+            string sql2 = "update clinicalmanager.local_internacao" +
+                " set data_out_loc = @data_out_loc " +
+                " where idint = @idint and data_out_loc is null";
+            conn.Open();
+            //Comando do sql2
+            NpgsqlCommand cmd1 = conn.CreateCommand();
+            cmd1.CommandText = sql2;
+            cmd1.Parameters.Add("@idint", internacao.Codint);
+            cmd1.Parameters.Add("@data_out_loc", data_saida);
+            cmd1.ExecuteNonQuery();
+
+
             cmd = conn.CreateCommand();
             cmd.CommandText=sql;
             cmd.Parameters.Add("@data_out", data_saida);
             cmd.Parameters.Add("@valor",valor);
             cmd.Parameters.Add("@idint", internacao.Codint);
             cmd.ExecuteNonQuery();
-            base.conn.Close();
+            conn.Close();
         }
         public string movimentarPaciente(int idint, int idloc, DateTime data_in_loc, DateTime data_out_loc, string obs_loc)
         {
+            //SQL que inclui a data da saída na última movimentação
             string sql2 = "update clinicalmanager.local_internacao" +
                 " set data_out_loc = @data_out_loc " +
                 " where idint = @idint and data_out_loc is null";
@@ -263,6 +275,7 @@ namespace AcessoDados
             Convenio convenio = new Convenio();
             convenio.Descricao=reader.GetString(1);
             output.Convenio = convenio;
+            conn.Close();
             return output;
         }
     }

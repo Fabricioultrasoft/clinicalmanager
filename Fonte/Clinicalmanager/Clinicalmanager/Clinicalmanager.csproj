@@ -58,9 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.css" />
-    <Content Include="index.html" />
     <Content Include="paciente\cadastrarpaciente.aspx" />
-    <Content Include="Web.config" />
     <Content Include="consultar.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -193,16 +191,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Classes Básicas\Classes Básicas.csproj">
-      <Project>{469E56C5-CCBC-48BA-8C4C-52887EEA128B}</Project>
-      <Name>Classes Básicas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Negocio\Negocio.csproj">
-      <Project>{30B592E1-28B0-4F0C-8A87-1538EF6D8C4F}</Project>
-      <Name>Negocio</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="default.aspx" />
     <Content Include="local\cadastrarlocal.aspx" />
     <Content Include="login.aspx" />
@@ -224,6 +212,22 @@
     <Content Include="mascara.js" />
     <Content Include="medico\cadastrarmedico.aspx" />
     <Content Include="medico\consultarmedico.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Classes Básicas\Classes Básicas.csproj">
+      <Project>{469E56C5-CCBC-48BA-8C4C-52887EEA128B}</Project>
+      <Name>Classes Básicas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{30B592E1-28B0-4F0C-8A87-1538EF6D8C4F}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

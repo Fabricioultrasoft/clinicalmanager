@@ -10,7 +10,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentHolder" runat="server">
     <h1>Cadastrar Internação</h1>
-    <p>
         <table style="width:100%; text-align: left;">
             <tr>
                 <td class="style1">
@@ -75,11 +74,9 @@
                 </td>
             </tr>
         </table>
-    </p>
-    <div style="text-align: center">
     <asp:Button ID="Button1" runat="server" Text="Salvar" onclick="Button1_Click" 
             Height="28px" />
-    </div>
+    
     <asp:ObjectDataSource ID="dsPaciente" runat="server" 
         SelectMethod="getAllPacientes" TypeName="Negocio.Fachada" 
         DataObjectTypeName="Classes_Básicas.Paciente">
