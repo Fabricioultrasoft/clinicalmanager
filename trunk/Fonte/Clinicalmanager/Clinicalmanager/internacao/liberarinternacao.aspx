@@ -2,8 +2,9 @@
     Inherits="Clinicalmanager.internacao.liberarinternacao" Title="Untitled Page" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <script type="text/javascript">
-function close(){
-window.close();
+function alta(){
+window.alert('Internação Liberada');
+self.close();
 }
 </script>
 
@@ -55,14 +56,14 @@ window.close();
                 <td class="style1">
                     Valor esperado de Honorário:</td>
                 <td>
-                    <asp:TextBox ID="txtValorHn" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtValorHn" runat="server"  onkeyup="formataValor(this,event);></asp:TextBox>
                 </td>
             </tr>
         </table>
     </div>
     <div style="text-align: center">
         <asp:Button ID="Button1"  runat="server" Text="Liberar Paciente" 
-            onclick="Button1_Click" />
+            onclick="Button1_Click" OnClientClick="alta();"/>
             
     </div>
     </form>

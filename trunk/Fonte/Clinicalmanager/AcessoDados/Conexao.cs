@@ -21,8 +21,10 @@ namespace AcessoDados
         public Conexao()
         {
             //URL = ConfigurationManager.ConnectionStrings["conn"].ConnectionString; 
-            URL = "server=localhost;User id=postgres;Password=a06r2329;Database=clinicalmanager";
-            conn = new NpgsqlConnection(URL);
+            String URL2 = "server=pgsql.realinstitutodopulmao.com.br;User id=realinstitutodopulma; Password=a06r2329;Database=realinstitutodopulma";
+            URL = "server=renatocampelo.gotdns.com;User id=postgres;Password=a06r2329;Database=clinicalmanager;";
+            conn = new NpgsqlConnection(URL2);
+       
             //conn.Open();            
         }
         public static Conexao getInstancia()
