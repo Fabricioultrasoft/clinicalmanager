@@ -153,7 +153,7 @@ input, textarea, select {
 
 #logo {
 	clear: both;
-	width: 335px;
+	width: 600px;
 	height: 80px;
 	margin: 0 auto;
 	background: url(images/img02.png) no-repeat left top;
@@ -165,7 +165,7 @@ input, textarea, select {
 	line-height: normal;
 }
 
-#logo h1 {	width: 243px;
+#logo h1 {	width: 397px;
 }
 
 #logo h1 a {
@@ -381,4 +381,27 @@ html>body #footer {
 #legal a {
 	font-weight: bold;
 	color: #FFFFFF;
+}
+#menutext
+{
+	font-size: medium;
+	font-style: normal;
+	color: #000000;
+	font-weight: bold;
+}
+.menulink
+{
+	font-size: large;
+	font-style: normal;
+	color: #000000;
+	font-weight: bold;
+}
+#menutable
+{
+	padding: 5px;
+	margin: 5px;
+	font-size: large;
+	font-style: normal;
+	color: #000000;
+	font-weight: bold;
 }

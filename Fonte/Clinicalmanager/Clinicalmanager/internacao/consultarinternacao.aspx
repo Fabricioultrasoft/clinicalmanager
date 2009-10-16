@@ -154,7 +154,7 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
                 <asp:BoundField DataField="nome" HeaderText="Paciente" />
                 <asp:BoundField DataField="cpf" HeaderText="CPF" />
                 <asp:BoundField DataField="obs" HeaderText="Observações" />
-                <asp:BoundField DataField="local" HeaderText="Localização atual" />
+                <asp:BoundField DataField="local" HeaderText="Última localização" />
                 <asp:TemplateField HeaderText="Liberação">
                     <ItemTemplate>
                         <a href="#" onclick="alta('<%# Eval("idint")%>')">Liberar</a>

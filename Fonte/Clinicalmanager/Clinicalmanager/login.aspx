@@ -1,41 +1,52 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Clinicalmanager.login"
-    MasterPageFile="~/master2.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Clinicalmanager.login" %>
 
-<asp:Content ID="loginForm" ContentPlaceHolderID="login" runat="server">
-
-    <div style="height: 89px; width: 356px":
-    Login
-</div>
-        <table style="width: 100%; height: 48px;">
-            <tr>
-                <td>
-                    Login:</td>
-                <td>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Senha:</td>
-                <td>
-                    <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
-                </td>
-            </tr>
-        </table>
-        <asp:Button ID="Button1" runat="server" Text="Entrar" 
-            onclick="Button1_Click1" />
-</div>
-</asp:Content>
-<asp:Content ID="Content1" runat="server" contentplaceholderid="head">
+<html>
+<head>
+    <link href="default.css" rel="stylesheet" type="text/css" />
+    <title>Clinical Manager</title>
     <style type="text/css">
         .style1
         {
-            width: 75px;
-        }
-        .style2
-        {
-            width: 178px;
+            width: 104px;
         }
     </style>
-   </asp:Content>
-
+</head>
+<body>    
+    <div style="height: 77px; width: 1024px; text-align: center; margin-bottom: 0px;">
+    <div id="logo">
+        <h1>
+            <a href="/default.aspx">Clinical Manager</a></h1>
+        <h2>
+            Controle Gerencial de Clínica</h2>
+    </div>
+    </div>
+    <div id="page">
+        <form runat="server">
+        <table align="center">
+            <tr>
+                <td class="style1">
+                    Login:
+                </td>
+                <td>
+                    <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    Senha:
+                </td>
+                <td>
+                    <asp:TextBox ID="txtPass" runat="server" TextMode="Password"></asp:TextBox>
+                </td>
+            </tr>    
+            <tr>
+            <td>
+            <asp:Button ID="Button1" runat="server" Text="Entrar" OnClick="Button1_Click1" />    
+            </td>         
+            </tr>                      
+        </table>       
+        
+        </form>
+    </div>
+</body>
+</html>

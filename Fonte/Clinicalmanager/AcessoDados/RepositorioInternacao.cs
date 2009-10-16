@@ -153,9 +153,15 @@ namespace AcessoDados
                          " left join clinicalmanager.local_internacao li on (li.idint=a.idint) " +
                          " left join clinicalmanager.local l on (li.idloc=l.idloc)" +
                          " where li.data_out_loc is null and a.idpac=b.idpac and a.idpac=@idpac";
+            try{
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@idpac", idpac);
+                 }
+             catch (Npgsql.NpgsqlException ex)
+             {
+                 throw new Exception(ex.Message);
+             }
             return base.executeToDataset(cmd);
         }
         
@@ -166,35 +172,69 @@ namespace AcessoDados
         public DataSet consultarTodos()
         {
             string sql = "SELECT * FROM  clinicalmanager.internacao";
+            try{
             Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
+            }
+            catch (Npgsql.NpgsqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return base.execute(sql);
         }
 
         public DataSet consultarPorPacienteNome(string nome, string andamento)
         {
-            string compl;
-            switch (andamento)
-            {
-                case "Finalizadas": 
-                    compl = "and i.data_out is not null";
-                    break;
-                default:
-                    compl = "and i.data_out is null and li.data_out_loc is null ";
-                    break;
-            }
-            string sql2 =  "select i.idint, i.idpac, i.idcon, i.data_in, i.data_out," +
-                 " i.obs, p.nome, p.cpf, li.idloc, li.data_in_loc, li.obs_loc as local_obs, l.nome as local" +
-                 " from clinicalmanager.internacao i "+
-                 " inner join clinicalmanager.paciente p on (i.idpac=p.idpac)" +
-                 " left join clinicalmanager.local_internacao li on (li.idint=i.idint) " +
-                 " left join clinicalmanager.local l on (li.idloc=l.idloc)" +
-                 " where  p.nome like @nome " + compl + " order by i.data_in desc" ;
-            string sql = "select * from clinicalmanager.internacao i inner join clinicalmanager.paciente p " + 
-                         "on (i.idpac=p.idpac) where p.nome like @nome "+compl +" order by i.data_in desc";
-            cmd = conn.CreateCommand();
-            cmd.CommandText = sql2;
+            /*===============================================
+            Autor: Renato Campelo
+            Data: 15/10/2009
+            String para ConsultaPorPacienteNome Não liberados
+             ===============================================*/
+            string sql_internacao_andamento =
+            "select i.idint, i.idpac, i.idcon, i.data_in, i.data_out, " +
+             "i.obs, p.nome, p.cpf, li.idloc, li.data_in_loc, li.obs_loc as local_obs, l.nome as local " +
+             "from clinicalmanager.internacao i " +
+             "inner join clinicalmanager.paciente p on (i.idpac=p.idpac) " +
+             "left join clinicalmanager.local_internacao li on (li.idint=i.idint) " +
+             "left join clinicalmanager.local l on (li.idloc=l.idloc) " +
+             "where  p.nome like @nome " +
+             "and i.data_out is null " +
+             "and li.data_out_loc is null " +
+             "order by i.data_in desc ";
+
+             /*===============================================
+            Autor: Renato Campelo
+            Data: 15/10/2009
+            String para ConsultaPorPacienteNome que receberam alta
+             ===============================================*/
+            string sql_internacao_finalizada =
+             "select i.idint, i.idpac, i.idcon, i.data_in, i.data_out, "+
+             "i.obs, p.nome, p.cpf, l.nome as local "+
+             "from clinicalmanager.internacao i, (select li.idint, max(li.data_out_loc) from clinicalmanager.local_internacao li group by li.idint) li_max, "+
+             "clinicalmanager.paciente p, clinicalmanager.local l,  clinicalmanager.local_internacao li " +
+             "where  p.nome like @nome  " +
+             "and i.idpac=p.idpac "+
+             "and i.idint=li_max.idint "+
+             "and li.idloc=l.idloc "+
+             "and li_max.idint=li.idint and li.data_out_loc=li_max.max ";
+            
+            try{
+                cmd = conn.CreateCommand();
+                switch (andamento)
+                {
+                    case "Finalizadas":
+                        cmd.CommandText = sql_internacao_finalizada;
+                        break;
+                    default:
+                        cmd.CommandText = sql_internacao_andamento;
+                        break;
+                }            
             cmd.Parameters.Add("@nome", nome+'%');
             return base.executeToDataset(cmd);
+            }
+             catch (Npgsql.NpgsqlException ex)
+             {
+                 throw new Exception(ex.Message);
+             }
         }
         public void liberarInternacao(Internacao internacao, DateTime data_saida, float valor)
         {
@@ -203,6 +243,7 @@ namespace AcessoDados
             string sql2 = "update clinicalmanager.local_internacao" +
                 " set data_out_loc = @data_out_loc " +
                 " where idint = @idint and data_out_loc is null";
+            try{
             conn.Open();
             //Comando do sql2
             NpgsqlCommand cmd1 = conn.CreateCommand();
@@ -219,6 +260,11 @@ namespace AcessoDados
             cmd.Parameters.Add("@idint", internacao.Codint);
             cmd.ExecuteNonQuery();
             conn.Close();
+            }
+            catch (Npgsql.NpgsqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         public string movimentarPaciente(int idint, int idloc, DateTime data_in_loc, DateTime data_out_loc, string obs_loc)
         {
@@ -254,9 +300,15 @@ namespace AcessoDados
                 "inner join clinicalmanager.internacao i on (i.idint=li.idint) " +
                 "inner join clinicalmanager.local l on (li.idloc=l.idloc) " +
                 "inner join clinicalmanager.paciente p on (i.idpac=p.idpac) where li.idint = @idint";
+            try{
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@idint", idint);
+            }
+            catch (Npgsql.NpgsqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return base.executeToDataset(cmd);
         }
         public Internacao preLiberarInternacao(int idint)
@@ -265,6 +317,7 @@ namespace AcessoDados
                 " from clinicalmanager.internacao i"+
                 " inner join clinicalmanager.convenio c on (i.idcon=c.idcon)"+
                 " where i.idint=@idint";
+             try{
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@idint", idint);
@@ -277,6 +330,11 @@ namespace AcessoDados
             output.Convenio = convenio;
             conn.Close();
             return output;
+            }
+            catch (Npgsql.NpgsqlException ex)
+            {
+                 throw new Exception(ex.Message);
+            }
         }
     }
 }
