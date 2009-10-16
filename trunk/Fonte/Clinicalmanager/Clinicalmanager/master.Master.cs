@@ -17,7 +17,7 @@ namespace Clinicalmanager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          if (Session["login"] == null) Server.Transfer("/login.aspx");
+         // if (Session["login"] == null) Server.Transfer("/login.aspx");
         }
         public String StatusLabel {
             set 
@@ -29,6 +29,12 @@ namespace Clinicalmanager
         {
             Response.Redirect(e.Item.Target.ToString());
             //Server.Transfer(e.Item.Target.ToString(),true);
+        }
+
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("default.aspx");
         }
     }
 }

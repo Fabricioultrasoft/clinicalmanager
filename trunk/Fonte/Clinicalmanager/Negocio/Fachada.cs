@@ -33,6 +33,11 @@ namespace Negocio
             if (instancia == null) return new Fachada();
             else return instancia;
         }
+        public bool login(String user, String pass)
+        {
+            RepositorioUsuario rep = new RepositorioUsuario();
+            return rep.login(user, pass);
+        }
 
         #region PACIENTE
         public void excluirPaciente(int idpac)
