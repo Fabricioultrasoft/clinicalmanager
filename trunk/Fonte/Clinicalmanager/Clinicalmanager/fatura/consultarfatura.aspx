@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="consultarfatura.aspx.cs"
     Inherits="Clinicalmanager.fatura.consultarfatura" Title="Untitled Page" %>
 
+<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style6
@@ -15,6 +17,10 @@
         .style8
         {
             height: 26px;
+        }
+        #parCons
+        {
+            height: 118px;
         }
     </style>
 </asp:Content>
@@ -53,9 +59,24 @@
                     </td>
                 </tr>
             </table>
+            <asp:Button ID="btnConsulta" runat="server" Text="Consultar" />
+            
+            
+
         </div>
         <div id="result">
-            <asp:Button ID="btnConsulta" runat="server" Text="Consultar" />
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:postgresqlConnString %>" 
+                ProviderName="<%$ ConnectionStrings:postgresqlConnString.ProviderName %>"
+                SelectCommand="SELECT * FROM produkt">
+            </asp:SqlDataSource>
         </div>
+        
+        <asp:GridView ID="GridView1" 
+            runat="server" 
+            AllowPaging="True"
+            AllowSorting="True"
+            DataSourceID="SqlDataSource1" >
+        </asp:GridView>
     </div>
 </asp:Content>
