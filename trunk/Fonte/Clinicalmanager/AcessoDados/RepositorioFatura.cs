@@ -15,29 +15,34 @@ namespace AcessoDados
         NpgsqlCommand cmd;
         NpgsqlDataReader reader;
         #region CRUD
-        public void inserir(Fatura fatura)
+        public string inserir(Fatura fatura)
         {
             if (fatura != null)
             {
                 try
                 {
-                    string cmdStr = "insert into fatura(data_fechamento,paga,fechada)"+
-                        " values(@data_fechamento,@paga,@fechada)";
+                    string cmdStr = "insert into fatura(codigo, data_fechamento, data_inicio, data_fim, tipo, mes_ref)" +
+                        " values(@codigo, @data_fechamento, @data_inicio, @data_fim, @tipo, @mes_ref)";
                     base.conn.Open();
                     cmd = base.conn.CreateCommand();
                     cmd.CommandText = cmdStr;
+                    cmd.Parameters.Add("@codigo", fatura.Codigo_HP);
                     cmd.Parameters.Add("@data_fechamento", fatura.Data_fechamento);
-                    cmd.Parameters.Add("@paga", fatura.Paga);
-                    cmd.Parameters.Add("@fechada", fatura.Fechada);
+                    cmd.Parameters.Add("@data_inicio", fatura.Data_inicio);
+                    cmd.Parameters.Add("@data_fim", fatura.Data_fim);
+                    cmd.Parameters.Add("@tipo", fatura.Tipo);
+                    cmd.Parameters.Add("@mes_ref", fatura.Mes_referencia);                    
                     cmd.ExecuteNonQuery();
                     base.conn.Close();
+                    return "Fatura incluída com sucesso.";
                 }
                 catch (Exception ex)
                 {
-
-                    throw new Exception("Erro ao incluir fatura: " + ex.Message);
-                }
+                    return "Falha ao incluir fatura. Verifique os parâmetros informados.\n" + ex.Message;
+                    //throw new Exception("Erro ao incluir fatura: " + ex.Message);
+                }               
             }
+            return "Por favor informe a fatura.";
         }
 
         public void atualizar(Fatura fatura)
@@ -83,21 +88,33 @@ namespace AcessoDados
             }
         }
 
-        public Fatura consultar(int codfat)
+        public Fatura consultar(string codfat)
         {
-            string sql = "SELECT idfat, data_fechamento, paga, fechada " + 
-			             "FROM clinicalmanager.fatura " + 
-						 "WHERE idfat = @idfat";
-
+            /*    idfat serial NOT NULL,
+                  data_fechamento date,
+                  paga boolean,
+                  fechada boolean,
+                  codigo character varying,
+                  data_inicio date,
+                  data_fim date,
+                  tipo character(1),
+                  mes_ref integer,
+             * */
+            string sql = "SELECT idfat, codigo, data_fechamento, data_inicio, data_fim, mes_ref, tipo " + 
+			             "FROM fatura " +
+                         "WHERE codigo ilike @codigo";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Parameters.Add("@idfat", codfat);
+            cmd.Parameters.Add("@codigo", codfat+'%');
             reader = base.execute(cmd);
             Fatura output = new Fatura();
             output.Codfat = reader.GetInt16(0);
-            output.Data_fechamento = reader.GetDateTime(1);
-            output.Paga= reader.GetBoolean(2);
-            output.Fechada = reader.GetBoolean(3);
+            output.Codigo_HP = reader.GetString(1);
+            output.Data_fechamento = reader.GetDateTime(2);
+            output.Data_inicio = reader.GetDateTime(3);
+            output.Data_fim = reader.GetDateTime(4);
+            output.Mes_referencia = reader.GetInt16(5);
+            output.Tipo = reader.GetChar(6);
             return output;
         }
         #endregion

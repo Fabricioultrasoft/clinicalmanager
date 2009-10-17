@@ -10,6 +10,11 @@ namespace Classes_Básicas
         private DateTime data_fechamento;
         private bool fechada, paga;
         private int codfat;
+        public DateTime Data_inicio { get; set; }
+        public DateTime Data_fim { get; set; }
+        public int Mes_referencia { get; set; }
+        public char Tipo { get; set; }
+        public string Codigo_HP { get; set; }
         public DateTime Data_fechamento {
             get { return this.data_fechamento; }
             set { this.data_fechamento = value; }

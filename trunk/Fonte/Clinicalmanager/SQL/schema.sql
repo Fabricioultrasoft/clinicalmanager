@@ -44,7 +44,11 @@ CREATE TABLE convenio (
 
 CREATE TABLE fatura (
     idfat integer NOT NULL,
+	codigo varchar,
     data_fechamento date,
+	data_inicio date,
+	data_fim date,
+	tipo char constraint tipo_fatura check (tipo in('H','P')),
     paga boolean,
     fechada boolean
 );

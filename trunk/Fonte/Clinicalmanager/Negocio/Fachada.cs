@@ -153,5 +153,17 @@ namespace Negocio
         {
         }
         #endregion
+
+        #region Fatura
+
+        public string inserirFatura(Fatura fatura)
+        {
+            return cadFat.inserir(fatura);
+        }
+        public Fatura getFaturaByCodigo(string codigo)
+        {
+            return cadFat.consultar(codigo);
+        }
+        #endregion
     }
 }

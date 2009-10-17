@@ -21,9 +21,9 @@ namespace Negocio
         }
         #region CRUD
 
-        public void inserir(Fatura fat)
+        public string inserir(Fatura fat)
         {
-            rep.inserir(fat);
+            return rep.inserir(fat);
         }
 
         public void atualizar(Fatura fat)
@@ -41,9 +41,9 @@ namespace Negocio
         #region Crud Members
 
 
-        public Fatura consultar(int id_fatura)
+        public Fatura consultar(string codfat)
         {
-            return rep.consultar(id_fatura);
+            return rep.consultar(codfat);
         }
         #endregion
     }
