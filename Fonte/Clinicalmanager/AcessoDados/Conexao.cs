@@ -21,9 +21,9 @@ namespace AcessoDados
         public Conexao()
         {
             //URL = ConfigurationManager.ConnectionStrings["conn"].ConnectionString; 
-            URL = "server=pgsql.realinstitutodopulmao.com.br;User id=realinstitutodopulma; Password=a06r2329;Database=realinstitutodopulma";
-            String URL_mydom = "server=renatocampelo.gotdns.com;User id=postgres;Password=a06r2329;Database=clinicalmanager;";
-            String URL_local = "server=renato-pc;User id=postgres;Password=a06r2329;Database=clinicalmanager;";
+            URL = "server=pgsql.realinstitutodopulmao.com.br;User id=realinstitutodopulma; Password=a06r2329;Database=realinstitutodopulma;SearchPath=clinicalmanager, pg_catalog;";
+            String URL_mydom = "server=renatocampelo.gotdns.com;User id=postgres;Password=a06r2329;Database=clinicalmanager;SearchPath=clinicalmanager, pg_catalog;";
+            String URL_local = "server=renato-pc;User id=postgres;Password=a06r2329;Database=clinicalmanager;SearchPath=clinicalmanager, pg_catalog;";
             conn = new NpgsqlConnection(URL_local);
        
             //conn.Open();            
