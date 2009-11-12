@@ -155,8 +155,10 @@ input, textarea, select {
 	clear: both;
 	width: 600px;
 	height: 80px;
-	margin: 0 auto;
 	background: url(images/img02.png) no-repeat left top;
+	margin-left: auto;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 #logo h1, #logo h2 {

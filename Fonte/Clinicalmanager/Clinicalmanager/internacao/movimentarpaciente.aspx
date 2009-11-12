@@ -7,7 +7,7 @@ Inherits="Clinicalmanager.internacao.movimentarpaciente" %>
 <script language="javascript" type="text/javascript">
 function movPac(){
 window.alert('Movimentação cadastrada');
-self.close();
+//self.close();
 }
 </script>
 </head>
@@ -55,7 +55,7 @@ self.close();
     </div>
     <div style="text-align: center">
         <asp:Button ID="btnMovimentar"  runat="server" Text="Movimentar Paciente" 
-           OnClick="btnMovimentar_Click"  OnClientClick="movPac()"/>
+          OnClientClick="movPac();" OnClick="btnMovimentar_Click"  />
             
     </div>
     <asp:ObjectDataSource ID="dsLocal" runat="server" SelectMethod="getAllLocal" 
