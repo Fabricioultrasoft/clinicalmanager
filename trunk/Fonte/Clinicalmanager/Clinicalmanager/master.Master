@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>Intranet - Real Instituto do Pulmão</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="default.css" rel="stylesheet" type="text/css" />
@@ -26,6 +26,10 @@
     <asp:LinkButton CssClass="menulink" ID="logout" runat="server" 
             onclick="logout_Click">sair</asp:LinkButton>
     </td>
+     <td>
+    <asp:LinkButton CssClass="menulink" ID="ajuda" runat="server" 
+            onclick="help_click">ajuda</asp:LinkButton>
+    </td>
     </tr>    
     </table>
     </div>    
@@ -43,7 +47,7 @@
                 <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                 <StaticHoverStyle BackColor="#666666" ForeColor="White" />
                 <Items>
-                    <asp:MenuItem Text="Cadastro" Value="Cadastro" Target="local/consultarlocal.aspx">
+                    <asp:MenuItem Text="Cadastro" Value="Cadastro">
                         <asp:MenuItem Text="Medicos" Value="Medicos" 
                             Target="/medico/cadastrarmedico.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Paciente" Value="Paciente" Target="/paciente/cadastrarpaciente.aspx">

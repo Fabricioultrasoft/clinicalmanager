@@ -4,7 +4,7 @@
 <script type="text/javascript">
 function alta(){
 window.alert('Internação Liberada');
-self.close();
+//self.close();
 }
 </script>
 
@@ -56,7 +56,7 @@ self.close();
                 <td class="style1">
                     Valor esperado de Honorário:</td>
                 <td>
-                    <asp:TextBox ID="txtValorHn" runat="server"  onkeyup="formataValor(this,event);></asp:TextBox>
+                    <asp:TextBox ID="txtValorHn" runat="server" onkeyup="formataValor(this,event);"></asp:TextBox>
                 </td>
             </tr>
         </table>

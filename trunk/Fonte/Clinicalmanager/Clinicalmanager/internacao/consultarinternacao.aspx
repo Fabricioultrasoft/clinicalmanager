@@ -148,7 +148,6 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
             AllowPaging="True">
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
-                <asp:CommandField SelectText="Detalhar" ShowSelectButton="True" />
                 <asp:BoundField DataField="data_in" HeaderText="Data de Entrada" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="data_out" HeaderText="Data de Saída" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="nome" HeaderText="Paciente" />

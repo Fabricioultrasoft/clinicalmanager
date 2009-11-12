@@ -34,7 +34,19 @@ namespace Clinicalmanager
         protected void logout_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
-            Response.Redirect("default.aspx");
+            Response.Redirect("http://realinstitutodopulmao.com.br");
+        }
+
+        protected void help_click(object sender, EventArgs e)
+        {
+            String manual = Server.MapPath("~/manual.pdf");
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.ContentType = "application/pdf";
+            Response.WriteFile(manual);
+            Response.Flush();
+            Response.Close();
+
         }
     }
 }
