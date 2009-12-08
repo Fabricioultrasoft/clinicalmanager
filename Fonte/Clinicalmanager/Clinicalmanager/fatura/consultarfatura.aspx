@@ -35,7 +35,7 @@
                         Código da fatura:
                     </td>
                     <td class="style8" >
-                        <asp:TextBox ID="TextBox1" runat="server" Width="123px"></asp:TextBox>
+                        <asp:TextBox ID="txtCodigo" runat="server" Width="123px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -59,24 +59,45 @@
                     </td>
                 </tr>
             </table>
-            <asp:Button ID="btnConsulta" runat="server" Text="Consultar" />
+            <asp:Button ID="btnConsulta" runat="server" Text="Consultar" 
+                onclick="btnConsulta_Click" />
             
             
 
         </div>
         <div id="result">
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                ConnectionString="<%$ ConnectionStrings:postgresqlConnString %>" 
-                ProviderName="<%$ ConnectionStrings:postgresqlConnString.ProviderName %>"
-                SelectCommand="SELECT * FROM produkt">
-            </asp:SqlDataSource>
+           
+            <asp:GridView ID="grdFatura" runat="server" AutoGenerateColumns="False" 
+                DataSourceID="dsFatura" BackColor="White" BorderColor="#336666" 
+                BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" 
+                style="margin-right: 0px" oninit="grdFatura_Init">
+                <RowStyle BackColor="White" ForeColor="#333333" />
+                <Columns>
+                    <asp:BoundField DataField="codigo" HeaderText="Código" />
+                    <asp:BoundField DataField="data_fechamento" DataFormatString="{0:dd/MM/yyyy}" 
+                        HeaderText="Data Fechamento" />
+                    <asp:BoundField DataField="data_inicio" DataFormatString="{0:dd/MM/yyyy}" 
+                        HeaderText="Período Inicial" />
+                    <asp:BoundField DataField="data_fim" DataFormatString="{0:dd/MM/yyyy}" 
+                        HeaderText="Período Final" />
+                    <asp:BoundField DataField="tipo" HeaderText="Tipo" />
+                </Columns>
+                <FooterStyle BackColor="White" ForeColor="#333333" />
+                <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+            </asp:GridView>
+           
+            <asp:ObjectDataSource ID="dsFatura" runat="server" 
+                SelectMethod="getFaturaByCodigo" TypeName="Negocio.Fachada">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="txtCodigo" DefaultValue="%" Name="codigo" 
+                        PropertyName="Text" Type="String" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
+           
         </div>
         
-        <asp:GridView ID="GridView1" 
-            runat="server" 
-            AllowPaging="True"
-            AllowSorting="True"
-            DataSourceID="SqlDataSource1" >
-        </asp:GridView>
+     
     </div>
 </asp:Content>

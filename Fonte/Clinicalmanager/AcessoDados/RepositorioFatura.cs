@@ -14,6 +14,7 @@ namespace AcessoDados
     {
         NpgsqlCommand cmd;
         NpgsqlDataReader reader;
+        DataSet dataset;
         #region CRUD
         public string inserir(Fatura fatura)
         {
@@ -88,7 +89,7 @@ namespace AcessoDados
             }
         }
 
-        public Fatura consultar(string codfat)
+        public DataSet consultar(string codfat)
         {
             /*    idfat serial NOT NULL,
                   data_fechamento date,
@@ -101,21 +102,13 @@ namespace AcessoDados
                   mes_ref integer,
              * */
             string sql = "SELECT idfat, codigo, data_fechamento, data_inicio, data_fim, mes_ref, tipo " + 
-			             "FROM fatura " +
+			             "FROM clinicalmanager.fatura " +
                          "WHERE codigo ilike @codigo";
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.Add("@codigo", codfat+'%');
-            reader = base.execute(cmd);
-            Fatura output = new Fatura();
-            output.Codfat = reader.GetInt16(0);
-            output.Codigo_HP = reader.GetString(1);
-            output.Data_fechamento = reader.GetDateTime(2);
-            output.Data_inicio = reader.GetDateTime(3);
-            output.Data_fim = reader.GetDateTime(4);
-            output.Mes_referencia = reader.GetInt16(5);
-            output.Tipo = reader.GetChar(6);
-            return output;
+            dataset = base.executeToDataset(cmd);            
+            return dataset;
         }
         #endregion
 

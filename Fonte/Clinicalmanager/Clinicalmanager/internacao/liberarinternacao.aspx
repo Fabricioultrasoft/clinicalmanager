@@ -7,10 +7,9 @@ window.alert('Internação Liberada');
 //self.close();
 }
 </script>
-
+<script type="text/javascript" src="../mascara.js"></script>
 <html>
 <head>
-<script type="text/javascript" src="../mascara.js"></script>
     <style type="text/css">
         .style1
         {
@@ -19,6 +18,7 @@ window.alert('Internação Liberada');
     </style>
 </head>
 <body>
+
  <form id="Form1" runat="server">
  <div>
 

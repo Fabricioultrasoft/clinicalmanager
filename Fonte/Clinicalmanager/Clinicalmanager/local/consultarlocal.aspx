@@ -3,7 +3,8 @@
 
 
 <asp:Content ID="consLoc" ContentPlaceHolderID="contentHolder" runat="server">
-
+<h1>
+            Consultar Local</h1>
 
     <div id="parCons">
         <table style="width: 100%; text-align: left;">
