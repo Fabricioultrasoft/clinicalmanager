@@ -160,7 +160,7 @@ namespace Negocio
         {
             return cadFat.inserir(fatura);
         }
-        public Fatura getFaturaByCodigo(string codigo)
+        public DataSet getFaturaByCodigo(string codigo)
         {
             return cadFat.consultar(codigo);
         }

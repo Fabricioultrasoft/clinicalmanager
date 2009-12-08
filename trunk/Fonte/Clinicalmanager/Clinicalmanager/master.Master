@@ -6,6 +6,7 @@
     <title>Intranet - Real Instituto do Pulmão</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script type="text/javascript" src="mascara.js"></script>
     <link href="default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>

@@ -187,7 +187,7 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
     <div style="height: 197px; width: 745px">
         <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#336666"
             BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataSourceID="dsHist"
-            GridLines="Horizontal" AutoGenerateColumns="False">
+            GridLines="Horizontal" AutoGenerateColumns="False" AllowPaging="True">
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
                 <asp:BoundField DataField="local" HeaderText="Local" />

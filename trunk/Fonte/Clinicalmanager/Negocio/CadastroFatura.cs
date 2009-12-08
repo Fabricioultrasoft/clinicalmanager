@@ -41,7 +41,7 @@ namespace Negocio
         #region Crud Members
 
 
-        public Fatura consultar(string codfat)
+        public DataSet consultar(string codfat)
         {
             return rep.consultar(codfat);
         }

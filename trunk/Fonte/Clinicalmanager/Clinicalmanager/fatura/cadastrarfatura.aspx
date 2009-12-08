@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="cadastrarfatura.aspx.cs"
     Inherits="Clinicalmanager.fatura.cadastrarfatura" Title="Untitled Page" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style1
@@ -28,6 +27,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentHolder" runat="server">
+<script type="text/javascript" src="../mascara.js"></script>
 <div style="width: 492px">
     <div id="tabela">
     <h1> Cadastrar Fatura</h1>
@@ -43,7 +43,7 @@
                 <td class="style4">
                     Data de recebimento:</td>
                 <td class="style5" colspan="3">
-                    <asp:TextBox ID="txtDataRec" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDataRec" runat="server" onkeyup="formataData(this,event);" ></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -51,7 +51,7 @@
                     Período de referência de:</td>
                 <td class="style3">
                 
-                    <asp:TextBox ID="txtDataInicio" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDataInicio" runat="server" onkeyup="formataData(this,event);" ></asp:TextBox>
                 
                 </td>
                 <td class="style3">
@@ -59,7 +59,7 @@
                     até</td>
                 <td class="style3">
                 
-                    <asp:TextBox ID="txtDataFim" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDataFim" runat="server" onkeyup="formataData(this,event);" ></asp:TextBox>
                 
                 </td>
             </tr>
