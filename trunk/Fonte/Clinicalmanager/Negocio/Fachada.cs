@@ -165,5 +165,12 @@ namespace Negocio
             return cadFat.consultar(codigo);
         }
         #endregion
+        #region Relatorios
+        public DataSet relatorioPacienteSemInternacao()
+        {
+            RepositorioInternacao rep = new RepositorioInternacao();
+            return rep.listaPacienteSemFatura();
+        }
+        #endregion
     }
 }
