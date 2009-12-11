@@ -190,12 +190,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPaciente.xsd</DependentUpon>
     </Compile>
-    <Compile Include="relatorio\relatorio.aspx.cs">
-      <DependentUpon>relatorio.aspx</DependentUpon>
+    <Compile Include="relatorio\rel01.aspx.cs">
+      <DependentUpon>rel01.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="relatorio\relatorio.aspx.designer.cs">
-      <DependentUpon>relatorio.aspx</DependentUpon>
+    <Compile Include="relatorio\rel01.aspx.designer.cs">
+      <DependentUpon>rel01.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -249,7 +249,7 @@
     <Content Include="images\img10.gif" />
     <Content Include="images\medical_logo.jpg" />
     <Content Include="images\spacer.gif" />
-    <Content Include="relatorio\relatorio.aspx" />
+    <Content Include="relatorio\rel01.aspx" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>

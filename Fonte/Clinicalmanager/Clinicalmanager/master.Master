@@ -71,7 +71,8 @@
                             Value="Médico"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Relatórios" Value="Relatórios">
-                        <asp:MenuItem Text="Internacões" Value="Internacões"></asp:MenuItem>
+                        <asp:MenuItem Text="Internações não Faturadas" Value="Internacões" 
+                            Target="~/relatorio/rel01.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                 </Items>
             </asp:Menu>
