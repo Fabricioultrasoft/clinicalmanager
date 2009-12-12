@@ -42,8 +42,9 @@ namespace Negocio
         {
             return rep.consultar(idint);
         }
-        public DataSet consultarPorPaciente(int idpac)
+        public DataSet consultarPorPaciente(string param)
         {
+            Int32 idpac = Int32.Parse(param);
             return rep.consultarPorPaciente(idpac);
         }
         public DataSet consultarPorPacienteNome(string nome, string andamento)
