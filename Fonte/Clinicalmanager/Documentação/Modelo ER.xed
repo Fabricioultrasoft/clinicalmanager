@@ -84,8 +84,8 @@
 <Option name="initially" class="String" value="IMMEDIATE"/>
 <Option name="deferrable" class="Boolean" value="false"/>
 <Option name="match" class="String" value="SIMPLE"/>
-<Option name="onDelete" class="String" value="NO ACTION"/>
 <Option name="onUpdate" class="String" value="NO ACTION"/>
+<Option name="onDelete" class="String" value="NO ACTION"/>
 <FK>49</FK>
 <PK>15</PK>
 </Relation>
@@ -93,8 +93,8 @@
 <Option name="initially" class="String" value="IMMEDIATE"/>
 <Option name="deferrable" class="Boolean" value="false"/>
 <Option name="match" class="String" value="SIMPLE"/>
-<Option name="onDelete" class="String" value="NO ACTION"/>
 <Option name="onUpdate" class="String" value="NO ACTION"/>
+<Option name="onDelete" class="String" value="NO ACTION"/>
 <FK>1</FK>
 <PK>16</PK>
 </Relation>
@@ -102,8 +102,8 @@
 <Option name="initially" class="String" value="IMMEDIATE"/>
 <Option name="deferrable" class="Boolean" value="false"/>
 <Option name="match" class="String" value="SIMPLE"/>
-<Option name="onDelete" class="String" value="NO ACTION"/>
 <Option name="onUpdate" class="String" value="NO ACTION"/>
+<Option name="onDelete" class="String" value="NO ACTION"/>
 <FK>14</FK>
 <PK>28</PK>
 </Relation>
@@ -111,8 +111,8 @@
 <Option name="initially" class="String" value="IMMEDIATE"/>
 <Option name="deferrable" class="Boolean" value="false"/>
 <Option name="match" class="String" value="SIMPLE"/>
-<Option name="onDelete" class="String" value="NO ACTION"/>
 <Option name="onUpdate" class="String" value="NO ACTION"/>
+<Option name="onDelete" class="String" value="NO ACTION"/>
 <FK>12</FK>
 <PK>27</PK>
 </Relation>
@@ -120,8 +120,8 @@
 <Option name="initially" class="String" value="IMMEDIATE"/>
 <Option name="deferrable" class="Boolean" value="false"/>
 <Option name="match" class="String" value="SIMPLE"/>
-<Option name="onDelete" class="String" value="CASCADE"/>
 <Option name="onUpdate" class="String" value="NO ACTION"/>
+<Option name="onDelete" class="String" value="CASCADE"/>
 <FK>37</FK>
 <PK>32</PK>
 </Relation>
@@ -129,20 +129,18 @@
 <Option name="initially" class="String" value="IMMEDIATE"/>
 <Option name="deferrable" class="Boolean" value="false"/>
 <Option name="match" class="String" value="SIMPLE"/>
-<Option name="onDelete" class="String" value="CASCADE"/>
 <Option name="onUpdate" class="String" value="NO ACTION"/>
+<Option name="onDelete" class="String" value="CASCADE"/>
 <FK>14</FK>
 <PK>31</PK>
 </Relation>
 <Relation id="59" name="internacao_medicointernacao_fkey" cardinality="-2" identifying="false" nulls="false">
 <FK>14</FK>
 <PK>42</PK>
-<Text/>
 </Relation>
 <Relation id="60" name="medico_medicointernacao_fkey" cardinality="-2" identifying="false" nulls="false">
 <FK>46</FK>
 <PK>43</PK>
-<Text/>
 </Relation>
 <Index table="0" name="convenio_pkey" schema="clinicalmanager" database="clinicalmanager">
 <Option name="unique" class="Boolean" value="true"/>
@@ -241,23 +239,23 @@
 <ConstraintColumn id="52"/>
 </Constraint>
 <Sheet name="Clinical Manager" id="61" disp_at="true" disp_ph="true" disp_co="true" disp_rn="true">
-<Place id="41" visible="true">132,350,130,70</Place>
-<Place id="30" visible="true">1001,269,160,110</Place>
-<Place id="59" visible="true" options="530.7223637914377,288.4819638547888,150.0,210.0,132.3491106246599,350.6755501949809,130.0,70.0,2,530.7223637914377,380.0,262.3491106246599,380.0">438,17,0,0</Place>
-<Place id="57" visible="true">500,0,0,0</Place>
+<Place id="56" visible="true" options="39.786634148116434,481.387001460736,150.0,180.0,422.4039445930075,567.7501394322092,110.0,90.0,7,189.78663414811643,610.0,229.38461389456302,610.0,229.38461389456302,640.0,497.4039445930075,640.0,497.4039445930075,663.8750697161046,500.0,663.8750697161046,500.0,657.7501394322092">466,-7,0,0</Place>
 <Place id="58" visible="true">500,0,0,0</Place>
-<Place id="3" visible="true">590,690,150,180</Place>
-<Place id="0" visible="true">879,619,150,60</Place>
-<Place id="48" visible="true">551,29,140,90</Place>
 <Place id="60" visible="true">500,0,0,0</Place>
-<Place id="25" visible="true">171,627,110,90</Place>
-<Place id="36" visible="true">1020,37,140,90</Place>
-<Place id="45" visible="true">119,129,130,60</Place>
+<Place id="53" visible="true" options="551.0,29.0,140.0,90.0,530.0,288.0,150.0,210.0,2,610.0,119.0,610.0,288.0">547,-10,63,0</Place>
+<Place id="41" visible="true">132,350,130,70</Place>
+<Place id="48" visible="true">551,29,140,90</Place>
+<Place id="30" visible="true">1001,269,160,110</Place>
 <Place id="13" visible="true">530,288,150,210</Place>
-<Place id="54" visible="true" options="879.9015869776647,619.1219330881977,150.0,60.0,530.7223637914377,288.4819638547888,150.0,210.0,3,950.0,619.1219330881977,950.0,470.0,680.0,470.0">627,-19,0,0</Place>
-<Place id="56" visible="true">500,0,0,0</Place>
-<Place id="55" visible="true" options="530.7223637914377,288.4819638547888,150.0,210.0,171.1005050633882,627.0904037956218,110.0,90.0,6,530.7223637914377,410.0,320.0,410.0,320.0,593.5452018978109,305.5502525316941,593.5452018978109,305.5502525316941,630.0,281.1005050633882,630.0">582,9,-1,0</Place>
-<Place id="53" visible="true" options="551.0,29.0,140.0,90.0,530.7223637914377,288.4819638547888,150.0,210.0,2,610.0,119.0,610.0,288.4819638547888">547,-10,63,0</Place>
+<Place id="25" visible="true">422,567,110,90</Place>
+<Place id="3" visible="true">39,481,150,180</Place>
+<Place id="59" visible="true" options="530.0,288.0,150.0,210.0,132.0,350.0,130.0,70.0,4,530.0,390.0,400.0,390.0,400.0,370.0,262.0,370.0">329,27,0,0</Place>
+<Place id="45" visible="true">119,129,130,60</Place>
+<Place id="57" visible="true">500,0,0,0</Place>
+<Place id="55" visible="true" options="530.0,288.0,150.0,210.0,422.4039445930075,567.7501394322092,110.0,90.0,4,580.0,498.0,565.0,498.0,565.0,600.0,532.4039445930075,600.0">535,-57,-1,0</Place>
+<Place id="54" visible="true">627,-19,0,0</Place>
+<Place id="0" visible="true">879,619,150,60</Place>
+<Place id="36" visible="true">1020,37,140,90</Place>
 </Sheet>
-<Settings sheet="61" zoom="1.1892071150027237"/>
+<Settings sheet="61" zoom="1.0000000000000022"/>
 </Diagram>
