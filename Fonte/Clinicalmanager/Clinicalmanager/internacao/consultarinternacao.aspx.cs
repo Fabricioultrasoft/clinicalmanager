@@ -20,11 +20,12 @@ namespace Clinicalmanager.internacao
         //Internacao internacao;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["idpac"] != null)
+            string idpac = Request.Params["idpac"];
+            if ( idpac != null)
             {
                 dsInternacao.SelectMethod = "getInternacaoPaciente";
                 dsInternacao.SelectParameters.Clear();
-                dsInternacao.SelectParameters.Add("idpac",Request.Params["idpac"]);
+                dsInternacao.SelectParameters.Add("idpac",idpac);
                 grdInternacao.Visible = true;
             }
         }

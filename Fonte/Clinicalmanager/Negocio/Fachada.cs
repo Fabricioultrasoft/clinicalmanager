@@ -118,7 +118,7 @@ namespace Negocio
         {
             return cadInt.consultarPorPacienteNome(nome, andamento);
         }
-        public DataSet getInternacaoPaciente(int idpac)
+        public DataSet getInternacaoPaciente(string idpac)
         {
             return cadInt.consultarPorPaciente(idpac);
         }

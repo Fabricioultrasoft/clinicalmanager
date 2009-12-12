@@ -145,14 +145,13 @@ namespace AcessoDados
         #endregion
         public DataSet consultarPorPaciente(int idpac)
         {
-            string sql = "select a.idint, a.data_in , a.data_out, a.obs, a.vl_esperado_hn,l.nome as local," +
-                         " a.vl_recebido_hn, a.vl_produtividade, b.*, c.*, d.* " +
-                         " from clinicalmanager.paciente b,clinicalmanager.internacao a " +
-                         " left join clinicalmanager.fatura c on(c.idfat=a.idfat) " +
-                         " left join clinicalmanager.convenio d on (a.idcon=d.idcon)" +
-                         " left join clinicalmanager.local_internacao li on (li.idint=a.idint) " +
-                         " left join clinicalmanager.local l on (li.idloc=l.idloc)" +
-                         " where li.data_out_loc is null and a.idpac=b.idpac and a.idpac=@idpac";
+            string sql =    "select i.idint, i.idpac, i.idcon, i.data_in, i.data_out, "+ 
+                            "i.obs, p.nome, p.cpf, li.idloc, li.data_in_loc, li.obs_loc as local_obs, l.nome as local  "+
+                            "from clinicalmanager.internacao i  "+
+                            "inner join clinicalmanager.paciente p on (i.idpac=p.idpac)  "+
+                            "left join clinicalmanager.local_internacao li on (li.idint=i.idint)  "+
+                            "left join clinicalmanager.local l on (li.idloc=l.idloc)  "+
+                            "where  p.idpac=@idpac";
             try{
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
