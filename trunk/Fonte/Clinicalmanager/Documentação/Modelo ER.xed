@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram version="1.0" type="POSTGRES" versionMajor="8" versionMinor="3">
+<Table id="0" name="convenio" schema="clinicalmanager" database="clinicalmanager">
+<Column id="1" name="idcon" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">nextval('convenio_idcon_seq'::regclass)</CP>
+</Column>
+<Column id="2" name="descricao" type="varchar" length="50" nulls="true"/>
+</Table>
+<Table id="3" name="fatura" schema="clinicalmanager" database="clinicalmanager">
+<Column id="4" name="codigo" type="varchar" length="0" nulls="true"/>
+<Column id="5" name="data_fechamento" type="date" length="0" nulls="true"/>
+<Column id="6" name="data_inicio" type="date" length="0" nulls="true"/>
+<Column id="7" name="data_fim" type="date" length="0" nulls="true"/>
+<Column id="8" name="tipo" type="char" length="1" nulls="true"/>
+<Column id="9" name="mes_ref" type="int4" length="0" nulls="true"/>
+<Column id="10" name="paga" type="bool" length="0" nulls="true"/>
+<Column id="11" name="fechada" type="bool" length="0" nulls="true"/>
+<Column id="12" name="idfat" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">nextval('fatura_idfat_seq'::regclass)</CP>
+</Column>
+</Table>
+<Table id="13" name="internacao" schema="clinicalmanager" database="clinicalmanager">
+<Column id="14" name="idint" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">nextval('internacao_idint_seq'::regclass)</CP>
+</Column>
+<Column id="15" name="idpac" type="int4" length="0" nulls="true"/>
+<Column id="16" name="idcon" type="int4" length="0" nulls="true"/>
+<Column id="17" name="idfat" type="int4" length="0" nulls="true"/>
+<Column id="18" name="data_in" type="timestamp" length="0" nulls="true"/>
+<Column id="19" name="data_out" type="timestamp" length="0" nulls="true"/>
+<Column id="20" name="obs" type="varchar" length="255" nulls="true"/>
+<Column id="21" name="vl_esperado_hn" type="float8" length="0" nulls="true"/>
+<Column id="22" name="vl_recebido_hn" type="float8" length="0" nulls="true"/>
+<Column id="23" name="vl_produtividade" type="float8" length="0" nulls="true"/>
+<Column id="24" name="idmed" type="int4" length="0" nulls="true"/>
+</Table>
+<Table id="25" name="item_de_fatura" schema="clinicalmanager" database="clinicalmanager">
+<Column id="26" name="iditem" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">nextval('item_de_fatura_iditem_seq'::regclass)</CP>
+</Column>
+<Column id="27" name="idfat" type="int4" length="0" nulls="false"/>
+<Column id="28" name="idint" type="int4" length="0" nulls="false"/>
+<Column id="29" name="valor" type="float8" length="0" nulls="true"/>
+</Table>
+<Table id="30" name="local_internacao" schema="clinicalmanager" database="clinicalmanager">
+<Column id="31" name="idint" type="int4" length="0" nulls="false"/>
+<Column id="32" name="idloc" type="int4" length="0" nulls="false"/>
+<Column id="33" name="data_in_loc" type="timestamp" length="0" nulls="false"/>
+<Column id="34" name="data_out_loc" type="timestamp" length="0" nulls="true"/>
+<Column id="35" name="obs_loc" type="varchar" length="255" nulls="true"/>
+</Table>
+<Table id="36" name="local" schema="clinicalmanager" database="clinicalmanager">
+<Column id="37" name="idloc" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">nextval('local_idloc_seq'::regclass)</CP>
+</Column>
+<Column id="38" name="nome" type="varchar" length="255" nulls="true"/>
+<Column id="39" name="gera_prd" type="bool" length="0" nulls="true"/>
+<Column id="40" name="andar" type="int4" length="0" nulls="true"/>
+</Table>
+<Table id="41" name="medico_internacao" schema="clinicalmanager" database="clinicalmanager">
+<Column id="42" name="idint" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">nextval('medico_internacao_idint_seq'::regclass)</CP>
+</Column>
+<Column id="43" name="idmec" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">nextval('medico_internacao_idmec_seq'::regclass)</CP>
+</Column>
+<Column id="44" name="responsavel" type="bool" length="0" nulls="true"/>
+</Table>
+<Table id="45" name="medico" schema="clinicalmanager" database="clinicalmanager">
+<Column id="46" name="idmed" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">nextval('medico_idmed_seq'::regclass)</CP>
+</Column>
+<Column id="47" name="nome" type="varchar" length="50" nulls="true"/>
+</Table>
+<Table id="48" name="paciente" schema="clinicalmanager" database="clinicalmanager">
+<Column id="49" name="idpac" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">nextval('paciente_idpac_seq'::regclass)</CP>
+</Column>
+<Column id="50" name="nome" type="varchar" length="100" nulls="true"/>
+<Column id="51" name="cpf" type="varchar" length="11" nulls="true"/>
+<Column id="52" name="codprontuario" type="int4" length="0" nulls="true"/>
+</Table>
+<Relation id="53" name="internacao_idpac_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="onDelete" class="String" value="NO ACTION"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>49</FK>
+<PK>15</PK>
+</Relation>
+<Relation id="54" name="internacao_idcon_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="onDelete" class="String" value="NO ACTION"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>1</FK>
+<PK>16</PK>
+</Relation>
+<Relation id="55" name="item_de_fatura_idint_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="onDelete" class="String" value="NO ACTION"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>14</FK>
+<PK>28</PK>
+</Relation>
+<Relation id="56" name="item_de_fatura_idfat_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="onDelete" class="String" value="NO ACTION"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>12</FK>
+<PK>27</PK>
+</Relation>
+<Relation id="57" name="local_internacao_idloc_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>37</FK>
+<PK>32</PK>
+</Relation>
+<Relation id="58" name="local_internacao_idint_fkey" cardinality="-2" identifying="false" nulls="false">
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value="SIMPLE"/>
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="onUpdate" class="String" value="NO ACTION"/>
+<FK>14</FK>
+<PK>31</PK>
+</Relation>
+<Relation id="59" name="internacao_medicointernacao_fkey" cardinality="-2" identifying="false" nulls="false">
+<FK>14</FK>
+<PK>42</PK>
+<Text/>
+</Relation>
+<Relation id="60" name="medico_medicointernacao_fkey" cardinality="-2" identifying="false" nulls="false">
+<FK>46</FK>
+<PK>43</PK>
+<Text/>
+</Relation>
+<Index table="0" name="convenio_pkey" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="1" sequence="0" ascending="true"/>
+</Index>
+<Index table="3" name="fatura_pk" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="12" sequence="0" ascending="true"/>
+</Index>
+<Index table="13" name="internacao_pkey" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="14" sequence="0" ascending="true"/>
+</Index>
+<Index table="25" name="item_de_fatura_pkey" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="26" sequence="0" ascending="true"/>
+</Index>
+<Index table="30" name="local_internacao_pk" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="31" sequence="0" ascending="true"/>
+<IndexColumn id="32" sequence="1" ascending="true"/>
+<IndexColumn id="33" sequence="2" ascending="true"/>
+</Index>
+<Index table="36" name="local_pkey" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="37" sequence="0" ascending="true"/>
+</Index>
+<Index table="41" name="medico_internacao_pkey" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="42" sequence="0" ascending="true"/>
+<IndexColumn id="43" sequence="1" ascending="true"/>
+</Index>
+<Index table="45" name="medico_pkey" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="46" sequence="0" ascending="true"/>
+</Index>
+<Index table="48" name="paciente_pkey" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="49" sequence="0" ascending="true"/>
+</Index>
+<Index table="48" name="cpf_unique" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="51" sequence="0" ascending="true"/>
+</Index>
+<Index table="48" name="Codprontuario_unique" schema="clinicalmanager" database="clinicalmanager">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="52" sequence="0" ascending="true"/>
+</Index>
+<Constraint table="0" name="convenio_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="1"/>
+</Constraint>
+<Constraint table="3" name="fatura_pk" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="12"/>
+</Constraint>
+<Constraint table="3" name="tipo_fatura" type="Check" condition="(tipo = ANY (ARRAY['H'::bpchar, 'P'::bpchar]))"/>
+<Constraint table="13" name="internacao_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="14"/>
+</Constraint>
+<Constraint table="13" name="data_entrada" type="Check" condition="(data_in IS NOT NULL)"/>
+<Constraint table="25" name="item_de_fatura_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="26"/>
+</Constraint>
+<Constraint table="30" name="local_internacao_pk" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="33"/>
+<ConstraintColumn id="31"/>
+<ConstraintColumn id="32"/>
+</Constraint>
+<Constraint table="36" name="local_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="37"/>
+</Constraint>
+<Constraint table="41" name="medico_internacao_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="42"/>
+<ConstraintColumn id="43"/>
+</Constraint>
+<Constraint table="45" name="medico_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="46"/>
+</Constraint>
+<Constraint table="48" name="paciente_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="49"/>
+</Constraint>
+<Constraint table="48" name="cpf_unique" type="Unique">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="51"/>
+</Constraint>
+<Constraint table="48" name="Codprontuario_unique" type="Unique">
+<Option name="tablespace" class="String" value="&lt;PADRÃO&gt;"/>
+<ConstraintColumn id="52"/>
+</Constraint>
+<Sheet name="Clinical Manager" id="61" disp_at="true" disp_ph="true" disp_co="true" disp_rn="true">
+<Place id="41" visible="true">132,350,130,70</Place>
+<Place id="30" visible="true">1001,269,160,110</Place>
+<Place id="59" visible="true" options="530.7223637914377,288.4819638547888,150.0,210.0,132.3491106246599,350.6755501949809,130.0,70.0,2,530.7223637914377,380.0,262.3491106246599,380.0">438,17,0,0</Place>
+<Place id="57" visible="true">500,0,0,0</Place>
+<Place id="58" visible="true">500,0,0,0</Place>
+<Place id="3" visible="true">590,690,150,180</Place>
+<Place id="0" visible="true">879,619,150,60</Place>
+<Place id="48" visible="true">551,29,140,90</Place>
+<Place id="60" visible="true">500,0,0,0</Place>
+<Place id="25" visible="true">171,627,110,90</Place>
+<Place id="36" visible="true">1020,37,140,90</Place>
+<Place id="45" visible="true">119,129,130,60</Place>
+<Place id="13" visible="true">530,288,150,210</Place>
+<Place id="54" visible="true" options="879.9015869776647,619.1219330881977,150.0,60.0,530.7223637914377,288.4819638547888,150.0,210.0,3,950.0,619.1219330881977,950.0,470.0,680.0,470.0">627,-19,0,0</Place>
+<Place id="56" visible="true">500,0,0,0</Place>
+<Place id="55" visible="true" options="530.7223637914377,288.4819638547888,150.0,210.0,171.1005050633882,627.0904037956218,110.0,90.0,6,530.7223637914377,410.0,320.0,410.0,320.0,593.5452018978109,305.5502525316941,593.5452018978109,305.5502525316941,630.0,281.1005050633882,630.0">582,9,-1,0</Place>
+<Place id="53" visible="true" options="551.0,29.0,140.0,90.0,530.7223637914377,288.4819638547888,150.0,210.0,2,610.0,119.0,610.0,288.4819638547888">547,-10,63,0</Place>
+</Sheet>
+<Settings sheet="61" zoom="1.1892071150027237"/>
+</Diagram>
