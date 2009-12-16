@@ -1,0 +1,13 @@
+/*
+Script gerado por Aqua Data Studio 8.0.4 em Dez-13-2009 01:06:41 PM
+Banco de Dados: null
+Esquema: <Todos os Esquemas>
+*/
+
+DROP TABLE "clinicalmanager"."item_de_fatura";
+CREATE TABLE "clinicalmanager"."item_de_fatura"  ( 
+	"idfat"	int4 NOT NULL,
+	"idint"	int4 NOT NULL,
+	"valor"	float8 NULL,
+	PRIMARY KEY("idfat","idint")
+);

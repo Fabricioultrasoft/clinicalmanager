@@ -1,0 +1,171 @@
+/*
+Script gerado por Aqua Data Studio 8.0.4 em Dez-13-2009 01:34:36 PM
+Banco de Dados: null
+Esquema: <Todos os Esquemas>
+*/
+
+ALTER TABLE "clinicalmanager"."internacao"
+	DROP CONSTRAINT "internacao_idcon_fkey" CASCADE ;
+ALTER TABLE "clinicalmanager"."item_de_fatura"
+	DROP CONSTRAINT "item_de_fatura_idfat_fkey" CASCADE ;
+ALTER TABLE "clinicalmanager"."item_de_fatura"
+	DROP CONSTRAINT "item_de_fatura_idint_fkey" CASCADE ;
+ALTER TABLE "clinicalmanager"."local_internacao"
+	DROP CONSTRAINT "local_internacao_idint_fkey" CASCADE ;
+ALTER TABLE "clinicalmanager"."medico_internacao"
+	DROP CONSTRAINT "internacao_medicointernacao_fkey" CASCADE ;
+ALTER TABLE "clinicalmanager"."local_internacao"
+	DROP CONSTRAINT "local_internacao_idloc_fkey" CASCADE ;
+ALTER TABLE "clinicalmanager"."medico_internacao"
+	DROP CONSTRAINT "medico_medicointernacao_fkey" CASCADE ;
+ALTER TABLE "clinicalmanager"."internacao"
+	DROP CONSTRAINT "internacao_idpac_fkey" CASCADE ;
+ALTER TABLE "clinicalmanager"."fatura"
+	DROP CONSTRAINT "tipo_fatura" CASCADE ;
+ALTER TABLE "clinicalmanager"."internacao"
+	DROP CONSTRAINT "data_entrada" CASCADE ;
+ALTER TABLE "clinicalmanager"."paciente"
+	DROP CONSTRAINT "cpf_unique" CASCADE ;
+ALTER TABLE "clinicalmanager"."paciente"
+	DROP CONSTRAINT "Codprontuario_unique" CASCADE ;
+DROP TABLE "clinicalmanager"."convenio";
+DROP TABLE "clinicalmanager"."fatura";
+DROP TABLE "clinicalmanager"."internacao";
+DROP TABLE "clinicalmanager"."item_de_fatura";
+DROP TABLE "clinicalmanager"."local";
+DROP TABLE "clinicalmanager"."local_internacao";
+DROP TABLE "clinicalmanager"."medico";
+DROP TABLE "clinicalmanager"."medico_internacao";
+DROP TABLE "clinicalmanager"."paciente";
+CREATE TABLE "clinicalmanager"."convenio"  ( 
+	"idcon"    	int4 NOT NULL DEFAULT nextval('convenio_idcon_seq'::regclass),
+	"descricao"	varchar(50) NULL,
+	PRIMARY KEY("idcon")
+);
+CREATE TABLE "clinicalmanager"."fatura"  ( 
+	"codigo"         	varchar(0) NULL,
+	"data_fechamento"	date NULL,
+	"data_inicio"    	date NULL,
+	"data_fim"       	date NULL,
+	"tipo"           	char(1) NULL,
+	"mes_ref"        	int4 NULL,
+	"paga"           	bool NULL,
+	"fechada"        	bool NULL,
+	"idfat"          	int4 NOT NULL DEFAULT nextval('fatura_idfat_seq'::regclass),
+	PRIMARY KEY("idfat")
+);
+CREATE TABLE "clinicalmanager"."internacao"  ( 
+	"idint"           	int4 NOT NULL DEFAULT nextval('internacao_idint_seq'::regclass),
+	"idpac"           	int4 NULL,
+	"idcon"           	int4 NULL,
+	"idfat"           	int4 NULL,
+	"data_in"         	timestamp NULL,
+	"data_out"        	timestamp NULL,
+	"obs"             	varchar(255) NULL,
+	"vl_esperado_hn"  	float8 NULL,
+	"vl_recebido_hn"  	float8 NULL,
+	"vl_produtividade"	float8 NULL,
+	"idmed"           	int4 NULL,
+	PRIMARY KEY("idint")
+);
+CREATE TABLE "clinicalmanager"."item_de_fatura"  ( 
+	"idfat"	int4 NOT NULL,
+	"idint"	int4 NOT NULL,
+	"valor"	float8 NULL,
+	PRIMARY KEY("idfat","idint")
+);
+CREATE TABLE "clinicalmanager"."local"  ( 
+	"idloc"   	int4 NOT NULL DEFAULT nextval('local_idloc_seq'::regclass),
+	"nome"    	varchar(255) NULL,
+	"gera_prd"	bool NULL,
+	"andar"   	int4 NULL,
+	PRIMARY KEY("idloc")
+);
+CREATE TABLE "clinicalmanager"."local_internacao"  ( 
+	"idint"       	int4 NOT NULL,
+	"idloc"       	int4 NOT NULL,
+	"data_in_loc" 	timestamp NOT NULL,
+	"data_out_loc"	timestamp NULL,
+	"obs_loc"     	varchar(255) NULL,
+	PRIMARY KEY("data_in_loc","idint","idloc")
+);
+CREATE TABLE "clinicalmanager"."medico"  ( 
+	"idmed"	int4 NOT NULL DEFAULT nextval('medico_idmed_seq'::regclass),
+	"nome" 	varchar(50) NULL,
+	PRIMARY KEY("idmed")
+);
+CREATE TABLE "clinicalmanager"."medico_internacao"  ( 
+	"idint"      	int4 NOT NULL DEFAULT nextval('medico_internacao_idint_seq'::regclass),
+	"idmec"      	int4 NOT NULL DEFAULT nextval('medico_internacao_idmec_seq'::regclass),
+	"responsavel"	bool NULL,
+	PRIMARY KEY("idint","idmec")
+);
+CREATE TABLE "clinicalmanager"."paciente"  ( 
+	"idpac"        	int4 NOT NULL DEFAULT nextval('paciente_idpac_seq'::regclass),
+	"nome"         	varchar(100) NULL,
+	"cpf"          	varchar(11) NULL,
+	"codprontuario"	int4 NULL,
+	PRIMARY KEY("idpac")
+);
+ALTER TABLE "clinicalmanager"."fatura"
+	ADD CONSTRAINT "tipo_fatura"
+	CHECK (tipo = ANY (ARRAY['H'::bpchar, 'P'::bpchar]));
+ALTER TABLE "clinicalmanager"."internacao"
+	ADD CONSTRAINT "data_entrada"
+	CHECK (data_in IS NOT NULL);
+ALTER TABLE "clinicalmanager"."paciente"
+	ADD CONSTRAINT "cpf_unique"
+	UNIQUE ("cpf");
+ALTER TABLE "clinicalmanager"."paciente"
+	ADD CONSTRAINT "Codprontuario_unique"
+	UNIQUE ("codprontuario");
+ALTER TABLE "clinicalmanager"."internacao"
+	ADD CONSTRAINT "internacao_idcon_fkey"
+	FOREIGN KEY("idcon")
+	REFERENCES "clinicalmanager"."convenio"("idcon")
+	MATCH SIMPLE
+	ON DELETE NO ACTION 
+	ON UPDATE NO ACTION ;
+ALTER TABLE "clinicalmanager"."item_de_fatura"
+	ADD CONSTRAINT "item_de_fatura_idfat_fkey"
+	FOREIGN KEY("idfat")
+	REFERENCES "clinicalmanager"."fatura"("idfat")
+	MATCH SIMPLE
+	ON DELETE NO ACTION 
+	ON UPDATE NO ACTION ;
+ALTER TABLE "clinicalmanager"."item_de_fatura"
+	ADD CONSTRAINT "item_de_fatura_idint_fkey"
+	FOREIGN KEY("idint")
+	REFERENCES "clinicalmanager"."internacao"("idint")
+	MATCH SIMPLE
+	ON DELETE NO ACTION 
+	ON UPDATE NO ACTION ;
+ALTER TABLE "clinicalmanager"."local_internacao"
+	ADD CONSTRAINT "local_internacao_idint_fkey"
+	FOREIGN KEY("idint")
+	REFERENCES "clinicalmanager"."internacao"("idint")
+	MATCH SIMPLE
+	ON DELETE CASCADE 
+	ON UPDATE NO ACTION ;
+ALTER TABLE "clinicalmanager"."medico_internacao"
+	ADD CONSTRAINT "internacao_medicointernacao_fkey"
+	FOREIGN KEY("idint")
+	REFERENCES "clinicalmanager"."internacao"("idint");
+ALTER TABLE "clinicalmanager"."local_internacao"
+	ADD CONSTRAINT "local_internacao_idloc_fkey"
+	FOREIGN KEY("idloc")
+	REFERENCES "clinicalmanager"."local"("idloc")
+	MATCH SIMPLE
+	ON DELETE CASCADE 
+	ON UPDATE NO ACTION ;
+ALTER TABLE "clinicalmanager"."medico_internacao"
+	ADD CONSTRAINT "medico_medicointernacao_fkey"
+	FOREIGN KEY("idmec")
+	REFERENCES "clinicalmanager"."medico"("idmed");
+ALTER TABLE "clinicalmanager"."internacao"
+	ADD CONSTRAINT "internacao_idpac_fkey"
+	FOREIGN KEY("idpac")
+	REFERENCES "clinicalmanager"."paciente"("idpac")
+	MATCH SIMPLE
+	ON DELETE NO ACTION 
+	ON UPDATE NO ACTION ;
