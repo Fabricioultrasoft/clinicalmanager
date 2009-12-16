@@ -40,11 +40,11 @@ namespace Negocio
         }
 
         #region PACIENTE
-        public void excluirPaciente(int idpac)
+        public string excluirPaciente(int idpac)
         {
             Paciente pac = new Paciente();
             pac.Idpac=idpac;
-            capPac.exluir(pac);
+            return capPac.exluir(pac);
         }
         public string inserirPaciente(Paciente paciente)
         {
@@ -163,6 +163,23 @@ namespace Negocio
         public DataSet getFaturaByCodigo(string codigo)
         {
             return cadFat.consultar(codigo);
+        }
+
+        public DataSet getDetalheFatura(int idfat)
+        {
+            RepositorioFatura repFat = new RepositorioFatura();
+            return repFat.detalheFatura(idfat);
+        }
+
+        public string excluirItemFatura(int idfat, int idint)
+        {
+            RepositorioFatura repFat = new RepositorioFatura();
+            return repFat.excluirItemFatura(idfat, idint);
+        }
+        public void incluirItemFatura(int idfat, int idint, float valor)
+        {
+            RepositorioFatura repFat = new RepositorioFatura();
+            repFat.inserirItemFatura(idint, idfat, valor);
         }
         #endregion
         #region Relatorios

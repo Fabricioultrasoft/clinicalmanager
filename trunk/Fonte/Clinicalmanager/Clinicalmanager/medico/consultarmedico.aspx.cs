@@ -21,13 +21,12 @@ namespace Clinicalmanager.medico
 
         }
 
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void dsMedico_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
         {
-            fachada = new Fachada();
-            int index = int.Parse(e.CommandArgument.ToString());
-            int idmed = int.Parse(this.GridView1.DataKeys[index].Value.ToString());
-            ((master)Master).StatusLabel = fachada.excluirMedico(idmed);
+            ((master)Master).StatusLabel = e.ReturnValue.ToString();
         }
+
+        
 
        
 

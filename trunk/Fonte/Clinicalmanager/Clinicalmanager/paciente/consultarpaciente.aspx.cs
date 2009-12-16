@@ -38,15 +38,13 @@ namespace Clinicalmanager.local
                 
         }
 
-       
-
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void ObjectDataSource1_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
         {
-            e.Row.Attributes["onmouseover"] = "javascript:setMOverColor(this);";
-            e.Row.Attributes["onmouseout"] = "javascript:setmOutColor(this);";
-            //e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex.ToString(),false);
-                //this.gridResult, "Select$" + e.Row.RowIndex.ToString());
+            ((master)Master).StatusLabel = e.ReturnValue.ToString();
         }
+
+   
+   
 
        
     }

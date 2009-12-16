@@ -145,13 +145,19 @@ namespace AcessoDados
         #endregion
         public DataSet consultarPorPaciente(int idpac)
         {
+            /*
+             * Adicionado condição li.data_in_loc = select max ... Para não repetir a mesma internação. 
+             * */
+
             string sql =    "select i.idint, i.idpac, i.idcon, i.data_in, i.data_out, "+ 
                             "i.obs, p.nome, p.cpf, li.idloc, li.data_in_loc, li.obs_loc as local_obs, l.nome as local  "+
                             "from clinicalmanager.internacao i  "+
                             "inner join clinicalmanager.paciente p on (i.idpac=p.idpac)  "+
                             "left join clinicalmanager.local_internacao li on (li.idint=i.idint)  "+
                             "left join clinicalmanager.local l on (li.idloc=l.idloc)  "+
-                            "where  p.idpac=@idpac";
+                            "where  p.idpac=@idpac "+
+                            "and  li.data_in_loc =  (select max(li.data_in_loc) "+
+                            "from clinicalmanager.local_internacao li where li.idint = i.idint)";
             try{
             cmd = conn.CreateCommand();
             cmd.CommandText = sql;
