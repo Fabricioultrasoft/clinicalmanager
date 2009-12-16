@@ -115,8 +115,62 @@ namespace AcessoDados
         public DataSet consultarTodos()
         {
             string sql = "SELECT * FROM  clinicalmanager.fatura";
-            Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
+            cmd = base.conn.CreateCommand();
             return base.execute(sql);
+        }
+
+        public DataSet detalheFatura(int idfat)
+        {
+            string sql =    "select ifat.idfat, ifat.idint, inter.data_in as entrada, pac.nome, pac.codprontuario, " +
+                            "med.nome as medico, fat.codigo as fatura, ifat.valor, conv.descricao as convenio "+
+                            "from clinicalmanager.fatura fat "+
+                            "inner join clinicalmanager.item_de_fatura ifat on (fat.idfat=ifat.idfat) "+
+                            "inner join clinicalmanager.internacao inter on (inter.idint = ifat.idint) "+
+                            "inner join clinicalmanager.paciente pac on (inter.idpac = pac.idpac) "+
+                            "inner join clinicalmanager.medico med on (inter.idmed = med.idmed) "+
+                            "inner join clinicalmanager.convenio conv on (inter.idcon = conv.idcon) "+
+                            "where fat.idfat = @idfat";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idfat", idfat);
+            dataset = base.executeToDataset(cmd);
+            return dataset;
+        }
+        public string excluirItemFatura(int idfat, int idint)
+        {
+            string sql = "delete from clinicalmanager.item_de_fatura where idfat=@idfat and idint=@idint";
+            try{
+            conn.Open();
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idfat", idfat);
+            cmd.Parameters.Add("@idint", idint);
+            cmd.ExecuteNonQuery();
+            base.conn.Close();
+            return "Item Removido";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível remover o item de fatura " + ex.Message);
+            }
+            return "Erro ao remover item";
+        }
+        public void inserirItemFatura(int idint, int idfat, float valor)
+        {
+            try
+            {
+                string sql = "insert into clinicalmanager.item_de_fatura values(@idfat,@idint,@valor)";
+                cmd = conn.CreateCommand();
+                cmd.Parameters.Add("@idfat", idfat);
+                cmd.Parameters.Add("@idint", idint);
+                cmd.Parameters.Add("@valor", valor);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Não foi possível adicionar o item. IDFAT = " + idfat + " IDINT = " + idint);
+            }
+            
         }
     }
 }

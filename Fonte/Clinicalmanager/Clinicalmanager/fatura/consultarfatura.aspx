@@ -81,6 +81,11 @@
                     <asp:BoundField DataField="data_fim" DataFormatString="{0:dd/MM/yyyy}" 
                         HeaderText="Período Final" />
                     <asp:BoundField DataField="tipo" HeaderText="Tipo" />
+                    <asp:TemplateField HeaderText="Detalhar">
+                    <ItemTemplate>
+                        <a href="detalhefatura.aspx?idfat=<%# Eval("idfat")%>">Detalhar</a>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 </Columns>
                 <FooterStyle BackColor="White" ForeColor="#333333" />
                 <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
@@ -89,7 +94,12 @@
             </asp:GridView>
            
             <asp:ObjectDataSource ID="dsFatura" runat="server" 
-                SelectMethod="getFaturaByCodigo" TypeName="Negocio.Fachada">
+                SelectMethod="getFaturaByCodigo" TypeName="Negocio.Fachada" 
+                DeleteMethod="excluirItemFatura">
+                <DeleteParameters>
+                    <asp:Parameter Name="idfat" Type="Int32" />
+                    <asp:Parameter Name="idint" Type="Int32" />
+                </DeleteParameters>
                 <SelectParameters>
                     <asp:ControlParameter ControlID="txtCodigo" DefaultValue="%" Name="codigo" 
                         PropertyName="Text" Type="String" />

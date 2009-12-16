@@ -184,28 +184,4 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
             </SelectParameters>
         </asp:ObjectDataSource>
     </div>
-    <div style="height: 197px; width: 745px">
-        <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#336666"
-            BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataSourceID="dsHist"
-            GridLines="Horizontal" AutoGenerateColumns="False" AllowPaging="True">
-            <RowStyle BackColor="White" ForeColor="#333333" />
-            <Columns>
-                <asp:BoundField DataField="local" HeaderText="Local" />
-                <asp:BoundField DataField="data_in_loc" HeaderText="Data de entrada" />
-                <asp:BoundField DataField="data_out_loc" HeaderText="Data de Saída" />
-                <asp:BoundField DataField="obs_loc" HeaderText="Observações" />
-            </Columns>
-            <FooterStyle BackColor="White" ForeColor="#333333" />
-            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
-        </asp:GridView>
-    </div>
-    <asp:ObjectDataSource ID="dsHist" runat="server" SelectMethod="historicoMovimentacao"
-        TypeName="Negocio.Fachada">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="grdInternacao" DefaultValue="" Name="idint" PropertyName="SelectedValue"
-                Type="Int32" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-</asp:Content>
+    </asp:Content>

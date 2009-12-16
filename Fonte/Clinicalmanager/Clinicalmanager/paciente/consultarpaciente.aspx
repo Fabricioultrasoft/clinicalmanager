@@ -45,8 +45,7 @@ function setmOutColor(element)
         <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
             AutoGenerateColumns="False" DataKeyNames="idpac" Style="margin-right: 8px"
             BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px"
-            CellPadding="4" GridLines="Horizontal" 
-            OnRowDataBound="GridView1_RowDataBound" >
+            CellPadding="4" GridLines="Horizontal" >
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
                 <asp:CommandField DeleteText="Excluir" ShowDeleteButton="True" />
@@ -62,7 +61,8 @@ function setmOutColor(element)
             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
         </asp:GridView>
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="excluirPaciente"
-            SelectMethod="getPaciente" TypeName="Negocio.Fachada">
+            SelectMethod="getPaciente" TypeName="Negocio.Fachada" 
+            ondeleted="ObjectDataSource1_Deleted">
             <DeleteParameters>
                 <asp:Parameter Name="idpac" Type="Int32" />
             </DeleteParameters>

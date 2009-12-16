@@ -43,5 +43,10 @@ namespace Clinicalmanager.local
             ((master)Master).StatusLabel = "";
         }
 
+        protected void dsLocal_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
+        {
+            ((master)Master).StatusLabel = e.ReturnValue.ToString();
+        }
+
     }
 }

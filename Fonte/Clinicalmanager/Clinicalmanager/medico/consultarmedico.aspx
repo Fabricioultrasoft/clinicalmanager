@@ -9,7 +9,7 @@
     <asp:GridView ID="GridView1" runat="server" BackColor="White" 
         BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
         DataSourceID="dsMedico" GridLines="Horizontal" DataKeyNames="idmed"
-        AutoGenerateColumns="False" onrowcommand="GridView1_RowCommand" >
+        AutoGenerateColumns="False" >
         <RowStyle BackColor="White" ForeColor="#333333" />
         <Columns>
             <asp:BoundField DataField="idmed" HeaderText="ID" />
@@ -22,7 +22,8 @@
         <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
     </asp:GridView>
     <asp:ObjectDataSource ID="dsMedico" runat="server" SelectMethod="getAllMedicos" 
-        TypeName="Negocio.Fachada" DeleteMethod="excluirMedico" >
+        TypeName="Negocio.Fachada" DeleteMethod="excluirMedico" 
+        ondeleted="dsMedico_Deleted" >
         <DeleteParameters>
             <asp:Parameter Name="idmed" Type="Int32" />
         </DeleteParameters>

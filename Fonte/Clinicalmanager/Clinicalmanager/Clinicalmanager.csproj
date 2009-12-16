@@ -86,6 +86,13 @@
     <Compile Include="fatura\consultarfatura.aspx.designer.cs">
       <DependentUpon>consultarfatura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="fatura\detalhefatura.aspx.cs">
+      <DependentUpon>detalhefatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fatura\detalhefatura.aspx.designer.cs">
+      <DependentUpon>detalhefatura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="internacao\cadastrarinternacao.aspx.cs">
       <DependentUpon>cadastrarinternacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +242,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fatura\detalhefatura.aspx" />
     <Content Include="images\img01.gif" />
     <Content Include="images\img02.gif" />
     <Content Include="images\img02.png" />

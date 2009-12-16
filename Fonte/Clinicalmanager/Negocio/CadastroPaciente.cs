@@ -31,9 +31,9 @@ namespace Negocio
             rep.atualizar(pac);
         }
 
-        public void exluir(Paciente pac)
+        public string exluir(Paciente pac)
         {
-            rep.excluir(pac);
+            return rep.excluir(pac);
         }
 
         #endregion

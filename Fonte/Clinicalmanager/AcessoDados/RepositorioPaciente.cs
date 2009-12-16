@@ -34,7 +34,7 @@ namespace AcessoDados
                     return "Erro ao incluir paciente: "+ex.Message;   
                 }                    
             }
-            return "Paciente incluído com sucesso";
+            return "Paciente incluído com sucesso.\nAjuda: Para Cadastrar uma internação ir no menu Cadastro->Internação.";
         }
                 
         public void atualizar(Paciente paciente)
@@ -56,7 +56,7 @@ namespace AcessoDados
             }
         }
 
-        public void excluir(Paciente paciente)
+        public string excluir(Paciente paciente)
         {
             string cmdStr = "delete from clinicalmanager.paciente where idpac = @idpac";
             try
@@ -66,11 +66,14 @@ namespace AcessoDados
                 cmd.CommandText = cmdStr;
                 cmd.Parameters.Add("@idpac", paciente.Idpac);
                 cmd.ExecuteNonQuery();
-                base.conn.Close();  
+                base.conn.Close();
+                return "Paciente Removido com sucesso.";
             }
-            catch (Exception ex)
+            catch (NpgsqlException ex)
             {
-                throw new Exception("Não foi possível remover o paciente " + ex.Message);
+                if (ex.Code.Equals("23503"))
+                    return "Não foi possível remover o paciente. O Paciente está associado a uma internação";
+                else return "Não foi possível remover o paciente. Erro Código: " + ex.Code;
             }
         }
           
@@ -113,7 +116,7 @@ namespace AcessoDados
 
         public DataSet consultarTodos()
         {
-            string sql = "select idpac, nome, cpf, codprontuario from clinicalmanager.paciente";
+            string sql = "select idpac, nome, cpf, codprontuario from clinicalmanager.paciente order by nome";
             Npgsql.NpgsqlCommand cmd = base.conn.CreateCommand();
             //cmd.CommandText = 
             return base.execute(sql);

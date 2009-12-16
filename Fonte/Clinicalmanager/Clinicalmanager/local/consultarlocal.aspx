@@ -59,7 +59,8 @@
             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
         </asp:GridView>
         <asp:ObjectDataSource ID="dsLocal" runat="server" SelectMethod="getLocalbyDesc" 
-            TypeName="Negocio.Fachada" DeleteMethod="excluirLocal">
+            TypeName="Negocio.Fachada" DeleteMethod="excluirLocal" 
+            ondeleted="dsLocal_Deleted">
             <DeleteParameters>
                 <asp:Parameter Name="idloc" Type="Int32" />
             </DeleteParameters>
