@@ -93,6 +93,13 @@
     <Compile Include="fatura\detalhefatura.aspx.designer.cs">
       <DependentUpon>detalhefatura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="fatura\itensfatura.aspx.cs">
+      <DependentUpon>itensfatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fatura\itensfatura.aspx.designer.cs">
+      <DependentUpon>itensfatura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="internacao\cadastrarinternacao.aspx.cs">
       <DependentUpon>cadastrarinternacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -243,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fatura\detalhefatura.aspx" />
+    <Content Include="fatura\itensfatura.aspx" />
     <Content Include="images\img01.gif" />
     <Content Include="images\img02.gif" />
     <Content Include="images\img02.png" />
