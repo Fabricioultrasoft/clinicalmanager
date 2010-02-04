@@ -4,7 +4,7 @@
 
 -- Started on 2010-02-03 21:06:07
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'WIN1252';
 SET standard_conforming_strings = off;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
