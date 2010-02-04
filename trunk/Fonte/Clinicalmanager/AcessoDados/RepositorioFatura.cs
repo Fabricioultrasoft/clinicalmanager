@@ -170,7 +170,29 @@ namespace AcessoDados
             {
                 throw new Exception("Não foi possível adicionar o item. IDFAT = " + idfat + " IDINT = " + idint);
             }
-            
+        }
+        public DataSet listarItensParaIncluir(String codProntuario)
+        {
+            try
+            {
+                cmd = conn.CreateCommand();
+                string sql = "select p.nome, p.codprontuario, i.data_in, i.idint " +
+                             "from internacao i " +
+                             "inner join paciente p on (i.idpac = p.idpac) " +
+                             "where i.faturada is null";
+                cmd.CommandText = sql;
+                if (codProntuario != null)
+                {
+                    sql = sql + " and p.codprontuario = @codprontuario";
+                    cmd.CommandText = sql;
+                    cmd.Parameters.Add("@codprontuario", codProntuario);
+                }                
+                return base.executeToDataset(cmd);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

@@ -19,5 +19,12 @@ namespace Clinicalmanager.fatura
         {
 
         }
+        
+
+        protected void btnAdd_Command(object sender, CommandEventArgs e)
+        {
+            Int32 codprontuario = Int32.Parse(e.CommandArgument.ToString());
+            
+        }
     }
 }

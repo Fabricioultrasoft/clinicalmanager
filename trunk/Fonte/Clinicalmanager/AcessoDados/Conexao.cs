@@ -23,8 +23,8 @@ namespace AcessoDados
             //URL = ConfigurationManager.ConnectionStrings["conn"].ConnectionString; 
             URL = "server=pgsql.realinstitutodopulmao.com.br;User id=realinstitutodopulma; Password=a06r2329;Database=realinstitutodopulma;SearchPath=clinicalmanager, pg_catalog;";
             String URL_mydom = "server=renatocampelo.gotdns.com;User id=postgres;Password=a06r2329;Database=clinicalmanager;SearchPath=clinicalmanager, pg_catalog;";
-            String URL_local = "server=renato-pc;User id=postgres;Password=a06r2329;Database=clinicalmanager;SearchPath=clinicalmanager, pg_catalog;";
-            conn = new NpgsqlConnection(URL);
+            String URL_local = "server=localhost;User id=postgres;Password=a06r2329;Database=clinicalmanager;SearchPath=clinicalmanager, pg_catalog;";
+            conn = new NpgsqlConnection(URL_local);
        
             //conn.Open();            
         }
@@ -56,12 +56,20 @@ namespace AcessoDados
         }
         public DataSet executeToDataset(NpgsqlCommand cmd)
         {
-            conn.Open();
-            Npgsql.NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-            System.Data.DataSet ds = new System.Data.DataSet("Exec");
-            da.Fill(ds);
-            conn.Close();
-            return ds;
+            try
+            {
+                conn.Open();
+                Npgsql.NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
+                System.Data.DataSet ds = new System.Data.DataSet("Exec");
+                da.Fill(ds);
+                //conn.Close();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);           
+            }
+            
         }
         public DataSet execute(string sql)
         {
