@@ -2,8 +2,20 @@
     Inherits="Clinicalmanager.fatura.consultarfatura" Title="Untitled Page" %>
 
 <%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
+ 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script language="javascript" type="text/javascript">
+        function inserir(idfat){
+        window.open('itensfatura.aspx?idfat='+idfat,''," height = 450 , width = 400, location=no,titlebar=no" )
+        
+        }
+        function alta(idint){
+window.open('liberarinternacao.aspx?idint='+idint,'',"status=no, height = 350 , width = 350, location=no,menubar=no,titlebar=no, directories=no" )
+/*status=yes/no,  Barra de menu: menubar=yes/no ,  Barra de ferramentas: toolbar=yes/no ,  Barra de título: titlebar=yes/no
+Barra de endereços:location=yes/no ,  Tela cheia:fullscreen=yes/no ,  Barra de diretórios:directories=yes/no*/
+}
+</script>
     <style type="text/css">
         .style6
         {
@@ -85,7 +97,13 @@
                     <ItemTemplate>
                         <a href="detalhefatura.aspx?idfat=<%# Eval("idfat")%>">Detalhar</a>
                     </ItemTemplate>
+                    
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Detalhar">
+                    <ItemTemplate>
+                        <a onclick="inserir('<%# Eval("idfat")%>')" href="#">Itens</a>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                 <FooterStyle BackColor="White" ForeColor="#333333" />
                 <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />

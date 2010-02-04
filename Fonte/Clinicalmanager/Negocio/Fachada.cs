@@ -181,6 +181,11 @@ namespace Negocio
             RepositorioFatura repFat = new RepositorioFatura();
             repFat.inserirItemFatura(idint, idfat, valor);
         }
+        public DataSet listarItensParaIncluir(String codprontuario)
+        {
+            RepositorioFatura repFat = new RepositorioFatura();
+            return repFat.listarItensParaIncluir(codprontuario);
+        }
         #endregion
         #region Relatorios
         public DataSet relatorioPacienteSemInternacao()
