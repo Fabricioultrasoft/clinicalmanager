@@ -1,0 +1,28 @@
+<publishData>
+  <publishTarget publishUrl="ftp://ftp.realinstitutodopulmao.com.br/www/">
+    <file relUrl="images/img06.gif" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="bin/Classes Básicas.pdb" publishTime="10/13/2009 23:06:33" />
+    <file relUrl="images/img01.gif" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="images/img10.gif" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="bin/AcessoDados.dll" publishTime="10/13/2009 23:11:07" />
+    <file relUrl="Web.config" publishTime="10/13/2009 22:53:57" />
+    <file relUrl="bin/Classes Básicas.dll" publishTime="10/13/2009 23:06:33" />
+    <file relUrl="images/img08.gif" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="images/img02.gif" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="images/img09.gif" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="images/img04.jpg" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="default.css" publishTime="10/13/2009 22:40:26" />
+    <file relUrl="images/img03.jpg" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="images/img02.png" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="bin/Home.dll" publishTime="10/13/2009 23:11:08" />
+    <file relUrl="images/img07.jpg" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="images/spacer.gif" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="bin/AcessoDados.pdb" publishTime="10/13/2009 23:11:07" />
+    <file relUrl="images/medical_logo.jpg" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="bin/Home.pdb" publishTime="10/13/2009 23:11:08" />
+    <file relUrl="Default.aspx" publishTime="10/13/2009 23:11:21" />
+    <file relUrl="bin/Npgsql.dll" publishTime="07/11/2009 14:01:42" />
+    <file relUrl="images/img08.jpg" publishTime="10/13/2009 22:50:43" />
+    <file relUrl="images/img05.gif" publishTime="10/13/2009 22:50:43" />
+  </publishTarget>
+</publishData>
