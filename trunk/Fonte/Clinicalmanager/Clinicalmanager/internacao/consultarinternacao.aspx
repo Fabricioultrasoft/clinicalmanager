@@ -12,6 +12,12 @@ Barra de endereços:location=yes/no ,  Tela cheia:fullscreen=yes/no ,  Barra de 
 function movimentar(idint){
 window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 400, location=no,titlebar=no" )
 }
+function parcial(idint){
+window.open('/fatura/incluirparcial.aspx?idint='+idint,''," height = 350 , width = 500, location=no,titlebar=no" )
+}
+function pagar(idint){
+window.open('/fatura/itensfatura.aspx?idint='+idint,''," height = 350 , width = 500, location=no,titlebar=no" )
+}
 
     </script>
 
@@ -72,26 +78,12 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
                 </td>
             </tr>
             <tr>
-                <td class="style9">
+                <td>
                     Data de entrada
                 </td>
                 <td class="style8">
                     <asp:TextBox ID="txtDataEntrada" runat="server" Width="85px"></asp:TextBox>
-                    <asp:Button ID="Button1" runat="server" Text="..." OnClick="Button1_Click" Width="24px" />
                     <div>
-                        <asp:Calendar ID="cldDataEntrada" runat="server" BackColor="White" BorderColor="#999999"
-                            CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt"
-                            ForeColor="Black" Height="180px" Width="200px" OnSelectionChanged="cldDataEntrada_SelectionChanged"
-                            Visible="False">
-                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
-                            <SelectorStyle BackColor="#CCCCCC" />
-                            <WeekendDayStyle BackColor="#FFFFCC" />
-                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
-                            <OtherMonthDayStyle ForeColor="#808080" />
-                            <NextPrevStyle VerticalAlign="Bottom" />
-                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
-                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
-                        </asp:Calendar>
                     </div>
                 </td>
                 <td class="style4">
@@ -99,22 +91,7 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
                 </td>
                 <td class="style7" style="text-align: left">
                     <asp:TextBox ID="txtDataSaida" runat="server" Width="75px"></asp:TextBox>
-                    <asp:Button ID="Button2" runat="server" Text="..." Width="22px" CssClass="links"
-                        OnClick="Button2_Click" />
                     <div>
-                        <asp:Calendar ID="cldDataSaida" runat="server" BackColor="White" BorderColor="#999999"
-                            CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt"
-                            ForeColor="Black" Height="180px" OnSelectionChanged="cldDataSaida_SelectionChanged"
-                            Visible="False" Width="200px">
-                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
-                            <SelectorStyle BackColor="#CCCCCC" />
-                            <WeekendDayStyle BackColor="#FFFFCC" />
-                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
-                            <OtherMonthDayStyle ForeColor="#808080" />
-                            <NextPrevStyle VerticalAlign="Bottom" />
-                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
-                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
-                        </asp:Calendar>
                     </div>
                 </td>
             </tr>
@@ -145,9 +122,11 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
         <asp:GridView ID="grdInternacao" runat="server" AutoGenerateColumns="False" BackColor="White"
             BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4"
             DataSourceID="dsInternacao" GridLines="Horizontal" DataKeyNames="idint" OnInit="grdInternacao_Init"
-            AllowPaging="True">
+            AllowPaging="True" onrowcommand="grdInternacao_RowCommand" 
+            onrowdatabound="grdInternacao_RowDataBound">
             <RowStyle BackColor="White" ForeColor="#333333" />
             <Columns>
+                <asp:CommandField DeleteText="Excluir" ShowDeleteButton="True" />
                 <asp:BoundField DataField="data_in" HeaderText="Data de Entrada" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="data_out" HeaderText="Data de Saída" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="nome" HeaderText="Paciente" />
@@ -156,19 +135,35 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
                 <asp:BoundField DataField="local" HeaderText="Última localização" />
                 <asp:TemplateField HeaderText="Liberação">
                     <ItemTemplate>
-                        <a href="#" onclick="alta('<%# Eval("idint")%>')">Liberar</a>
+                        <asp:Button ID="btnLiberar" Text="Liberar" CommandArgument='<%# Bind("idint") %>'
+                        CommandName="liberar" Enabled="true" runat="server"/>
+                        
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Movimentação">
                     <ItemTemplate>
-                        <a href="#" onclick="movimentar('<%# Eval("idint")%>')">Movimentar</a>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Histórico">
-                    <ItemTemplate>
                         <a href="historicointernacao.aspx?idint=<%# Eval("idint")%>">Histórico</a>
+                        <asp:Button ID="btnMovimentar" Text="Movimentar" CommandArgument='<%# Bind("idint") %>'
+                        CommandName="movimentar" Enabled="true" runat="server"/>
+                        
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Parcial">
+                    <ItemTemplate>
+                    <a href="historicoparcial.aspx?idint=<%# Eval("idint")%>">Histórico</a>
+                    <asp:Button ID="btnParcial" Text="Gerar" CommandArgument='<%# Bind("idint") %>'
+                        CommandName="parcial" Enabled="true" runat="server"/>
+                    
+                    </ItemTemplate>
+                </asp:TemplateField>
+                
+                <asp:TemplateField HeaderText="Fatura">
+                    <ItemTemplate>
+                        <asp:Button ID="btnPagar" Text="Pagar" CommandArgument='<%# Bind("idint") %>'
+                        CommandName="pagar" Enabled="false" runat="server"/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                
             </Columns>
             <FooterStyle BackColor="White" ForeColor="#333333" />
             <PagerStyle BackColor="#336666" ForeColor="Blue" HorizontalAlign="Center" />
@@ -176,7 +171,10 @@ window.open('movimentarpaciente.aspx?idint='+idint,''," height = 450 , width = 4
             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
         </asp:GridView>
         <asp:ObjectDataSource ID="dsInternacao" runat="server" SelectMethod="getInternacaoPacienteNome"
-            TypeName="Negocio.Fachada">
+            TypeName="Negocio.Fachada" DeleteMethod="excluirInternacao">
+            <DeleteParameters>
+                <asp:Parameter Name="idint" Type="Int32" />
+            </DeleteParameters>
             <SelectParameters>
                 <asp:ControlParameter ControlID="txtNomePac" Name="nome" PropertyName="Text" Type="String" />
                 <asp:ControlParameter ControlID="RadioButtonList1" Name="andamento" PropertyName="SelectedValue"

@@ -14,7 +14,7 @@ namespace AcessoDados
         public String URL { get; set; }
         public bool login(String user, String pass)
         {
-            String URL_local = "server=localhost;User id=postgres;Password=a06r2329;Database=clinicalmanager;SearchPath=clinicalmanager, pg_catalog;";
+            String URL_local = "server=localhost;User id=postgres;Password=a06r2329;Database=clinicalmanager;SearchPath=clinicalmanager, public, pg_catalog;";
             string sql = "select login, privilegio from usuarios where login=@user and pass=@pass";
             try
             {

@@ -102,7 +102,8 @@ namespace AcessoDados
             cmd.Parameters.Add("@idpac", idpac);
             reader = base.execute(cmd);
             Paciente output = new Paciente();
-            reader.Read();
+            if (reader.Read())
+            {
                 output.Nome = reader.GetString(1);
                 output.Idpac = reader.GetInt32(0);
                 output.CodProntuario = reader.GetInt32(3);
@@ -110,6 +111,7 @@ namespace AcessoDados
                 {
                     output.CPF = reader.GetString(2);
                 }
+            }
                 conn.Close();
             return output;
         }

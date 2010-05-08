@@ -17,14 +17,15 @@
                                 <td>
                                     <asp:DropDownList ID="DropDownList1" runat="server" 
                                         DataSourceID="dsPaciente" DataTextField="nome" DataValueField="idpac" 
-                                        AutoPostBack="True" 
+                                        AutoPostBack="True" AppendDataBoundItems="true" 
                                         onselectedindexchanged="DropDownList1_SelectedIndexChanged">
+                                        <asp:ListItem Text="Selecione" Value="0" Enabled="true"></asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="style1">
-                                    CPF:</td>
+                                    Prontuário:</td>
                                 <td>
                                     <asp:TextBox ID="txtCPF" runat="server" Enabled="false"></asp:TextBox>
                                 </td>

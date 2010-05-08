@@ -46,5 +46,21 @@ namespace Negocio
             return rep.consultar(codfat);
         }
         #endregion
+        public Internacao getUltimaInternacao(Int32 codprontuario)
+        {
+            return rep.getUltimaInternacao(codprontuario);
+        }
+        public void inserirItemFatura(Int32 idint, Int32 idfat, float valor)
+        {
+            rep.inserirItemFaturaTotal(idint, idfat, valor);
+        }
+        public string pagarPacial(Int32 idint, Int32 idpar, float valor, Int32 idfat)
+        {
+            return rep.pagarPacial(idint, idpar, valor, idfat);
+        }
+        public Int32 consultarID(string codfat)
+        {
+            return rep.consultarID(codfat);
+        }
     }
 }

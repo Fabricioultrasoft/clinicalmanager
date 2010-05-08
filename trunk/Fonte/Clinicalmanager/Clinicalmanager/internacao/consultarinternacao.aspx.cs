@@ -31,33 +31,8 @@ namespace Clinicalmanager.internacao
         }
 
         #region Botões para mostrar calendário
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            if (cldDataEntrada.Visible == false)
-            {                
-                cldDataEntrada.Visible = true;
-            }
-            else cldDataEntrada.Visible = false;
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            if (cldDataSaida.Visible == false)
-
-                cldDataSaida.Visible = true;
-            else cldDataSaida.Visible = false;
-        }
-        protected void cldDataEntrada_SelectionChanged(object sender, EventArgs e)
-        {
-            txtDataEntrada.Text = cldDataEntrada.SelectedDate.ToShortDateString();
-            cldDataEntrada.Visible = false;
-        }
-
-        protected void cldDataSaida_SelectionChanged(object sender, EventArgs e)
-        {
-            txtDataSaida.Text = cldDataSaida.SelectedDate.ToShortDateString();
-            cldDataSaida.Visible = false;
-        }
+        
+      
         #endregion
               
 
@@ -79,9 +54,49 @@ namespace Clinicalmanager.internacao
             grdInternacao.Visible = false;
         }
 
-        
 
-     
+        protected void grdInternacao_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "pagar")
+            {
+                Int32 idint = Int32.Parse(e.CommandArgument.ToString());
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "pagar(" + idint +");", true);
+            }
+            if (e.CommandName == "parcial")
+            {
+                Int32 idint = Int32.Parse(e.CommandArgument.ToString());
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "parcial(" + idint + ");", true);
+            }
+            if (e.CommandName == "movimentar")
+            {
+                Int32 idint = Int32.Parse(e.CommandArgument.ToString());
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "movimentar(" + idint + ");", true);
+            }
+            if (e.CommandName == "liberar")
+            {
+                Int32 idint = Int32.Parse(e.CommandArgument.ToString());
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alta(" + idint + ");", true);
+            }
+        }
 
+        protected void grdInternacao_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DataRowView data = ((DataRowView)e.Row.DataItem);
+                string data_fim = data.Row["data_out"].ToString();
+                if (!data_fim.Equals(""))
+                {
+                    Button btnPagar = (Button)e.Row.FindControl("btnPagar");
+                    btnPagar.Enabled = true;
+                    Button btnParcial = (Button)e.Row.FindControl("btnParcial");
+                    btnParcial.Enabled = false;
+                    Button btnMovimentar = (Button)e.Row.FindControl("btnMovimentar");
+                    btnMovimentar.Enabled = false;
+                    Button btnLiberar = (Button)e.Row.FindControl("btnLiberar");
+                    btnLiberar.Enabled = false;
+                }
+            }
+        }
     }
 }

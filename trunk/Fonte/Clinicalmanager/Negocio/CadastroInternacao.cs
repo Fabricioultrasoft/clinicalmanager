@@ -33,7 +33,7 @@ namespace Negocio
             rep.atualizar(inter);
         }
 
-        public void excluir(Internacao inter)
+        public void excluir(Int32 inter)
         {
             rep.excluir(inter);
         }
@@ -63,6 +63,26 @@ namespace Negocio
         public Internacao getInformacaoInternacao(int idint)
         {
             return rep.preLiberarInternacao(idint);
+        }
+        public String getNomeProntuario(Int32 codprontuario)
+        {
+            return rep.getNomePaciente(codprontuario);
+        }
+        public string excluirMovimentacao(Int32 idint, Int32 idloc, DateTime data_in_loc)
+        {
+            return rep.excluirMovimentacao(idint, idloc, data_in_loc);
+        }
+        public string incluirParcial(Int32 idint, DateTime data_in_par, DateTime data_fim_par, Int32 qtd_visitas)
+        {
+            return rep.incluirParcial(idint, data_in_par, data_fim_par, qtd_visitas);
+        }
+        public string excluirParcial(Int32 idpar, Int32 idint)
+        {
+            return rep.excluirParcial(idpar, idint);
+        }
+        public DataSet historicoParcial(Int32 idint)
+        {
+            return rep.historicoParcial(idint);   
         }
     }
 }

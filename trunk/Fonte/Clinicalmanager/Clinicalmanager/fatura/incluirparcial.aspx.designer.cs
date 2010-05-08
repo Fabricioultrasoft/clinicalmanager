@@ -8,72 +8,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Clinicalmanager.internacao {
+namespace Clinicalmanager.fatura {
     
     
-    public partial class liberarinternacao {
+    public partial class incluirparcial {
         
         /// <summary>
-        /// Form1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtDataEntrada control.
+        /// lbProntuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataEntrada;
+        protected global::System.Web.UI.WebControls.Label lbProntuario;
         
         /// <summary>
-        /// txtDataSaida control.
+        /// txtData_in_par control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataSaida;
+        protected global::System.Web.UI.WebControls.TextBox txtData_in_par;
         
         /// <summary>
-        /// lbQtdDias control.
+        /// txtData_fim_par control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbQtdDias;
+        protected global::System.Web.UI.WebControls.TextBox txtData_fim_par;
         
         /// <summary>
-        /// txtPlano control.
+        /// txtQtd_visitas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPlano;
+        protected global::System.Web.UI.WebControls.TextBox txtQtd_visitas;
         
         /// <summary>
-        /// txtValorHn control.
+        /// btnIncluir control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorHn;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnIncluir;
     }
 }
