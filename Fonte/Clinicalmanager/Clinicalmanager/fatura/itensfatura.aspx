@@ -1,16 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="itensfatura.aspx.cs" Inherits="Clinicalmanager.fatura.itensfatura" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="itensfatura.aspx.cs" 
+Inherits="Clinicalmanager.fatura.itensfatura" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<script type="text/javascript">
+function alerta(){
+window.alert('Internação incluída com sucesso');
+//self.close();
+}
+</script>
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>Clinicalmanager - Itens Fatura</title>
     <style type="text/css">
         .style1
         {
-            width: 148px;
+            width: 50%;
+        }
+        .style2
+        {
+            width: 50%;
         }
     </style>
+    <script type="text/javascript" src="../mascara.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,56 +29,37 @@
     <div id="pesquisa">
         <table style="width:100%;">
             <tr>
-                <td class="style1">
+                <td>
                     Prontuário Paciente:</td>
                 <td>
-                    <asp:TextBox ID="codProntuario" runat="server" Width="184px"></asp:TextBox>
+                    <asp:TextBox ID="codProntuario" runat="server" Width="184px" 
+                        ontextchanged="codProntuario_TextChanged" AutoPostBack="True"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    Paciente</td>
+                <td class="style2">
+                    <asp:Label ID="lbPaciente" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    Valor Fatura</td>
+                <td>
+                    <asp:TextBox ID="txtValor" runat="server" onkeyup="formataValor(this,event);"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="style1">
                     &nbsp;</td>
                 <td>
-                    <asp:Button ID="filtrar" runat="server" Text="Filtrar" />
+                    <asp:Button ID="btnIncluir" runat="server" Text="Incluir" 
+                        onclick="Button1_Click" OnClientClick="alerta();"/>
                 </td>
             </tr>
         </table>
     </div>
-    <div style="text-align: center">
-        <asp:GridView ID="grdItem" runat="server" BackColor="White" 
-            BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
-            DataSourceID="dsItensFatura" GridLines="Horizontal" DataKeyNames="codprontuario"
-            AutoGenerateColumns="False">
-            <RowStyle BackColor="White" ForeColor="#333333" />
-            <Columns>
-                <asp:BoundField DataField="codprontuario" HeaderText="Prontuário" />
-                <asp:BoundField DataField="nome" HeaderText="Paciente" />
-                <asp:BoundField DataField="data_in" DataFormatString="{0:dd/MM/yyyy}" 
-                    HeaderText="Data entrada" />
-                <asp:TemplateField>
-                     
-                    <ItemTemplate>
-                        <asp:CheckBox ID="parcial" runat="server" />
-                        &nbsp;
-                        <asp:Button ID="btnAdd" runat="server" Text="Adicionar" 
-                            oncommand="btnAdd_Command" CommandArgument='<%#DataBinder.Eval(Container.DataItem,"idint")%>'/>
-                    </ItemTemplate>
-                     
-                </asp:TemplateField>
-            </Columns>
-            <FooterStyle BackColor="White" ForeColor="#333333" />
-            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
-        </asp:GridView>
-    </div>    
-    <asp:ObjectDataSource ID="dsItensFatura" runat="server" 
-        SelectMethod="listarItensParaIncluir" TypeName="Negocio.Fachada">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="codProntuario" Name="codprontuario" 
-                PropertyName="Text" Type="String" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
     </form>
 </body>
 </html>

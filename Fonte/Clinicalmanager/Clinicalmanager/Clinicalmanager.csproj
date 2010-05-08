@@ -93,6 +93,13 @@
     <Compile Include="fatura\detalhefatura.aspx.designer.cs">
       <DependentUpon>detalhefatura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="fatura\incluirparcial.aspx.cs">
+      <DependentUpon>incluirparcial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fatura\incluirparcial.aspx.designer.cs">
+      <DependentUpon>incluirparcial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="fatura\itensfatura.aspx.cs">
       <DependentUpon>itensfatura.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -121,6 +128,13 @@
     <Compile Include="internacao\historicointernacao.aspx.designer.cs">
       <DependentUpon>historicointernacao.aspx</DependentUpon>
     </Compile>
+    <Compile Include="internacao\historicoparcial.aspx.cs">
+      <DependentUpon>historicoparcial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="internacao\historicoparcial.aspx.designer.cs">
+      <DependentUpon>historicoparcial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="internacao\liberarinternacao.aspx.cs">
       <DependentUpon>liberarinternacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -134,6 +148,13 @@
     </Compile>
     <Compile Include="internacao\movimentarpaciente.aspx.designer.cs">
       <DependentUpon>movimentarpaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="internacao\pagarparcial.aspx.cs">
+      <DependentUpon>pagarparcial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="internacao\pagarparcial.aspx.designer.cs">
+      <DependentUpon>pagarparcial.aspx</DependentUpon>
     </Compile>
     <Compile Include="local\cadastrarlocal.aspx.cs">
       <DependentUpon>cadastrarlocal.aspx</DependentUpon>
@@ -250,6 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fatura\detalhefatura.aspx" />
+    <Content Include="fatura\incluirparcial.aspx" />
     <Content Include="fatura\itensfatura.aspx" />
     <Content Include="images\img01.gif" />
     <Content Include="images\img02.gif" />
@@ -265,6 +287,8 @@
     <Content Include="images\img10.gif" />
     <Content Include="images\medical_logo.jpg" />
     <Content Include="images\spacer.gif" />
+    <Content Include="internacao\historicoparcial.aspx" />
+    <Content Include="internacao\pagarparcial.aspx" />
     <Content Include="relatorio\rel01.aspx" />
     <Content Include="web.config" />
   </ItemGroup>

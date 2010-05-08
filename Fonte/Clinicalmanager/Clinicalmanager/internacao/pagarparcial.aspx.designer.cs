@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Clinicalmanager.fatura {
+namespace Clinicalmanager.internacao {
     
     
-    public partial class itensfatura {
+    public partial class pagarparcial {
         
         /// <summary>
         /// form1 control.
@@ -23,31 +23,13 @@ namespace Clinicalmanager.fatura {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// msg control.
+        /// txtCodFatura control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label msg;
-        
-        /// <summary>
-        /// codProntuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox codProntuario;
-        
-        /// <summary>
-        /// lbPaciente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPaciente;
+        protected global::System.Web.UI.WebControls.TextBox txtCodFatura;
         
         /// <summary>
         /// txtValor control.
@@ -59,12 +41,12 @@ namespace Clinicalmanager.fatura {
         protected global::System.Web.UI.WebControls.TextBox txtValor;
         
         /// <summary>
-        /// btnIncluir control.
+        /// btnPagar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIncluir;
+        protected global::System.Web.UI.WebControls.Button btnPagar;
     }
 }

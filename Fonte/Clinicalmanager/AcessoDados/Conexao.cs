@@ -25,7 +25,7 @@ namespace AcessoDados
             String URL_mydom = "server=renatocampelo.gotdns.com;User id=postgres;Password=a06r2329;Database=clinicalmanager;SearchPath=clinicalmanager, pg_catalog;";
             String URL_local = "server=localhost;User id=postgres;Password=a06r2329;Database=clinicalmanager;SearchPath=clinicalmanager, pg_catalog;";
             conn = new NpgsqlConnection(URL_local);
-       
+            
             //conn.Open();            
         }
         public static Conexao getInstancia()
@@ -62,7 +62,7 @@ namespace AcessoDados
                 Npgsql.NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
                 System.Data.DataSet ds = new System.Data.DataSet("Exec");
                 da.Fill(ds);
-                //conn.Close();
+                conn.Close();
                 return ds;
             }
             catch (Exception ex)

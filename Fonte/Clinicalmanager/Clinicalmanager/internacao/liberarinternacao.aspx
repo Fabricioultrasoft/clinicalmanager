@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="liberarinternacao.aspx.cs"
-    Inherits="Clinicalmanager.internacao.liberarinternacao" Title="Untitled Page" %>
+    Inherits="Clinicalmanager.internacao.liberarinternacao" Title="Liberar Internação" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <script type="text/javascript">
 function alta(){

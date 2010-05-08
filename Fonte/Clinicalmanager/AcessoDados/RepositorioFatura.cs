@@ -110,6 +110,22 @@ namespace AcessoDados
             dataset = base.executeToDataset(cmd);            
             return dataset;
         }
+
+        public Int32 consultarID(string codfat)
+        {
+            Int32 retorno=-1;
+            string sql = "SELECT idfat " +
+                         "FROM clinicalmanager.fatura " +
+                         "WHERE codigo ilike @codigo";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@codigo", codfat + '%');
+            reader = base.execute(cmd);
+            if (reader.Read())
+                retorno = reader.GetInt32(0);
+            conn.Close();
+            return retorno;
+        }
         #endregion
 
         public DataSet consultarTodos()
@@ -155,20 +171,29 @@ namespace AcessoDados
             }
             return "Erro ao remover item";
         }
-        public void inserirItemFatura(int idint, int idfat, float valor)
+        public void inserirItemFaturaTotal(int idint, int idfat, float valor)
         {
             try
             {
                 string sql = "insert into clinicalmanager.item_de_fatura values(@idfat,@idint,@valor)";
+                string sql_update = "update clinicalmanager.internacao set faturada='T' where idint = @idint";
+                conn.Open();                
                 cmd = conn.CreateCommand();
+                cmd.CommandText = sql;
                 cmd.Parameters.Add("@idfat", idfat);
                 cmd.Parameters.Add("@idint", idint);
                 cmd.Parameters.Add("@valor", valor);
                 cmd.ExecuteNonQuery();
+                cmd = conn.CreateCommand();
+                cmd.CommandText = sql_update;
+                cmd.Parameters.Add("@idint", idint);
+                cmd.ExecuteNonQuery();
+                conn.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Não foi possível adicionar o item. IDFAT = " + idfat + " IDINT = " + idint);
+                throw new Exception(ex.Message);
+                    //"Não foi possível adicionar o item. IDFAT = " + idfat + " IDINT = " + idint);
             }
         }
         public DataSet listarItensParaIncluir(String codProntuario)
@@ -192,6 +217,67 @@ namespace AcessoDados
             catch(Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+        public Internacao getUltimaInternacao(Int32 codprontuario)
+        {
+            Internacao retorno = null;
+            string sql = "select i.idint " +
+            "from clinicalmanager.internacao i inner join clinicalmanager.paciente p on (i.idpac = p.idpac) " +
+            "where codprontuario = @codprontuario and faturada <> 'T' ";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@codprontuario", codprontuario);
+            reader = base.execute(cmd);
+            if (reader.Read())
+            {
+                retorno = new Internacao();
+                retorno.Codint = reader.GetInt32(0);
+            }
+            conn.Close();
+            return retorno;
+        }
+        public string pagarPacial(Int32 idint, Int32 idpar, float valor, Int32 idfat)
+        {
+            string sql = "insert into clinicalmanager.item_de_fatura(idfat, idint, valor) " +
+                         "values(@idfat, @idint, @valor)";
+            string sql_update = "update clinicalmanager.parcial set idfat=@idfat, paga=true " +
+                "where idint=@idint and idpar=@idpar";
+            cmd = conn.CreateCommand();
+            NpgsqlCommand cmd2 = conn.CreateCommand();
+
+            conn.Open();
+            cmd.CommandText = sql;
+            cmd2.CommandText = sql_update;
+
+            cmd.Parameters.Add("@idint", idint);
+            cmd.Parameters.Add("@valor", valor);
+            cmd.Parameters.Add("@idfat", idfat);
+
+            cmd2.Parameters.Add("@idfat", idfat);
+            cmd2.Parameters.Add("@idint", idint);
+            cmd2.Parameters.Add("@idpar", idpar);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                try
+                {
+                    cmd2.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return "Erro: "+ex.Message;
+                }
+                return "Parcial Faturada";
+            }
+            catch (Exception ex)
+            {
+                return "Erro: Parcial já faturada. " + ex.Message;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

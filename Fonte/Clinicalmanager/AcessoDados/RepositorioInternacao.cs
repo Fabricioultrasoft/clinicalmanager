@@ -68,22 +68,21 @@ namespace AcessoDados
             }
         }
 
-        public void excluir(Internacao idint)
+        public void excluir(Int32 idint)
         {
             string cmdStr = "DELETE FROM clinicalmanager.internacao " + 
 			                "WHERE idint = @idint";
             try
             {
-                if (idint == null) throw new Exception("Argumento idint encontra-se NULO");
-                else
-                {
+                //if (idint == null) throw new Exception("Argumento idint encontra-se NULO");
+                
                     base.conn.Open();
                     cmd = base.conn.CreateCommand();
                     cmd.CommandText = cmdStr;
-                    cmd.Parameters.Add("@idint", idint.Codint);
+                    cmd.Parameters.Add("@idint", idint);
                     cmd.ExecuteNonQuery();
                     base.conn.Close();
-                }
+                
             }
             catch (Exception ex)
             {
@@ -97,10 +96,9 @@ namespace AcessoDados
         /// <returns>Um objeto do tipo internação.</returns>
         public Internacao consultar(int codint)
         {
-            string sql = "select a.idint, a.data_in , a.data_out, a.obs, a.vl_esperado_hn,"+
-                         " a.vl_recebido_hn, a.vl_produtividade, b.*, c.*, d.* "+
-                         " from clinicalmanager.paciente b,clinicalmanager.internacao a "+
-                         " left join clinicalmanager.fatura c on(c.idfat=a.idfat) "+
+            string sql = "select a.idint, a.data_in , a.data_out, a.obs, "+
+                         "  b.codprontuario, b.nome, d.* "+
+                         " from clinicalmanager.paciente b,clinicalmanager.internacao a "+                        
                          " left join clinicalmanager.convenio d on (a.idcon=d.idcon)"+ 
                          " where a.idpac=b.idpac and a.idint=@idint";            
 
@@ -112,29 +110,30 @@ namespace AcessoDados
             Fatura fatura = new Fatura();
             Convenio convenio = new Convenio();
             Paciente paciente = new Paciente();
-            internacao.Codint = reader.GetInt16(0);
+            reader.Read();
+            /*internacao.Codint = reader.GetInt32(0);
             internacao.Data_in = reader.GetDateTime(1);
             internacao.Data_out = reader.GetDateTime(2);
             internacao.Obs = reader.GetString(3);
-            internacao.Vl_Esperado_HN = reader.GetDouble(4);
+            /*internacao.Vl_Esperado_HN = reader.GetDouble(4);
             internacao.Vl_Recebido_HN = reader.GetDouble(5);
             internacao.Vl_Produtividade = reader.GetDouble(6);
-            
+            */
             ///<remarks> Trecho de código que recupera informações sobre o paciente.</remarks>
             //Recuperando informações sobre paciente.
-            paciente.Idpac = reader.GetInt16(7);
-            paciente.Nome= reader.GetString(8);
-            paciente.CPF= reader.GetString(9);
-
+            //paciente.Idpac = reader.GetInt16(7);
+            paciente.Nome= reader.GetString(5);
+            //paciente.CPF= reader.GetString(9);
+            paciente.CodProntuario = reader.GetInt32(4);
             //Recuperando informações sobre fatura.
-            fatura.Codfat = reader.GetInt16(10);
+            /*fatura.Codfat = reader.GetInt16(10);
             fatura.Data_fechamento = reader.GetDateTime(11);
             fatura.Paga = reader.GetBoolean(12);
             fatura.Fechada = reader.GetBoolean(13);
 
             //Recuperando informações sobre convenio.
             convenio.Codcon = reader.GetInt16(14);
-            convenio.Descricao = reader.GetString(15);
+            convenio.Descricao = reader.GetString(15);*/
 
             //Atribuir tabelas referenciadas à saída.
             internacao.Convenio = convenio;
@@ -201,7 +200,7 @@ namespace AcessoDados
              "inner join clinicalmanager.paciente p on (i.idpac=p.idpac) " +
              "left join clinicalmanager.local_internacao li on (li.idint=i.idint) " +
              "left join clinicalmanager.local l on (li.idloc=l.idloc) " +
-             "where  p.nome like @nome " +
+             "where  p.nome ilike @nome " +
              "and i.data_out is null " +
              "and li.data_out_loc is null " +
              "order by i.data_in desc ";
@@ -216,8 +215,8 @@ namespace AcessoDados
              "i.obs, p.nome, p.cpf, l.nome as local "+
              "from clinicalmanager.internacao i, (select li.idint, max(li.data_out_loc) from clinicalmanager.local_internacao li group by li.idint) li_max, "+
              "clinicalmanager.paciente p, clinicalmanager.local l,  clinicalmanager.local_internacao li " +
-             "where  p.nome like @nome  " +
-             "and i.idpac=p.idpac "+
+             "where  p.nome ilike @nome  " +
+             "and i.data_out is not null and i.idpac=p.idpac " +
              "and i.idint=li_max.idint "+
              "and li.idloc=l.idloc "+
              "and li_max.idint=li.idint and li.data_out_loc=li_max.max ";
@@ -254,13 +253,13 @@ namespace AcessoDados
             NpgsqlCommand cmd1 = conn.CreateCommand();
             cmd1.CommandText = sql2;
             cmd1.Parameters.Add("@idint", internacao.Codint);
-            cmd1.Parameters.Add("@data_out_loc", data_saida);
+            cmd1.Parameters.Add("@data_out_loc", data_saida.AddHours(23));
             cmd1.ExecuteNonQuery();
 
 
             cmd = conn.CreateCommand();
             cmd.CommandText=sql;
-            cmd.Parameters.Add("@data_out", data_saida);
+            cmd.Parameters.Add("@data_out", data_saida.AddHours(23));
             cmd.Parameters.Add("@valor",valor);
             cmd.Parameters.Add("@idint", internacao.Codint);
             cmd.ExecuteNonQuery();
@@ -295,12 +294,12 @@ namespace AcessoDados
             //cmd.Parameters.Add("@data_out_loc", data_out_loc);
             cmd.Parameters.Add("@obs_loc", obs_loc);
             cmd.ExecuteNonQuery();
-            base.conn.Close();
+            conn.Close();
             return "Movimentação cadastrada com sucesso";
         }
         public DataSet historicoMovimentacao(int idint)
         {
-            string sql = "select p.nome, i.data_in, l.nome as Local, li.data_in_loc, li.data_out_loc, " +
+            string sql = "select i.idint, li.idloc, p.nome, i.data_in, l.nome as Local, li.data_in_loc, li.data_out_loc, " +
                 "li.obs_loc from clinicalmanager.local_internacao li " +
                 "inner join clinicalmanager.internacao i on (i.idint=li.idint) " +
                 "inner join clinicalmanager.local l on (li.idloc=l.idloc) " +
@@ -318,9 +317,10 @@ namespace AcessoDados
         }
         public Internacao preLiberarInternacao(int idint)
         {
-            string sql = "select i.data_in, c.descricao "+
+            string sql = "select i.data_in, c.descricao,p.codprontuario,p.nome "+
                 " from clinicalmanager.internacao i"+
                 " inner join clinicalmanager.convenio c on (i.idcon=c.idcon)"+
+                " inner join clinicalmanager.paciente p on (i.idpac=p.idpac)"+
                 " where i.idint=@idint";
              try{
             cmd = conn.CreateCommand();
@@ -329,10 +329,14 @@ namespace AcessoDados
             reader = base.execute(cmd);
             reader.Read();
             Internacao output = new Internacao();
-            output.Data_in = reader.GetDateTime(0);
+            output.Data_in = reader.GetDateTime(0);            
+            Paciente paciente = new Paciente();
+            paciente.CodProntuario = reader.GetInt32(2);
+            paciente.Nome = reader.GetString(3);
             Convenio convenio = new Convenio();
             convenio.Descricao=reader.GetString(1);
             output.Convenio = convenio;
+            output.Paciente = paciente;
             conn.Close();
             return output;
             }
@@ -353,6 +357,103 @@ namespace AcessoDados
             cmd.CommandText = sql;
             return base.executeToDataset(cmd);
         }
-    }
+        public String getNomePaciente(Int32 codprontuario)
+        {
+            String retorno="";
+            string sql = "select p.nome " +
+            "from clinicalmanager.internacao i inner join clinicalmanager.paciente p on (i.idpac = p.idpac) " +
+            "where codprontuario = @codprontuario and faturada <> 'T' ";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@codprontuario", codprontuario);
+            reader = base.execute(cmd);
+            if (reader.Read())
+                retorno = reader.GetString(0);
+            conn.Close();
+            return retorno;
+        }
+        public string excluirMovimentacao(Int32 idint, Int32 idloc, DateTime data_in_loc)
+        {
+            string sql = "delete from clinicalmanager.local_internacao where idint=@idint and idloc=@idloc and data_in_loc=@data_in_loc";
+            cmd = conn.CreateCommand();
+            conn.Open();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idint", idint);
+            cmd.Parameters.Add("@idloc", idloc);
+            cmd.Parameters.Add("@data_in_loc", data_in_loc);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return "Movimentação excluída";
+            }
+            catch (Exception)
+            {
+                return "Não foi possível excluir movimentação";
+            }
+            finally
+            {
+                conn.Close();
+            }            
+        }
+        public string incluirParcial(Int32 idint, DateTime data_in_par, DateTime data_fim_par, Int32 qtd_visitas)
+        {
+            string sql = "insert into parcial(idint, data_in_par, data_fim_par, qtd_visitas) "+
+                         "values (@idint, @data_in_par, @data_fim_par, @qtd_visitas)";
+            cmd = conn.CreateCommand();
+            conn.Open();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idint", idint);
+            cmd.Parameters.Add("@data_in_par", data_in_par);
+            cmd.Parameters.Add("@data_fim_par", data_fim_par);
+            cmd.Parameters.Add("@qtd_visitas", qtd_visitas);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return "Parcial incluída";
+            }
+            catch (Exception)
+            {
+                return "Não foi possível incluir parcial";
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public string excluirParcial(Int32 idpar, Int32 idint)
+        {
+            string sql = "delete from parcial where idpar=@idpar and idint=@idint";
+            cmd = conn.CreateCommand();
+            conn.Open();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idpar", idpar);
+            cmd.Parameters.Add("@idint", idint);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return "Parcial excluída";
+            }
+            catch (Exception)
+            {
+                return "Não foi possível excluir parcial";
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public DataSet historicoParcial(Int32 idint)
+        {
+            string sql = "select * from parcial " +
+                "where idint = @idint";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("@idint", idint);
+            return base.executeToDataset(cmd);
+        }
+
+
+        
+        }
 }
 

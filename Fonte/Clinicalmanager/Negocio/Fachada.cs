@@ -114,6 +114,10 @@ namespace Negocio
         {
            return cadInt.movimentarPaciente(idint, idloc, data_in_loc, data_out_loc, obs_loc);
         }
+        public string exluirMovimentacao(Int32 idint, Int32 idloc, DateTime data_in_loc)
+        {
+            return cadInt.excluirMovimentacao(idint,idloc,data_in_loc);
+        }
         public DataSet getInternacaoPacienteNome(string nome, string andamento)
         {
             return cadInt.consultarPorPacienteNome(nome, andamento);
@@ -126,7 +130,7 @@ namespace Negocio
         {
             return cadInt.inserir(internacao);
         }
-        public void excluirInternacao(Internacao idint)
+        public void excluirInternacao(Int32 idint)
         {
             cadInt.excluir(idint);
         }
@@ -138,7 +142,18 @@ namespace Negocio
         {
             return cadInt.getInformacaoInternacao(idint);
         }
-
+        public string incluirParcial(Int32 idint, DateTime data_in_par, DateTime data_fim_par, Int32 qtd_visitas)
+        {
+            return cadInt.incluirParcial(idint, data_in_par, data_fim_par, qtd_visitas);
+        }
+        public string excluirParcial(Int32 idpar, Int32 idint)
+        {
+            return cadInt.excluirParcial(idpar, idint);
+        }
+        public DataSet historicoParcial(Int32 idint)
+        {
+            return cadInt.historicoParcial(idint);
+        }
         #endregion
         #region Convênio
         public DataSet getAllConvenio()
@@ -179,12 +194,20 @@ namespace Negocio
         public void incluirItemFatura(int idfat, int idint, float valor)
         {
             RepositorioFatura repFat = new RepositorioFatura();
-            repFat.inserirItemFatura(idint, idfat, valor);
+            repFat.inserirItemFaturaTotal(idint, idfat, valor);
         }
         public DataSet listarItensParaIncluir(String codprontuario)
         {
             RepositorioFatura repFat = new RepositorioFatura();
             return repFat.listarItensParaIncluir(codprontuario);
+        }
+        public string pagarPacial(Int32 idint, Int32 idpar, float valor, Int32 idfat)
+        {
+            return cadFat.pagarPacial(idint, idpar, valor, idfat);
+        }
+        public Int32 consultarID(string codfat)
+        {
+            return cadFat.consultarID(codfat);
         }
         #endregion
         #region Relatorios
