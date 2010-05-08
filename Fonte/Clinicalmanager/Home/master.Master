@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.Master.cs" Inherits="Clinicalmanager.master2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="default.css" rel="stylesheet" type="text/css" />
+    </head>
+<body>
+ <form id="form1" runat="server">
+    <div id="logo">
+        <h1>
+            Real instituto do pulmão</h1>
+        <h2>
+            &nbsp;</h2>
+    </div>
+   <div id="page">
+   <div id="sidebar">
+   <ul>
+       <asp:LinkButton ID="intranet" runat="server" PostBackUrl="http://dev.realinstitutodopulmao.com.br">Intranet</asp:LinkButton>
+   </ul>
+   </div>
+   
+   <div id="content">
+   <h3>Aguarde. Em breve um site com muito conteúdo para você.</h3>
+   <asp:ContentPlaceHolder ID="conteudo" runat="server">
+       
+       </asp:ContentPlaceHolder>
+   </div>
+       
+   </div>
+       
+     </form>    
+</body>
+</html>
